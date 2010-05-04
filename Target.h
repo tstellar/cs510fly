@@ -4,6 +4,6 @@ class Target{
 	Ogre::SceneNode * sceneNode;
 
 public: 
-	Target(Ogre::SceneManager *, Ogre::Vector3);
+	Target(Ogre::SceneNode *);
 
 };

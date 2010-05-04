@@ -3,6 +3,9 @@
 
 Level::Level(World * world) : world(world){
 	
-	target = new Target(world->getSceneManager(),
-						Ogre::Vector3(700,world->getTerrainHeightAt(700,700),700));
+	Ogre::Vector3 targetPosition =
+		Ogre::Vector3(700,world->getTerrainHeightAt(700,700),700);
+	Ogre::SceneNode *targetNode = world->getSceneManager()->
+		getRootSceneNode()->createChildSceneNode("Target", targetPosition);
+	target = new Target(targetNode);
 }
