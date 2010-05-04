@@ -1,0 +1,12 @@
+material Target_Material
+{
+	technique
+	{
+		pass
+		{
+			ambient 1.0 0.0 0.0
+			diffuse 0.2 0.7 0.2
+			specular 0.3 1.0 0.3 64.0
+		}
+	}
+}

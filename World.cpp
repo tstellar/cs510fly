@@ -3,6 +3,7 @@
 
 #include "World.h"
 #include "InputListener.h"
+#include "Level.h"
 
 // This function will locate the path to our application on OS X,
 // unlike windows you can not rely on the curent working directory
@@ -139,6 +140,6 @@ bool World::setup() {
 
 	inputListener = new InputListener(this);
 	root->addFrameListener(inputListener);
-
+	currentLevel = new Level(this);
 	return true;
 }

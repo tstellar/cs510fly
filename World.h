@@ -12,6 +12,7 @@
 
 
 class InputListener;
+class Level;
 
 class World {
  private:
@@ -23,6 +24,7 @@ class World {
 	Ogre::RaySceneQuery* raySceneQuery;
 	Ogre::Ray terrainRay;
 	Ogre::String mResourcePath;
+	Level *currentLevel;
 
  public:
 	World();
