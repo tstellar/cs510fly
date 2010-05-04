@@ -25,6 +25,7 @@
 		74598646118E644300107C82 /* media.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598556118E635400107C82 /* media.cfg */; };
 		74C43F87118F7C7A001B83F0 /* libois.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 74598276118E613900107C82 /* libois.a */; };
 		74C43F88118F7C80001B83F0 /* Ogre.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 74598178118E612C00107C82 /* Ogre.framework */; };
+		74C440AF118F8395001B83F0 /* Airplane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74C440AE118F8395001B83F0 /* Airplane.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +66,8 @@
 		7459862C118E640300107C82 /* Fly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7459862E118E640300107C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74AEE472118E6011007A8E6D /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		74C440AD118F8395001B83F0 /* Airplane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Airplane.h; sourceTree = "<group>"; };
+		74C440AE118F8395001B83F0 /* Airplane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Airplane.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,7 @@
 		08FB7795FE84155DC02AAC07 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				74C440AE118F8395001B83F0 /* Airplane.cpp */,
 				74598544118E62B200107C82 /* InputListener.cpp */,
 				74598545118E62B200107C82 /* Main.cpp */,
 				74598546118E62B200107C82 /* World.cpp */,
@@ -120,6 +124,7 @@
 		7459854A118E62C500107C82 /* Include */ = {
 			isa = PBXGroup;
 			children = (
+				74C440AD118F8395001B83F0 /* Airplane.h */,
 				7459854C118E632800107C82 /* InputListener.h */,
 				7459854D118E632800107C82 /* World.h */,
 			);
@@ -247,6 +252,7 @@
 				74598639118E642F00107C82 /* InputListener.cpp in Sources */,
 				7459863C118E643300107C82 /* Main.cpp in Sources */,
 				74598641118E643A00107C82 /* World.cpp in Sources */,
+				74C440AF118F8395001B83F0 /* Airplane.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
