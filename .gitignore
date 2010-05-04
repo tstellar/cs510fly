@@ -1,5 +1,6 @@
 *.o
 *~
+.*.sw?
 main
 Ogre.log
 ogre.cfg
