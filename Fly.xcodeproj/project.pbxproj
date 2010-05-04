@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		314C4D831190CE6500DC920A /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 314C4D7F1190CE6500DC920A /* Level.cpp */; };
+		314C4D841190CE6500DC920A /* Target.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 314C4D811190CE6500DC920A /* Target.cpp */; };
+		314C4D941190CF9000DC920A /* target.material in Resources */ = {isa = PBXBuildFile; fileRef = 314C4D931190CF9000DC920A /* target.material */; };
+		314C4DAB1190D49600DC920A /* cube.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DAA1190D49600DC920A /* cube.mesh */; };
+		314C4DBA1190D50E00DC920A /* sphere.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DB91190D50E00DC920A /* sphere.mesh */; };
 		74598635118E641E00107C82 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7459853F118E626B00107C82 /* Carbon.framework */; };
 		74598637118E642200107C82 /* Cg.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7459826B118E613400107C82 /* Cg.framework */; };
 		74598639118E642F00107C82 /* InputListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74598544118E62B200107C82 /* InputListener.cpp */; };
@@ -44,6 +49,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		314C4D7F1190CE6500DC920A /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Level.cpp; sourceTree = "<group>"; };
+		314C4D801190CE6500DC920A /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
+		314C4D811190CE6500DC920A /* Target.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Target.cpp; sourceTree = "<group>"; };
+		314C4D821190CE6500DC920A /* Target.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Target.h; sourceTree = "<group>"; };
+		314C4D931190CF9000DC920A /* target.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = target.material; sourceTree = "<group>"; };
+		314C4DAA1190D49600DC920A /* cube.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = cube.mesh; sourceTree = "<group>"; };
+		314C4DB91190D50E00DC920A /* sphere.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = sphere.mesh; sourceTree = "<group>"; };
 		74598178118E612C00107C82 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = "/nfs/local/macosx-local/apps/Libraries/OgreSDK-1.6.5/Dependencies/Ogre.framework"; sourceTree = "<absolute>"; };
 		7459826B118E613400107C82 /* Cg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cg.framework; path = "/nfs/local/macosx-local/apps/Libraries/OgreSDK-1.6.5/Dependencies/Cg.framework"; sourceTree = "<absolute>"; };
 		74598276118E613900107C82 /* libois.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libois.a; path = "/nfs/local/macosx-local/apps/Libraries/OgreSDK-1.6.5/Dependencies/lib/Release/libois.a"; sourceTree = "<absolute>"; };
@@ -105,6 +117,8 @@
 		08FB7795FE84155DC02AAC07 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				314C4D7F1190CE6500DC920A /* Level.cpp */,
+				314C4D811190CE6500DC920A /* Target.cpp */,
 				74C440AE118F8395001B83F0 /* Airplane.cpp */,
 				74598544118E62B200107C82 /* InputListener.cpp */,
 				74598545118E62B200107C82 /* Main.cpp */,
@@ -121,9 +135,28 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		314C4D921190CF9000DC920A /* materials */ = {
+			isa = PBXGroup;
+			children = (
+				314C4D931190CF9000DC920A /* target.material */,
+			);
+			path = materials;
+			sourceTree = "<group>";
+		};
+		314C4DA91190D49600DC920A /* meshes */ = {
+			isa = PBXGroup;
+			children = (
+				314C4DB91190D50E00DC920A /* sphere.mesh */,
+				314C4DAA1190D49600DC920A /* cube.mesh */,
+			);
+			path = meshes;
+			sourceTree = "<group>";
+		};
 		7459854A118E62C500107C82 /* Include */ = {
 			isa = PBXGroup;
 			children = (
+				314C4D821190CE6500DC920A /* Target.h */,
+				314C4D801190CE6500DC920A /* Level.h */,
 				74C440AD118F8395001B83F0 /* Airplane.h */,
 				7459854C118E632800107C82 /* InputListener.h */,
 				7459854D118E632800107C82 /* World.h */,
@@ -144,6 +177,8 @@
 		7459854E118E635400107C82 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				314C4DA91190D49600DC920A /* meshes */,
+				314C4D921190CF9000DC920A /* materials */,
 				7459854F118E635400107C82 /* terrain */,
 			);
 			path = data;
@@ -239,6 +274,9 @@
 				74598644118E644000107C82 /* plugins.cfg in Resources */,
 				74598645118E644000107C82 /* plugins-linux.cfg in Resources */,
 				74598646118E644300107C82 /* media.cfg in Resources */,
+				314C4D941190CF9000DC920A /* target.material in Resources */,
+				314C4DAB1190D49600DC920A /* cube.mesh in Resources */,
+				314C4DBA1190D50E00DC920A /* sphere.mesh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +291,8 @@
 				7459863C118E643300107C82 /* Main.cpp in Sources */,
 				74598641118E643A00107C82 /* World.cpp in Sources */,
 				74C440AF118F8395001B83F0 /* Airplane.cpp in Sources */,
+				314C4D831190CE6500DC920A /* Level.cpp in Sources */,
+				314C4D841190CE6500DC920A /* Target.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
