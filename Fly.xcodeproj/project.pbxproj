@@ -12,6 +12,7 @@
 		314C4D941190CF9000DC920A /* target.material in Resources */ = {isa = PBXBuildFile; fileRef = 314C4D931190CF9000DC920A /* target.material */; };
 		314C4DAB1190D49600DC920A /* cube.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DAA1190D49600DC920A /* cube.mesh */; };
 		314C4DBA1190D50E00DC920A /* sphere.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DB91190D50E00DC920A /* sphere.mesh */; };
+		319448F5119225F00061D902 /* 1.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 319448F4119225F00061D902 /* 1.cfg */; };
 		74598635118E641E00107C82 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7459853F118E626B00107C82 /* Carbon.framework */; };
 		74598637118E642200107C82 /* Cg.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7459826B118E613400107C82 /* Cg.framework */; };
 		74598639118E642F00107C82 /* InputListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74598544118E62B200107C82 /* InputListener.cpp */; };
@@ -56,6 +57,7 @@
 		314C4D931190CF9000DC920A /* target.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = target.material; sourceTree = "<group>"; };
 		314C4DAA1190D49600DC920A /* cube.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = cube.mesh; sourceTree = "<group>"; };
 		314C4DB91190D50E00DC920A /* sphere.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = sphere.mesh; sourceTree = "<group>"; };
+		319448F4119225F00061D902 /* 1.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.cfg; sourceTree = "<group>"; };
 		74598178118E612C00107C82 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = "/nfs/local/macosx-local/apps/Libraries/OgreSDK-1.6.5/Dependencies/Ogre.framework"; sourceTree = "<absolute>"; };
 		7459826B118E613400107C82 /* Cg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cg.framework; path = "/nfs/local/macosx-local/apps/Libraries/OgreSDK-1.6.5/Dependencies/Cg.framework"; sourceTree = "<absolute>"; };
 		74598276118E613900107C82 /* libois.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libois.a; path = "/nfs/local/macosx-local/apps/Libraries/OgreSDK-1.6.5/Dependencies/lib/Release/libois.a"; sourceTree = "<absolute>"; };
@@ -152,6 +154,14 @@
 			path = meshes;
 			sourceTree = "<group>";
 		};
+		319448F3119225F00061D902 /* levels */ = {
+			isa = PBXGroup;
+			children = (
+				319448F4119225F00061D902 /* 1.cfg */,
+			);
+			path = levels;
+			sourceTree = "<group>";
+		};
 		7459854A118E62C500107C82 /* Include */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +187,7 @@
 		7459854E118E635400107C82 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				319448F3119225F00061D902 /* levels */,
 				314C4DA91190D49600DC920A /* meshes */,
 				314C4D921190CF9000DC920A /* materials */,
 				7459854F118E635400107C82 /* terrain */,
@@ -277,6 +288,7 @@
 				314C4D941190CF9000DC920A /* target.material in Resources */,
 				314C4DAB1190D49600DC920A /* cube.mesh in Resources */,
 				314C4DBA1190D50E00DC920A /* sphere.mesh in Resources */,
+				319448F5119225F00061D902 /* 1.cfg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

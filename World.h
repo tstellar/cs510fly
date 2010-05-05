@@ -35,7 +35,7 @@ class World {
 	Ogre::SceneManager* getSceneManager() { return sceneManager; }
 	Ogre::RenderWindow* getRenderWindow() { return renderWindow; }
 	Ogre::Camera* getCamera() { return camera; }
-
+	Ogre::String getResourcePath() { return mResourcePath; }
 	float getTerrainHeightAt(float x, float y);
 
 	void adjustCameraHeightToTerrain();
