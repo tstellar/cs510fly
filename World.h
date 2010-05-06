@@ -10,11 +10,12 @@
 #include <CoreFoundation/CoreFoundation.h>
 #endif
 
-
+class Airplane;
 class InputListener;
 
 class World {
  private:
+  Airplane * airplane;
 	InputListener* inputListener;
 	Ogre::Root* root;
 	Ogre::SceneManager* sceneManager;
@@ -29,14 +30,10 @@ class World {
 
 	~World();
 
-	Ogre::Root* getRoot() { return root; }
-	Ogre::SceneManager* getSceneManager() { return sceneManager; }
-	Ogre::RenderWindow* getRenderWindow() { return renderWindow; }
-	Ogre::Camera* getCamera() { return camera; }
-
+    bool windowClosed() const { return renderWindow->isClosed(); }
+	Airplane * getAirplane() { return airplane; }
+  
 	float getTerrainHeightAt(float x, float y);
-
-	void adjustCameraHeightToTerrain();
 
 	void init();
 
@@ -45,3 +42,4 @@ class World {
 };
 
 #endif
+

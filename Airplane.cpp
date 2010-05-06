@@ -1,5 +1,7 @@
 #include "Airplane.h"
 
+const Ogre::String Airplane::SCENE_NODE_NAME = "Airplane";
+
 static const float MASS = 18885.f; // NTO mass of F-15 Eagle in kg
 static const float WEIGHT = 184000.0f; // NTO weight of F-15 Eagle in newtons
 static const float THRUST_DELTA = 1000.0; // Adjust thrust by 1 kN
@@ -12,6 +14,8 @@ Airplane::Airplane(World * world, Ogre::SceneNode * sceneNode) :
     velocity(Ogre::Vector3::ZERO), thrustAmount(0.0f),
     thrustInc(false), thrustDec(false), pitchInc(false), pitchDec(false), rollInc(false), rollDec(false) { }
 
+Airplane::~Airplane() { }
+
 Ogre::Vector3 Airplane::thrust() {
   return thrustAmount * Ogre::Vector3::NEGATIVE_UNIT_Z;
 }
@@ -22,7 +26,7 @@ Ogre::Vector3 Airplane::lift() {
 }
 
 Ogre::Vector3 Airplane::weight() {
-  return WEIGHT * (orientation * Ogre::Vector3::NEGATIVE_UNIT_Y);
+  return WEIGHT * (-orientation * Ogre::Vector3::NEGATIVE_UNIT_Y);
 }
 
 Ogre::Vector3 Airplane::drag() {
@@ -31,7 +35,14 @@ Ogre::Vector3 Airplane::drag() {
 }
 
 Ogre::Vector3 Airplane::netForce() {
-  return thrust() + lift() + drag() + weight();
+  // Separate these out for ease of debugging
+  
+  Ogre::Vector3
+    thrust = this->thrust(),
+    lift = this->lift(),
+    drag = this->drag(),
+    weight = this->weight();
+  return thrust + lift + drag + weight;
 }
 
 void Airplane::increaseThrust() { thrustInc = true; }
@@ -75,5 +86,4 @@ void Airplane::update(float dt) {
   sceneNode->setPosition(position);
   sceneNode->setOrientation(orientation);
 }
-
 
