@@ -12,11 +12,16 @@ class Airplane {
   bool thrustInc, thrustDec, pitchInc, pitchDec, rollInc, rollDec;
   
  public:
+  static const Ogre::String SCENE_NODE_NAME;
+  
   Airplane(World *, Ogre::SceneNode *);
   ~Airplane();
   
   void update(float dt);
-  float getThrust();
+
+  float getThrust() { return thrustAmount; }
+  void setThrust(float thrustAmount) { this->thrustAmount = thrustAmount; }
+
   float getPitch();
   float getRoll();
   float getYaw();

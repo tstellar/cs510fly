@@ -5,7 +5,7 @@ Level::Level(World * world) : world(world){
 	Ogre::ConfigFile levelCFG;
 
 	/*TODO: Specify the level to load. */
-	levelCFG.load(world->getResourcePath() + "1.cfg");
+	levelCFG.load(world->getLevelPath() + "1.cfg");
 
 	/* Load the Target's starting point. */
 	Ogre::Vector2 targetXZ = Ogre::StringConverter::parseVector2(

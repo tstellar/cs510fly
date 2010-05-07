@@ -2,8 +2,12 @@
 // @author Eric D. Wills
 
 #include "World.h"
+
+#include "Airplane.h"
 #include "InputListener.h"
 #include "Level.h"
+
+static const Ogre::Vector3 INITIAL_POS(707.0f, 50.0f, 528.0f);
 
 // This function will locate the path to our application on OS X,
 // unlike windows you can not rely on the curent working directory
@@ -32,18 +36,16 @@ std::string macBundlePath()
 }
 #endif
 
-World::World() {
+World::World() : inputListener(NULL), raySceneQuery(NULL), airplane(NULL) {
 #ifndef LINUX		
 	mResourcePath = macBundlePath() + "/Contents/Resources/";
+	levelPath = mResourcePath;
 	Ogre::String pluginsPath = macBundlePath() + "/Contents/Resources/plugins.cfg";
-	inputListener = NULL;
-	raySceneQuery = NULL;
 	root = new Ogre::Root(pluginsPath, mResourcePath + "ogre.cfg", mResourcePath + "Ogre.log");
 #else
+	levelPath = "data/levels/";
 	root = new Ogre::Root("plugins-linux.cfg","ogre.cfg","Ogre.log");
 #endif
-	inputListener = NULL;
-	raySceneQuery = NULL;
 }
 
 World::~World() {
@@ -53,22 +55,20 @@ World::~World() {
 	if (raySceneQuery != NULL){
 		delete raySceneQuery;
 	}
+  if (airplane != NULL){
+    delete airplane;
+  }
 	delete root;
 }
+
 
 float World::getTerrainHeightAt(float x, float z) {
 	terrainRay.setOrigin(Ogre::Vector3(x, 1000.0f, z));
 	raySceneQuery->setRay(terrainRay);
-
 	Ogre::RaySceneQueryResult&  queryResult = raySceneQuery->execute();
 	Ogre::RaySceneQueryResult::iterator qi = queryResult.begin();
-	return (qi != queryResult.end() && qi->worldFragment) ? qi->worldFragment->singleIntersection.y : 0.0f;
-}
-
-void World::adjustCameraHeightToTerrain() {
-	const Ogre::Vector3& cameraPos = camera->getPosition();
-	camera->setPosition(cameraPos.x, getTerrainHeightAt(cameraPos.x,
-					cameraPos.z) + 15.0f, cameraPos.z);
+	return (qi != queryResult.end() && qi->worldFragment) ? 
+			qi->worldFragment->singleIntersection.y : 0.0f;
 }
 
 void World::init() {
@@ -116,8 +116,12 @@ bool World::setup() {
 	camera = sceneManager->createCamera("PrimaryCamera");
 	camera->setNearClipDistance(1.0f);
 	camera->setFarClipDistance(10000.0f);
-	camera->setPosition(707.0f, 2500.0f, 528.0f);
-
+  
+  // create airplane node
+  Ogre::SceneNode * airplaneNode = sceneManager->createSceneNode(Airplane::SCENE_NODE_NAME);
+  airplaneNode->setPosition(INITIAL_POS);
+  airplaneNode->attachObject(camera);
+  
 	// create viewport
 	Ogre::Viewport* vp = renderWindow->addViewport(camera);
 	vp->setBackgroundColour(fogColor);
@@ -138,8 +142,16 @@ bool World::setup() {
 	
 	raySceneQuery = sceneManager->createRayQuery(terrainRay);
 
-	inputListener = new InputListener(this);
+	inputListener = new InputListener(this, renderWindow);
 	root->addFrameListener(inputListener);
 	currentLevel = new Level(this);
+  
+  airplane = new Airplane(this, airplaneNode);
+  airplane->setThrust(1000.0);
+
 	return true;
 }
+
+
+
+
