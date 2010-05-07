@@ -1,3 +1,4 @@
+#include "Enemy.h"
 #include "Level.h"
 #include "Target.h"
 
@@ -23,6 +24,21 @@ Level::Level(World * world) : world(world){
 	Ogre::SceneNode *targetNode = world->getSceneManager()->
 		getRootSceneNode()->createChildSceneNode("Target", targetPosition);
 	target = new Target(targetNode);
+	
+	/* Create the enemies. */
+	Ogre::ConfigFile::SectionIterator sit = levelCFG.getSectionIterator();
+	while(sit.hasMoreElements()){
+		Ogre::String sectionName = sit.peekNextKey();
+		Ogre::Vector3 pos = Ogre::StringConverter::parseVector3(
+			levelCFG.getSetting("Position", sectionName));
+		pos.y += world->getTerrainHeightAt(pos.x, pos.z);
+		Ogre::SceneNode *enemyNode = world->getSceneManager()->
+			getRootSceneNode()->createChildSceneNode(sectionName, pos);
+		/* TODO: Keep track of the enemies in the level. */
+		new Enemy(world, enemyNode, sectionName);
+		sit.moveNext();
+	}
+
 }
 
 Level::~Level(){

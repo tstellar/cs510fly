@@ -8,7 +8,7 @@ linux: main
 
 osx: main
 
-main: Main.o World.o InputListener.o Airplane.o Target.o Level.o
+main: Main.o World.o InputListener.o Airplane.o Target.o Level.o Enemy.o
 	g++ -o $@ $^ -lOgreMain -lOIS
 
 %.o: %.cpp
