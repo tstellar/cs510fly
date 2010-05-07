@@ -7,8 +7,6 @@
 #include "InputListener.h"
 #include "Level.h"
 
-static const Ogre::Vector3 INITIAL_POS(707.0f, 50.0f, 528.0f);
-
 // This function will locate the path to our application on OS X,
 // unlike windows you can not rely on the curent working directory
 // for locating your configuration files and resources.
@@ -117,11 +115,6 @@ bool World::setup() {
 	camera->setNearClipDistance(1.0f);
 	camera->setFarClipDistance(10000.0f);
   
-  // create airplane node
-  Ogre::SceneNode * airplaneNode = sceneManager->createSceneNode(Airplane::SCENE_NODE_NAME);
-  airplaneNode->setPosition(INITIAL_POS);
-  airplaneNode->attachObject(camera);
-  
 	// create viewport
 	Ogre::Viewport* vp = renderWindow->addViewport(camera);
 	vp->setBackgroundColour(fogColor);
@@ -144,7 +137,15 @@ bool World::setup() {
 
 	inputListener = new InputListener(this, renderWindow);
 	root->addFrameListener(inputListener);
+	
+	// create level
 	currentLevel = new Level(this);
+
+// create airplane node
+  Ogre::SceneNode * airplaneNode = sceneManager->createSceneNode(Airplane::SCENE_NODE_NAME);
+  airplaneNode->setPosition(currentLevel->getPlayerStart());
+  airplaneNode->attachObject(camera);
+  
   
   airplane = new Airplane(this, airplaneNode);
   airplane->setThrust(1000.0);

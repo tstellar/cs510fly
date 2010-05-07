@@ -13,6 +13,12 @@ Level::Level(World * world) : world(world){
 	float targetY = world->getTerrainHeightAt(targetXZ.x, targetXZ.y);
 	Ogre::Vector3 targetPosition = Ogre::Vector3(targetXZ.x,targetY,targetXZ.y);
 
+	/* Load the player's starting point. */
+	Ogre::Vector2 playerXZ = Ogre::StringConverter::parseVector2(
+					levelCFG.getSetting("Player"));
+	float playerY = world->getTerrainHeightAt(playerXZ.x, playerXZ.y);
+	playerStart = Ogre::Vector3(playerXZ.x, playerY, playerXZ.y);
+
 	/* Create the target. */
 	Ogre::SceneNode *targetNode = world->getSceneManager()->
 		getRootSceneNode()->createChildSceneNode("Target", targetPosition);

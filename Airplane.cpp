@@ -4,15 +4,18 @@ const Ogre::String Airplane::SCENE_NODE_NAME = "Airplane";
 
 static const float MASS = 18885.f; // NTO mass of F-15 Eagle in kg
 static const float WEIGHT = 184000.0f; // NTO weight of F-15 Eagle in newtons
+static const float HEIGHT = 5.63f;  // Height of F-15 Eagle in meters.
 static const float THRUST_DELTA = 1000.0; // Adjust thrust by 1 kN
 static const Ogre::Radian ROLL_DELTA = Ogre::Radian(Ogre::Math::HALF_PI/8.0f); // Adjust roll by pi/16
 static const Ogre::Radian PITCH_DELTA = Ogre::Radian(Ogre::Math::HALF_PI/4.0f); // Adjust pitch by pi/8
 
 Airplane::Airplane(World * world, Ogre::SceneNode * sceneNode) :
     world(world), sceneNode(sceneNode),
-    position(sceneNode->getPosition()), orientation(sceneNode->getOrientation()),
+    position(sceneNode->getPosition() + Ogre::Vector3(0.0f, HEIGHT, 0.0f)),
+    orientation(sceneNode->getOrientation()),
     velocity(Ogre::Vector3::ZERO), thrustAmount(0.0f),
-    thrustInc(false), thrustDec(false), pitchInc(false), pitchDec(false), rollInc(false), rollDec(false) { }
+    thrustInc(false), thrustDec(false), pitchInc(false), pitchDec(false), rollInc(false), rollDec(false) { 
+    }
 
 Airplane::~Airplane() { }
 
