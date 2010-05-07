@@ -24,3 +24,7 @@ Level::Level(World * world) : world(world){
 		getRootSceneNode()->createChildSceneNode("Target", targetPosition);
 	target = new Target(targetNode);
 }
+
+Level::~Level(){
+	delete target;
+}

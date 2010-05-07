@@ -5,5 +5,5 @@ class Target{
 
 public: 
 	Target(Ogre::SceneNode *);
-
+	~Target();
 };

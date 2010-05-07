@@ -9,3 +9,5 @@ Target::Target(Ogre::SceneNode * sceneNode) : sceneNode(sceneNode){
 	sceneNode->scale(100.0f, 100.0f, 100.0f);
 	sceneNode->attachObject(entity);
 }
+
+Target::~Target() { }

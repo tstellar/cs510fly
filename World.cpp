@@ -34,7 +34,8 @@ std::string macBundlePath()
 }
 #endif
 
-World::World() : inputListener(NULL), raySceneQuery(NULL), airplane(NULL) {
+World::World() : inputListener(NULL), raySceneQuery(NULL), airplane(NULL),
+	currentLevel(NULL){
 #ifndef LINUX		
 	mResourcePath = macBundlePath() + "/Contents/Resources/";
 	levelPath = mResourcePath;
@@ -55,6 +56,9 @@ World::~World() {
 	}
   if (airplane != NULL){
     delete airplane;
+  }
+  if (currentLevel != NULL){
+  	delete currentLevel;
   }
 	delete root;
 }

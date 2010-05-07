@@ -8,5 +8,6 @@ class Level{
 	Ogre::Vector3 playerStart;
 public:
 	Level(World *);
+	~Level();
 	Ogre::Vector3& getPlayerStart(){ return playerStart; }
 };
