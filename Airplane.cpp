@@ -5,9 +5,9 @@ const Ogre::String Airplane::SCENE_NODE_NAME = "Airplane";
 static const float MASS = 18885.f; // NTO mass of F-15 Eagle in kg
 static const float WEIGHT = 184000.0f; // NTO weight of F-15 Eagle in newtons
 static const float HEIGHT = 5.63f;  // Height of F-15 Eagle in meters.
-static const float THRUST_DELTA = 1000.0; // Adjust thrust by 1 kN
-static const Ogre::Radian ROLL_DELTA = Ogre::Radian(Ogre::Math::HALF_PI/8.0f); // Adjust roll by pi/16
-static const Ogre::Radian PITCH_DELTA = Ogre::Radian(Ogre::Math::HALF_PI/4.0f); // Adjust pitch by pi/8
+static const float THRUST_DELTA = 5000.0; // Adjust thrust by 1 kN
+static const Ogre::Radian ROLL_DELTA = Ogre::Radian(Ogre::Math::HALF_PI/4.0f); // Adjust roll by pi/16
+static const Ogre::Radian PITCH_DELTA = Ogre::Radian(Ogre::Math::HALF_PI/2.0f); // Adjust pitch by pi/8
 
 Airplane::Airplane(World * world, Ogre::SceneNode * sceneNode) :
     world(world), sceneNode(sceneNode),
@@ -29,7 +29,7 @@ Ogre::Vector3 Airplane::lift() {
 }
 
 Ogre::Vector3 Airplane::weight() {
-  return WEIGHT * (-orientation * Ogre::Vector3::NEGATIVE_UNIT_Y);
+  return WEIGHT * (orientation.Inverse() * Ogre::Vector3::NEGATIVE_UNIT_Y);
 }
 
 Ogre::Vector3 Airplane::drag() {
@@ -80,13 +80,24 @@ void Airplane::update(float dt) {
     orientation = Ogre::Quaternion(ROLL_DELTA * dt, Ogre::Vector3::UNIT_Z) * orientation;
     rollDec = false;
   }
-
+  
+  Ogre::Vector3 relativeNetForce = netForce();
+  Ogre::Vector3 absoluteNetForce = orientation.Inverse() * relativeNetForce;
+   
   // Hi, Newton!
-  velocity += dt / MASS * netForce();
+  velocity += dt * absoluteNetForce / MASS;
   
   position += dt * velocity;
   
-  sceneNode->setPosition(position);
+  // Orient toward the direction we're heading (we assume a perfect rudder)
+  // TODO (can't quite get it right ...)
+
   sceneNode->setOrientation(orientation);
+  sceneNode->setPosition(position);
+
 }
+
+
+
+
 
