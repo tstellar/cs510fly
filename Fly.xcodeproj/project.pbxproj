@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		312FC85B1194E2FD00FFFCFB /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 312FC85A1194E2FD00FFFCFB /* Enemy.cpp */; };
 		314C4D831190CE6500DC920A /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 314C4D7F1190CE6500DC920A /* Level.cpp */; };
 		314C4D841190CE6500DC920A /* Target.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 314C4D811190CE6500DC920A /* Target.cpp */; };
 		314C4D941190CF9000DC920A /* target.material in Resources */ = {isa = PBXBuildFile; fileRef = 314C4D931190CF9000DC920A /* target.material */; };
@@ -50,6 +51,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		312FC85A1194E2FD00FFFCFB /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
+		312FC85C1194E30A00FFFCFB /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		314C4D7F1190CE6500DC920A /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Level.cpp; sourceTree = "<group>"; };
 		314C4D801190CE6500DC920A /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		314C4D811190CE6500DC920A /* Target.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Target.cpp; sourceTree = "<group>"; };
@@ -119,6 +122,7 @@
 		08FB7795FE84155DC02AAC07 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				312FC85A1194E2FD00FFFCFB /* Enemy.cpp */,
 				314C4D7F1190CE6500DC920A /* Level.cpp */,
 				314C4D811190CE6500DC920A /* Target.cpp */,
 				74C440AE118F8395001B83F0 /* Airplane.cpp */,
@@ -165,6 +169,7 @@
 		7459854A118E62C500107C82 /* Include */ = {
 			isa = PBXGroup;
 			children = (
+				312FC85C1194E30A00FFFCFB /* Enemy.h */,
 				314C4D821190CE6500DC920A /* Target.h */,
 				314C4D801190CE6500DC920A /* Level.h */,
 				74C440AD118F8395001B83F0 /* Airplane.h */,
@@ -305,6 +310,7 @@
 				74C440AF118F8395001B83F0 /* Airplane.cpp in Sources */,
 				314C4D831190CE6500DC920A /* Level.cpp in Sources */,
 				314C4D841190CE6500DC920A /* Target.cpp in Sources */,
+				312FC85B1194E2FD00FFFCFB /* Enemy.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
