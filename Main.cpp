@@ -5,10 +5,10 @@
 
 
 int main(int argc, char** argv) {
-  srand(time(NULL));
+    srand(time(NULL));
 
-  World td;
-  td.init();
+    World td;
+    td.init();
 
-  return 0;
+    return 0;
 }

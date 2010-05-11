@@ -14,38 +14,37 @@ Airplane::Airplane(World * world, Ogre::SceneNode * sceneNode) :
     position(sceneNode->getPosition() + Ogre::Vector3(0.0f, HEIGHT, 0.0f)),
     orientation(sceneNode->getOrientation()),
     velocity(Ogre::Vector3::ZERO), thrustAmount(0.0f),
-    thrustInc(false), thrustDec(false), pitchInc(false), pitchDec(false), rollInc(false), rollDec(false) { 
-    }
+    thrustInc(false), thrustDec(false), pitchInc(false), pitchDec(false), rollInc(false), rollDec(false) { }
 
 Airplane::~Airplane() { }
 
 Ogre::Vector3 Airplane::thrust() {
-  return thrustAmount * Ogre::Vector3::NEGATIVE_UNIT_Z;
+    return thrustAmount * Ogre::Vector3::NEGATIVE_UNIT_Z;
 }
 
 Ogre::Vector3 Airplane::lift() {
-  // Cheating for now: In level flight, |lift| = |weight|, but lift isn't pointed straight up if we're turning.
-  return WEIGHT * Ogre::Vector3::UNIT_Y;
+    // Cheating for now: In level flight, |lift| = |weight|, but lift isn't pointed straight up if we're turning.
+    return WEIGHT * Ogre::Vector3::UNIT_Y;
 }
 
 Ogre::Vector3 Airplane::weight() {
-  return WEIGHT * (orientation.Inverse() * Ogre::Vector3::NEGATIVE_UNIT_Y);
+    return WEIGHT * (orientation.Inverse() * Ogre::Vector3::NEGATIVE_UNIT_Y);
 }
 
 Ogre::Vector3 Airplane::drag() {
-  // We'll be physics people for the moment: No friction.
-  return Ogre::Vector3::ZERO;
+    // We'll be physics people for the moment: No friction.
+    return Ogre::Vector3::ZERO;
 }
 
 Ogre::Vector3 Airplane::netForce() {
-  // Separate these out for ease of debugging
-  
-  Ogre::Vector3
-    thrust = this->thrust(),
-    lift = this->lift(),
-    drag = this->drag(),
-    weight = this->weight();
-  return thrust + lift + drag + weight;
+    // Separate these out for ease of debugging
+
+    Ogre::Vector3
+        thrust = this->thrust(),
+        lift = this->lift(),
+        drag = this->drag(),
+        weight = this->weight();
+    return thrust + lift + drag + weight;
 }
 
 void Airplane::increaseThrust() { thrustInc = true; }
@@ -56,48 +55,47 @@ void Airplane::rollLeft() { rollDec = true; }
 void Airplane::rollRight() { rollInc = true; }
 
 void Airplane::update(float dt) {
-  if (thrustInc) {
-    thrustAmount += THRUST_DELTA * dt;
-    thrustInc = false;
-  }
-  if (thrustDec) {
-    thrustAmount -= THRUST_DELTA * dt;
-    thrustDec = false;
-  }
-  if (pitchInc) {
-    orientation = Ogre::Quaternion(PITCH_DELTA * dt, Ogre::Vector3::UNIT_X) * orientation;
-    pitchInc = false;
-  }
-  if (pitchDec) {
-    orientation = Ogre::Quaternion(PITCH_DELTA * dt, Ogre::Vector3::NEGATIVE_UNIT_X) * orientation;
-    pitchDec = false;
-  }
-  if (rollInc) {
-    orientation = Ogre::Quaternion(ROLL_DELTA * dt, Ogre::Vector3::NEGATIVE_UNIT_Z) * orientation;
-    rollInc = false;
-  }
-  if (rollDec) {
-    orientation = Ogre::Quaternion(ROLL_DELTA * dt, Ogre::Vector3::UNIT_Z) * orientation;
-    rollDec = false;
-  }
-  
-  Ogre::Vector3 relativeNetForce = netForce();
-  Ogre::Vector3 absoluteNetForce = orientation.Inverse() * relativeNetForce;
-   
-  // Hi, Newton!
-  velocity += dt * absoluteNetForce / MASS;
-  
-  position += dt * velocity;
-  
-  // Orient toward the direction we're heading (we assume a perfect rudder)
-  // TODO (can't quite get it right ...)
+    if (thrustInc) {
+        thrustAmount += THRUST_DELTA * dt;
+        thrustInc = false;
+    }
+    if (thrustDec) {
+        thrustAmount -= THRUST_DELTA * dt;
+        thrustDec = false;
+    }
+    if (pitchInc) {
+        orientation = Ogre::Quaternion(PITCH_DELTA * dt, Ogre::Vector3::UNIT_X) * orientation;
+        pitchInc = false;
+    }
+    if (pitchDec) {
+        orientation = Ogre::Quaternion(PITCH_DELTA * dt, Ogre::Vector3::NEGATIVE_UNIT_X) * orientation;
+        pitchDec = false;
+    }
+    if (rollInc) {
+        orientation = Ogre::Quaternion(ROLL_DELTA * dt, Ogre::Vector3::NEGATIVE_UNIT_Z) * orientation;
+        rollInc = false;
+    }
+    if (rollDec) {
+        orientation = Ogre::Quaternion(ROLL_DELTA * dt, Ogre::Vector3::UNIT_Z) * orientation;
+        rollDec = false;
+    }
 
-  sceneNode->setOrientation(orientation);
-  sceneNode->setPosition(position);
+    Ogre::Vector3 relativeNetForce = netForce();
+    Ogre::Vector3 absoluteNetForce = orientation.Inverse() * relativeNetForce;
+
+    // Hi, Newton!
+    velocity += dt * absoluteNetForce / MASS;
+
+    position += dt * velocity;
+
+    // Orient toward the direction we're heading (we assume a perfect rudder)
+    // TODO (can't quite get it right ...)
+
+    // TODO We can get away with not normalizing orientation every frame if need be
+    orientation.normalize();
+
+    sceneNode->setOrientation(orientation);
+    sceneNode->setPosition(position);
 
 }
-
-
-
-
 

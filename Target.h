@@ -1,9 +1,9 @@
 #include "World.h"
 
 class Target{
-	Ogre::SceneNode * sceneNode;
+    Ogre::SceneNode * sceneNode;
 
 public: 
-	Target(Ogre::SceneNode *);
-	~Target();
+    Target(Ogre::SceneNode *);
+    ~Target();
 };
