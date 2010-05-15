@@ -7,7 +7,8 @@
 
 InputListener::InputListener(World* world, Ogre::RenderWindow * renderWindow) :
     world(world), renderWindow(renderWindow), 
-    forwardKeyDown(false), backKeyDown(false), leftKeyDown(false), rightKeyDown(false), upKeyDown(false), downKeyDown(false), shutdownKeyPressed(false) {
+    forwardKeyDown(false), backKeyDown(false), upKeyDown(false), downKeyDown(false),
+    leftKeyDown(false), rightKeyDown(false), yawLeftKeyDown(false), yawRightKeyDown(false), shutdownKeyPressed(false) {
         size_t windowHandle;
         renderWindow->getCustomAttribute("WINDOW", &windowHandle);
 
@@ -46,6 +47,10 @@ bool InputListener::frameStarted(const Ogre::FrameEvent& event) {
         airplane->rollLeft();
     if (rightKeyDown)
         airplane->rollRight();
+    if (yawLeftKeyDown)
+        airplane->yawLeft();
+    if (yawRightKeyDown)
+        airplane->yawRight();
     if (upKeyDown)
         airplane->pitchDown();
     if (downKeyDown)
@@ -82,6 +87,12 @@ bool InputListener::keyPressed(const OIS::KeyEvent& event) {
         case OIS::KC_RIGHT:
             rightKeyDown = true;
         break;
+        case OIS::KC_A:
+            yawLeftKeyDown = true;
+        break;
+        case OIS::KC_D:
+            yawRightKeyDown = true;
+        break;
         case OIS::KC_UP:
             upKeyDown = true;
         break;
@@ -109,6 +120,12 @@ bool InputListener::keyReleased(const OIS::KeyEvent& event) {
         break;
         case OIS::KC_RIGHT:
             rightKeyDown = false;
+        break;
+        case OIS::KC_A:
+            yawLeftKeyDown = false;
+        break;
+        case OIS::KC_D:
+            yawRightKeyDown = false;
         break;
         case OIS::KC_UP:
             upKeyDown = false;

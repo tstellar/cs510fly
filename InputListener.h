@@ -16,7 +16,8 @@ private:
     OIS::InputManager* inputManager;
     OIS::Mouse* mouse;
     OIS::Keyboard* keyboard;
-    bool forwardKeyDown, backKeyDown, upKeyDown, downKeyDown, leftKeyDown, rightKeyDown;
+    bool forwardKeyDown, backKeyDown, upKeyDown, downKeyDown,
+            leftKeyDown, rightKeyDown, yawLeftKeyDown, yawRightKeyDown;
     bool shutdownKeyPressed;
 
 public:

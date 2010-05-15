@@ -9,7 +9,7 @@ class Airplane {
 
     float thrustAmount;
 
-    bool thrustInc, thrustDec, pitchInc, pitchDec, rollInc, rollDec;
+    bool thrustInc, thrustDec, pitchInc, pitchDec, rollInc, rollDec, yawInc, yawDec;
 
     float delay;
 
@@ -34,6 +34,8 @@ public:
     void pitchDown();
     void rollLeft();
     void rollRight();
+    void yawLeft();
+    void yawRight();
 
 private:
     Ogre::Vector3 thrust();

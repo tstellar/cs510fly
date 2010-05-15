@@ -7,9 +7,10 @@ static const float MINIMUM_TIME_STEP = 0.01f;
 static const float MASS = 18885.f; // NTO mass of F-15 Eagle in kg
 static const float WEIGHT = 184000.0f; // NTO weight of F-15 Eagle in newtons
 static const float HEIGHT = 5.63f;  // Height of F-15 Eagle in meters.
-static const float THRUST_DELTA = 5000.0; // Adjust thrust by 1 kN
-static const Ogre::Radian ROLL_DELTA = Ogre::Radian(Ogre::Math::HALF_PI/4.0f); // Adjust roll by pi/16
-static const Ogre::Radian PITCH_DELTA = Ogre::Radian(Ogre::Math::HALF_PI/2.0f); // Adjust pitch by pi/8
+static const float THRUST_DELTA = 5000.0; // Adjust thrust by 5 kN/s
+static const Ogre::Radian ROLL_DELTA(Ogre::Math::HALF_PI/4.0f); // Adjust roll by pi/8 rad/s
+static const Ogre::Radian PITCH_DELTA(Ogre::Math::HALF_PI/2.0f); // Adjust pitch by pi/4 rad/s
+static const Ogre::Radian YAW_DELTA(Ogre::Math::HALF_PI/8.0F); // Adjust yaw by pi/16 rad/s
 
 Airplane::Airplane(World * world, Ogre::SceneNode * sceneNode) :
     world(world), sceneNode(sceneNode),
@@ -17,7 +18,8 @@ Airplane::Airplane(World * world, Ogre::SceneNode * sceneNode) :
     position(sceneNode->getPosition() + Ogre::Vector3(0.0f, HEIGHT, 0.0f)),
     orientation(sceneNode->getOrientation()),
     velocity(Ogre::Vector3::ZERO), thrustAmount(0.0f),
-    thrustInc(false), thrustDec(false), pitchInc(false), pitchDec(false), rollInc(false), rollDec(false) { }
+    thrustInc(false), thrustDec(false), pitchInc(false), pitchDec(false),
+    rollInc(false), rollDec(false), yawInc(false), yawDec(false) { }
 
 Airplane::~Airplane() { }
 
@@ -56,6 +58,8 @@ void Airplane::pitchUp() { pitchInc = true; }
 void Airplane::pitchDown() { pitchDec = true; }
 void Airplane::rollLeft() { rollDec = true; }
 void Airplane::rollRight() { rollInc = true; }
+void Airplane::yawLeft() { yawInc = true; }
+void Airplane::yawRight() { yawDec = true; }
 
 void Airplane::update(float dt) {
     if (dt == 0.0)
@@ -70,20 +74,28 @@ void Airplane::update(float dt) {
         thrustDec = false;
     }
     if (pitchInc) {
-        orientation = Ogre::Quaternion(PITCH_DELTA * dt, Ogre::Vector3::UNIT_X) * orientation;
+        orientation = orientation * Ogre::Quaternion(PITCH_DELTA * dt, Ogre::Vector3::UNIT_X);
         pitchInc = false;
     }
     if (pitchDec) {
-        orientation = Ogre::Quaternion(PITCH_DELTA * dt, Ogre::Vector3::NEGATIVE_UNIT_X) * orientation;
+        orientation = orientation * Ogre::Quaternion(PITCH_DELTA * dt, Ogre::Vector3::NEGATIVE_UNIT_X);
         pitchDec = false;
     }
     if (rollInc) {
-        orientation = Ogre::Quaternion(ROLL_DELTA * dt, Ogre::Vector3::NEGATIVE_UNIT_Z) * orientation;
+        orientation = orientation * Ogre::Quaternion(ROLL_DELTA * dt, Ogre::Vector3::NEGATIVE_UNIT_Z);
         rollInc = false;
     }
     if (rollDec) {
-        orientation = Ogre::Quaternion(ROLL_DELTA * dt, Ogre::Vector3::UNIT_Z) * orientation;
+        orientation = orientation * Ogre::Quaternion(ROLL_DELTA * dt, Ogre::Vector3::UNIT_Z);
         rollDec = false;
+    }
+    if (yawInc) {
+        orientation = orientation * Ogre::Quaternion(YAW_DELTA * dt, Ogre::Vector3::UNIT_Y);
+        yawInc = false;
+    }
+    if (yawDec) {
+        orientation = orientation * Ogre::Quaternion(YAW_DELTA * dt, Ogre::Vector3::NEGATIVE_UNIT_Y);
+        yawDec = false;
     }
 
     dt += delay;
