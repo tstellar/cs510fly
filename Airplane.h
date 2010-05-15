@@ -11,6 +11,8 @@ class Airplane {
 
     bool thrustInc, thrustDec, pitchInc, pitchDec, rollInc, rollDec;
 
+    float delay;
+
 public:
     static const Ogre::String SCENE_NODE_NAME;
 

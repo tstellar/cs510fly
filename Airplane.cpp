@@ -2,6 +2,8 @@
 
 const Ogre::String Airplane::SCENE_NODE_NAME = "Airplane";
 
+static const float MINIMUM_TIME_STEP = 0.01f;
+
 static const float MASS = 18885.f; // NTO mass of F-15 Eagle in kg
 static const float WEIGHT = 184000.0f; // NTO weight of F-15 Eagle in newtons
 static const float HEIGHT = 5.63f;  // Height of F-15 Eagle in meters.
@@ -11,6 +13,7 @@ static const Ogre::Radian PITCH_DELTA = Ogre::Radian(Ogre::Math::HALF_PI/2.0f); 
 
 Airplane::Airplane(World * world, Ogre::SceneNode * sceneNode) :
     world(world), sceneNode(sceneNode),
+    delay(0.0f),
     position(sceneNode->getPosition() + Ogre::Vector3(0.0f, HEIGHT, 0.0f)),
     orientation(sceneNode->getOrientation()),
     velocity(Ogre::Vector3::ZERO), thrustAmount(0.0f),
@@ -55,6 +58,9 @@ void Airplane::rollLeft() { rollDec = true; }
 void Airplane::rollRight() { rollInc = true; }
 
 void Airplane::update(float dt) {
+    if (dt == 0.0)
+        return;
+
     if (thrustInc) {
         thrustAmount += THRUST_DELTA * dt;
         thrustInc = false;
@@ -80,22 +86,42 @@ void Airplane::update(float dt) {
         rollDec = false;
     }
 
+    dt += delay;
+    if (dt < MINIMUM_TIME_STEP) {
+        delay = dt;
+        return;
+    }
+    delay = 0.0f;
+
     Ogre::Vector3 relativeNetForce = netForce();
     Ogre::Vector3 absoluteNetForce = orientation.Inverse() * relativeNetForce;
 
     // Hi, Newton!
-    velocity += dt * absoluteNetForce / MASS;
+    Ogre::Vector3 acceleration = absoluteNetForce / MASS;
 
-    position += dt * velocity;
+    // Velocity Verlet integration
+    
+    // Step 1: Calculate next position
+    position += dt * velocity + 0.5f * dt * dt * acceleration;
 
-    // Orient toward the direction we're heading (we assume a perfect rudder)
-    // TODO (can't quite get it right ...)
+    // Step 2: Calculate velocity a *half*-step from now
+    const Ogre::Vector3 halfStepVelocity = velocity + 0.5f * dt * acceleration;
+
+    // Step 3a: Project velocity forward another smidgen by Euler method
+    velocity += dt * acceleration;
+
+    // Step 3b: Re-evaluate acceleration in new state
+    relativeNetForce = netForce();
+    absoluteNetForce = orientation.Inverse() * relativeNetForce;
+    acceleration = absoluteNetForce / MASS;
+
+    // Step 4: Calculate new velocity from half-step velocity and new acceleration
+    velocity = halfStepVelocity + 0.5f * dt * acceleration;
 
     // TODO We can get away with not normalizing orientation every frame if need be
-    orientation.normalize();
+    orientation.normalise();
 
     sceneNode->setOrientation(orientation);
     sceneNode->setPosition(position);
 
 }
-
