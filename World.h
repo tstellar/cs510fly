@@ -15,35 +15,35 @@ class InputListener;
 class Level;
 
 class World {
- private:
-  Airplane * airplane;
-	InputListener* inputListener;
-	Ogre::Root* root;
-	Ogre::SceneManager* sceneManager;
-	Ogre::RenderWindow* renderWindow;
-	Ogre::Camera* camera;
-	Ogre::RaySceneQuery* raySceneQuery;
-	Ogre::Ray terrainRay;
-	Ogre::String mResourcePath;
-	Ogre::String levelPath;
-	Level *currentLevel;
+private:
+    Airplane * airplane;
+    InputListener* inputListener;
+    Ogre::Root* root;
+    Ogre::SceneManager* sceneManager;
+    Ogre::RenderWindow* renderWindow;
+    Ogre::Camera* camera;
+    Ogre::RaySceneQuery* raySceneQuery;
+    Ogre::Ray terrainRay;
+    Ogre::String mResourcePath;
+    Ogre::String levelPath;
+    Level *currentLevel;
 
- public:
-	World();
+public:
+    World();
 
-	~World();
+    ~World();
 
-	Ogre::SceneManager* getSceneManager() { return sceneManager; }
-	Ogre::String getLevelPath() { return levelPath; }
-	bool windowClosed() const { return renderWindow->isClosed(); }
-	Airplane * getAirplane() { return airplane; }
-  
-	float getTerrainHeightAt(float x, float y);
+    Ogre::SceneManager* getSceneManager() { return sceneManager; }
+    Ogre::String getLevelPath() { return levelPath; }
+    bool windowClosed() const { return renderWindow->isClosed(); }
+    Airplane * getAirplane() { return airplane; }
 
-	void init();
+    float getTerrainHeightAt(float x, float y);
 
- private:
-	bool setup();
+    void init();
+
+private:
+    bool setup();
 };
 
 #endif

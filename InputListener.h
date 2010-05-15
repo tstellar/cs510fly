@@ -10,29 +10,30 @@
 class World;
 
 class InputListener : public Ogre::FrameListener, public OIS::MouseListener, public OIS::KeyListener {
- private:
-	World* const world;
+private:
+    World* const world;
     Ogre::RenderWindow * const renderWindow;
-	OIS::InputManager* inputManager;
-	OIS::Mouse* mouse;
-	OIS::Keyboard* keyboard;
-	bool forwardKeyDown, backKeyDown, upKeyDown, downKeyDown, leftKeyDown, rightKeyDown;
-	bool shutdownKeyPressed;
+    OIS::InputManager* inputManager;
+    OIS::Mouse* mouse;
+    OIS::Keyboard* keyboard;
+    bool forwardKeyDown, backKeyDown, upKeyDown, downKeyDown,
+            leftKeyDown, rightKeyDown, yawLeftKeyDown, yawRightKeyDown;
+    bool shutdownKeyPressed;
 
- public:
-	InputListener(World* world, Ogre::RenderWindow * renderWindow);
+public:
+    InputListener(World* world, Ogre::RenderWindow * renderWindow);
 
-	~InputListener();
+    ~InputListener();
 
-	bool frameStarted(const Ogre::FrameEvent& event);
-	bool frameEnded(const Ogre::FrameEvent& event);
+    bool frameStarted(const Ogre::FrameEvent& event);
+    bool frameEnded(const Ogre::FrameEvent& event);
 
-	bool mousePressed(const OIS::MouseEvent& event, OIS::MouseButtonID buttonID);
-	bool mouseReleased(const OIS::MouseEvent& event, OIS::MouseButtonID buttonID);
-	bool mouseMoved(const OIS::MouseEvent& event);
+    bool mousePressed(const OIS::MouseEvent& event, OIS::MouseButtonID buttonID);
+    bool mouseReleased(const OIS::MouseEvent& event, OIS::MouseButtonID buttonID);
+    bool mouseMoved(const OIS::MouseEvent& event);
 
-	bool keyPressed(const OIS::KeyEvent& event);
-	bool keyReleased(const OIS::KeyEvent& event);
+    bool keyPressed(const OIS::KeyEvent& event);
+    bool keyReleased(const OIS::KeyEvent& event);
 };
 
 #endif
