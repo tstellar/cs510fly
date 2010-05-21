@@ -2,6 +2,7 @@
 // @author Eric D. Wills
 
 #include "Airplane.h"
+#include "Level.h"
 #include "InputListener.h"
 #include "Game.h"
 
@@ -56,7 +57,7 @@ bool InputListener::frameStarted(const Ogre::FrameEvent& event) {
     if (downKeyDown)
         airplane->pitchUp();
 
-    game->getAirplane()->update(event.timeSinceLastFrame);
+    game->update(event.timeSinceLastFrame);
 
     return true;
 }

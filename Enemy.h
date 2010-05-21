@@ -10,5 +10,6 @@ class Enemy{
 public:
     Enemy(Game *, Ogre::SceneNode *, Ogre::String);
     ~Enemy();
-    void update(float dt);
+
+    void update(Airplane *, float dt);
 };

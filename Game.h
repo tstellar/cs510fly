@@ -39,8 +39,9 @@ public:
     Airplane * getAirplane() { return airplane; }
 
     float getTerrainHeightAt(float x, float y);
-
+    Level *getCurrentLevel(){ return currentLevel; };
     void init();
+    void update(float dt);
 
 private:
     bool setup();

@@ -34,8 +34,7 @@ Level::Level(Game * game) : game(game){
         pos.y += game->getTerrainHeightAt(pos.x, pos.z);
         Ogre::SceneNode *enemyNode = game->getSceneManager()->
             getRootSceneNode()->createChildSceneNode(sectionName, pos);
-        /* TODO: Keep track of the enemies in the level. */
-        new Enemy(game, enemyNode, sectionName);
+        enemies.push_back(new Enemy(game, enemyNode, sectionName));
         sit.moveNext();
     }
 
@@ -44,3 +43,11 @@ Level::Level(Game * game) : game(game){
 Level::~Level(){
     delete target;
 }
+
+void Level::update(float dt){
+    std::vector<Enemy*>::iterator it;
+    for( it = enemies.begin(); it != enemies.end(); ++it){
+        (*it)->update(world->getAirplane(), dt);
+    }
+}
+
