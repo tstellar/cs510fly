@@ -1,4 +1,3 @@
-
 .PHONY: linux osx
 
 linux: CPPFLAGS=-DLINUX

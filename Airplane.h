@@ -23,6 +23,7 @@ public:
 
     float getThrust() { return thrustAmount; }
     void setThrust(float thrustAmount) { this->thrustAmount = thrustAmount; }
+    Ogre::Vector3& getPosition() { return position; }
 
     float getPitch();
     float getRoll();

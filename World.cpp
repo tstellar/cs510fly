@@ -157,6 +157,10 @@ bool World::setup() {
     return true;
 }
 
+void World::update(float dt){
 
+    airplane->update(dt);
+    currentLevel->update(dt);
+}
 
 
