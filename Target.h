@@ -1,4 +1,4 @@
-#include "World.h"
+#include "Game.h"
 
 class Target{
     Ogre::SceneNode * sceneNode;

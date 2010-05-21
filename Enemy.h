@@ -1,14 +1,14 @@
 #include "Ogre.h"
 
-class World;
+class Game;
 class Airplane;
 
 class Enemy{
-    World * const world;
+    Game * const game;
     Airplane * airplane;
 
 public:
-    Enemy(World *, Ogre::SceneNode *, Ogre::String);
+    Enemy(Game *, Ogre::SceneNode *, Ogre::String);
     ~Enemy();
     void update(float dt);
 };

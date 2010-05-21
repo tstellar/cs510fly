@@ -24,7 +24,7 @@
 		7459863E118E643800107C82 /* terrain.png in Resources */ = {isa = PBXBuildFile; fileRef = 74598551118E635400107C82 /* terrain.png */; };
 		7459863F118E643900107C82 /* terrain_detail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 74598553118E635400107C82 /* terrain_detail.jpg */; };
 		74598640118E643900107C82 /* terrain_texture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 74598552118E635400107C82 /* terrain_texture.jpg */; };
-		74598641118E643A00107C82 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74598546118E62B200107C82 /* World.cpp */; };
+		74598641118E643A00107C82 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74598546118E62B200107C82 /* Game.cpp */; };
 		74598642118E643E00107C82 /* terrain.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598555118E635400107C82 /* terrain.cfg */; };
 		74598643118E643F00107C82 /* resources.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598559118E635400107C82 /* resources.cfg */; };
 		74598644118E644000107C82 /* plugins.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598558118E635400107C82 /* plugins.cfg */; };
@@ -67,9 +67,9 @@
 		7459853F118E626B00107C82 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		74598544118E62B200107C82 /* InputListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputListener.cpp; sourceTree = "<group>"; };
 		74598545118E62B200107C82 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Main.cpp; sourceTree = "<group>"; };
-		74598546118E62B200107C82 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
+		74598546118E62B200107C82 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
 		7459854C118E632800107C82 /* InputListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputListener.h; sourceTree = "<group>"; };
-		7459854D118E632800107C82 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		7459854D118E632800107C82 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		74598551118E635400107C82 /* terrain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = terrain.png; sourceTree = "<group>"; };
 		74598552118E635400107C82 /* terrain_texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = terrain_texture.jpg; sourceTree = "<group>"; };
 		74598553118E635400107C82 /* terrain_detail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = terrain_detail.jpg; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 				74C440AE118F8395001B83F0 /* Airplane.cpp */,
 				74598544118E62B200107C82 /* InputListener.cpp */,
 				74598545118E62B200107C82 /* Main.cpp */,
-				74598546118E62B200107C82 /* World.cpp */,
+				74598546118E62B200107C82 /* Game.cpp */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -174,7 +174,7 @@
 				314C4D801190CE6500DC920A /* Level.h */,
 				74C440AD118F8395001B83F0 /* Airplane.h */,
 				7459854C118E632800107C82 /* InputListener.h */,
-				7459854D118E632800107C82 /* World.h */,
+				7459854D118E632800107C82 /* Game.h */,
 			);
 			name = Include;
 			sourceTree = "<group>";
@@ -306,7 +306,7 @@
 			files = (
 				74598639118E642F00107C82 /* InputListener.cpp in Sources */,
 				7459863C118E643300107C82 /* Main.cpp in Sources */,
-				74598641118E643A00107C82 /* World.cpp in Sources */,
+				74598641118E643A00107C82 /* Game.cpp in Sources */,
 				74C440AF118F8395001B83F0 /* Airplane.cpp in Sources */,
 				314C4D831190CE6500DC920A /* Level.cpp in Sources */,
 				314C4D841190CE6500DC920A /* Target.cpp in Sources */,

@@ -7,11 +7,11 @@
 #include "Ogre.h"
 #include "OIS/OIS.h"
 
-class World;
+class Game;
 
 class InputListener : public Ogre::FrameListener, public OIS::MouseListener, public OIS::KeyListener {
 private:
-    World* const world;
+    Game* const game;
     Ogre::RenderWindow * const renderWindow;
     OIS::InputManager* inputManager;
     OIS::Mouse* mouse;
@@ -21,7 +21,7 @@ private:
     bool shutdownKeyPressed;
 
 public:
-    InputListener(World* world, Ogre::RenderWindow * renderWindow);
+    InputListener(Game* game, Ogre::RenderWindow * renderWindow);
 
     ~InputListener();
 

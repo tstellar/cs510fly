@@ -1,13 +1,13 @@
-#include "World.h"
+#include "Game.h"
 
 class Target;
 
 class Level{
-    World * world;
+    Game * const game;
     Target * target;
     Ogre::Vector3 playerStart;
 public:
-    Level(World *);
+    Level(Game *);
     ~Level();
     Ogre::Vector3& getPlayerStart(){ return playerStart; }
 };

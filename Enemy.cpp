@@ -1,8 +1,8 @@
 #include "Enemy.h"
 #include "Airplane.h"
 
-Enemy::Enemy(World * world, Ogre::SceneNode * sceneNode, Ogre::String name) :
-        world(world), airplane(new Airplane(world, sceneNode)) {
+Enemy::Enemy(Game * game, Ogre::SceneNode * sceneNode, Ogre::String name) :
+        game(game), airplane(new Airplane(game, sceneNode)) {
     Ogre::SceneManager * sceneManager = sceneNode->getCreator();
     Ogre::Entity * entity = sceneManager->createEntity(name, "sphere.mesh");
     entity->setMaterialName("Enemy_Material");

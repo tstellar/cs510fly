@@ -1,7 +1,7 @@
-// World.cpp
+// Game.cpp
 // @author Eric D. Wills
 
-#include "World.h"
+#include "Game.h"
 
 #include "Airplane.h"
 #include "InputListener.h"
@@ -34,7 +34,7 @@ std::string macBundlePath()
 }
 #endif
 
-World::World() : inputListener(NULL), raySceneQuery(NULL), airplane(NULL),
+Game::Game() : inputListener(NULL), raySceneQuery(NULL), airplane(NULL),
         currentLevel(NULL) {
 #ifndef LINUX       
     mResourcePath = macBundlePath() + "/Contents/Resources/";
@@ -47,7 +47,7 @@ World::World() : inputListener(NULL), raySceneQuery(NULL), airplane(NULL),
 #endif
 }
 
-World::~World() {
+Game::~Game() {
     if (inputListener != NULL){
         delete inputListener;
     }
@@ -64,7 +64,7 @@ World::~World() {
 }
 
 
-float World::getTerrainHeightAt(float x, float z) {
+float Game::getTerrainHeightAt(float x, float z) {
     terrainRay.setOrigin(Ogre::Vector3(x, 1000.0f, z));
     raySceneQuery->setRay(terrainRay);
     Ogre::RaySceneQueryResult&  queryResult = raySceneQuery->execute();
@@ -73,13 +73,13 @@ float World::getTerrainHeightAt(float x, float z) {
             qi->worldFragment->singleIntersection.y : 0.0f;
 }
 
-void World::init() {
+void Game::init() {
     if (setup()){
         root->startRendering();
     }
 }
 
-bool World::setup() {
+bool Game::setup() {
     Ogre::ConfigFile cf;
 
     cf.load(mResourcePath + "resources.cfg");

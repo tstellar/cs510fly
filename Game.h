@@ -1,4 +1,4 @@
-// World.h
+// Game.h
 // @author Eric D. Wills
 
 #ifndef __TERRAIN_DEMO_H__
@@ -14,7 +14,7 @@ class Airplane;
 class InputListener;
 class Level;
 
-class World {
+class Game {
 private:
     Airplane * airplane;
     InputListener* inputListener;
@@ -29,9 +29,9 @@ private:
     Level *currentLevel;
 
 public:
-    World();
+    Game();
 
-    ~World();
+    ~Game();
 
     Ogre::SceneManager* getSceneManager() { return sceneManager; }
     Ogre::String getLevelPath() { return levelPath; }

@@ -1,7 +1,7 @@
-#include "World.h"
+#include "Game.h"
 
 class Airplane {
-    World * const world;
+    Game * const game;
     Ogre::SceneNode * const sceneNode;
     Ogre::Vector3 position;
     Ogre::Quaternion orientation;
@@ -16,7 +16,7 @@ class Airplane {
 public:
     static const Ogre::String SCENE_NODE_NAME;
 
-    Airplane(World *, Ogre::SceneNode *);
+    Airplane(Game *, Ogre::SceneNode *);
     ~Airplane();
 
     void update(float dt);

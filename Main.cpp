@@ -1,13 +1,13 @@
 // Main.cpp
 // @author Eric D. Wills
 
-#include "World.h"
+#include "Game.h"
 
 
 int main(int argc, char** argv) {
     srand(time(NULL));
 
-    World td;
+    Game td;
     td.init();
 
     return 0;

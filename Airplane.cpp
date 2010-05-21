@@ -12,8 +12,8 @@ static const Ogre::Radian ROLL_DELTA(Ogre::Math::HALF_PI/4.0f); // Adjust roll b
 static const Ogre::Radian PITCH_DELTA(Ogre::Math::HALF_PI/2.0f); // Adjust pitch by pi/4 rad/s
 static const Ogre::Radian YAW_DELTA(Ogre::Math::HALF_PI/8.0F); // Adjust yaw by pi/16 rad/s
 
-Airplane::Airplane(World * world, Ogre::SceneNode * sceneNode) :
-    world(world), sceneNode(sceneNode),
+Airplane::Airplane(Game * game, Ogre::SceneNode * sceneNode) :
+    game(game), sceneNode(sceneNode),
     delay(0.0f),
     position(sceneNode->getPosition() + Ogre::Vector3(0.0f, HEIGHT, 0.0f)),
     orientation(sceneNode->getOrientation()),

@@ -3,10 +3,10 @@
 
 #include "Airplane.h"
 #include "InputListener.h"
-#include "World.h"
+#include "Game.h"
 
-InputListener::InputListener(World* world, Ogre::RenderWindow * renderWindow) :
-    world(world), renderWindow(renderWindow), 
+InputListener::InputListener(Game* game, Ogre::RenderWindow * renderWindow) :
+    game(game), renderWindow(renderWindow), 
     forwardKeyDown(false), backKeyDown(false), upKeyDown(false), downKeyDown(false),
     leftKeyDown(false), rightKeyDown(false), yawLeftKeyDown(false), yawRightKeyDown(false), shutdownKeyPressed(false) {
         size_t windowHandle;
@@ -37,7 +37,7 @@ bool InputListener::frameStarted(const Ogre::FrameEvent& event) {
     mouse->capture();
     keyboard->capture();
 
-    Airplane * const airplane = world->getAirplane();
+    Airplane * const airplane = game->getAirplane();
 
     if (forwardKeyDown)
         airplane->increaseThrust();
@@ -56,7 +56,7 @@ bool InputListener::frameStarted(const Ogre::FrameEvent& event) {
     if (downKeyDown)
         airplane->pitchUp();
 
-    world->getAirplane()->update(event.timeSinceLastFrame);
+    game->getAirplane()->update(event.timeSinceLastFrame);
 
     return true;
 }
