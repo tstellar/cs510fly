@@ -157,7 +157,7 @@ bool Game::setup() {
     return true;
 }
 
-void World::update(float dt){
+void Game::update(float dt){
 
     airplane->update(dt);
     currentLevel->update(dt);

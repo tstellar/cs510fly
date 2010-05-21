@@ -47,7 +47,7 @@ Level::~Level(){
 void Level::update(float dt){
     std::vector<Enemy*>::iterator it;
     for( it = enemies.begin(); it != enemies.end(); ++it){
-        (*it)->update(world->getAirplane(), dt);
+        (*it)->update(game->getAirplane(), dt);
     }
 }
 
