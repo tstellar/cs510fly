@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		314C4DAB1190D49600DC920A /* cube.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DAA1190D49600DC920A /* cube.mesh */; };
 		314C4DBA1190D50E00DC920A /* sphere.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DB91190D50E00DC920A /* sphere.mesh */; };
 		319448F5119225F00061D902 /* 1.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 319448F4119225F00061D902 /* 1.cfg */; };
+		742B24A411A66F3400EF4552 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 742B24A211A66F3400EF4552 /* World.cpp */; };
 		7442E53F1194ED3F0055FF80 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7442E53E1194ED3F0055FF80 /* Enemy.cpp */; };
 		74598635118E641E00107C82 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7459853F118E626B00107C82 /* Carbon.framework */; };
 		74598637118E642200107C82 /* Cg.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7459826B118E613400107C82 /* Cg.framework */; };
@@ -59,6 +60,8 @@
 		314C4DAA1190D49600DC920A /* cube.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = cube.mesh; sourceTree = "<group>"; };
 		314C4DB91190D50E00DC920A /* sphere.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = sphere.mesh; sourceTree = "<group>"; };
 		319448F4119225F00061D902 /* 1.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.cfg; sourceTree = "<group>"; };
+		742B24A211A66F3400EF4552 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
+		742B24A311A66F3400EF4552 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		7442E53E1194ED3F0055FF80 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
 		7442E5401194ED460055FF80 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		74598178118E612C00107C82 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = "/nfs/local/macosx-local/apps/Libraries/OgreSDK-1.6.5/Dependencies/Ogre.framework"; sourceTree = "<absolute>"; };
@@ -82,6 +85,7 @@
 		74598620118E638600107C82 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		7459862C118E640300107C82 /* Fly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7459862E118E640300107C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74A5492511A6FF51009D0ADB /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
 		74AEE472118E6011007A8E6D /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		74C440AD118F8395001B83F0 /* Airplane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Airplane.h; sourceTree = "<group>"; };
 		74C440AE118F8395001B83F0 /* Airplane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Airplane.cpp; sourceTree = "<group>"; };
@@ -122,13 +126,14 @@
 		08FB7795FE84155DC02AAC07 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				74C440AE118F8395001B83F0 /* Airplane.cpp */,
 				7442E53E1194ED3F0055FF80 /* Enemy.cpp */,
+				74598546118E62B200107C82 /* Game.cpp */,
+				74598544118E62B200107C82 /* InputListener.cpp */,
 				314C4D7F1190CE6500DC920A /* Level.cpp */,
 				314C4D811190CE6500DC920A /* Target.cpp */,
-				74C440AE118F8395001B83F0 /* Airplane.cpp */,
-				74598544118E62B200107C82 /* InputListener.cpp */,
+				742B24A211A66F3400EF4552 /* World.cpp */,
 				74598545118E62B200107C82 /* Main.cpp */,
-				74598546118E62B200107C82 /* Game.cpp */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -169,12 +174,14 @@
 		7459854A118E62C500107C82 /* Include */ = {
 			isa = PBXGroup;
 			children = (
-				7442E5401194ED460055FF80 /* Enemy.h */,
-				314C4D821190CE6500DC920A /* Target.h */,
-				314C4D801190CE6500DC920A /* Level.h */,
 				74C440AD118F8395001B83F0 /* Airplane.h */,
-				7459854C118E632800107C82 /* InputListener.h */,
+				7442E5401194ED460055FF80 /* Enemy.h */,
 				7459854D118E632800107C82 /* Game.h */,
+				7459854C118E632800107C82 /* InputListener.h */,
+				74A5492511A6FF51009D0ADB /* Object.h */,
+				314C4D801190CE6500DC920A /* Level.h */,
+				314C4D821190CE6500DC920A /* Target.h */,
+				742B24A311A66F3400EF4552 /* World.h */,
 			);
 			name = Include;
 			sourceTree = "<group>";
@@ -265,8 +272,11 @@
 /* Begin PBXProject section */
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = NO;
+			};
 			buildConfigurationList = 1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "Fly" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 1;
 			mainGroup = 08FB7794FE84155DC02AAC07 /* Fly */;
 			projectDirPath = "";
@@ -311,6 +321,7 @@
 				314C4D831190CE6500DC920A /* Level.cpp in Sources */,
 				314C4D841190CE6500DC920A /* Target.cpp in Sources */,
 				7442E53F1194ED3F0055FF80 /* Enemy.cpp in Sources */,
+				742B24A411A66F3400EF4552 /* World.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

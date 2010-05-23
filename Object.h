@@ -1,3 +1,6 @@
+#ifndef OBJECT_H
+#define OBJECT_H
+
 #include "Game.h"
 
 class Object {
@@ -11,4 +14,9 @@ public:
     virtual ~Object() { }
 
     virtual void update(float dt) { }
+
+    Ogre::SceneNode * getSceneNode() { return sceneNode; }
+    const Ogre::SceneNode * getSceneNode() const { return sceneNode; }
 };
+
+#endif

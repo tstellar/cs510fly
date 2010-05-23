@@ -13,6 +13,7 @@
 class Airplane;
 class InputListener;
 class Level;
+class World;
 
 class Game {
 private:
@@ -27,6 +28,7 @@ private:
     Ogre::String mResourcePath;
     Ogre::String levelPath;
     Level *currentLevel;
+    World *world;
 
 public:
     Game();

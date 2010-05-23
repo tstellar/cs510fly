@@ -6,14 +6,12 @@ class Enemy;
 
 class Level{
     Game * const game;
-    Target * target;
-    Ogre::Vector3 playerStart;
-    std::vector<Enemy*> enemies;
+    Ogre::Vector3 playerStart, targetStart;
+    std::vector<Ogre::Vector3> enemyStarts;
+    std::vector<Ogre::String> enemyNames;
 public:
     Level(Game *);
     ~Level();
 
-    Ogre::Vector3& getPlayerStart(){ return playerStart; }
-    
-    void update(float);
+    void populate(World * world) const;
 };

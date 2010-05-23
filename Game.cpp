@@ -6,6 +6,7 @@
 #include "Airplane.h"
 #include "InputListener.h"
 #include "Level.h"
+#include "World.h"
 
 // This function will locate the path to our application on OS X,
 // unlike windows you can not rely on the curent working directory
@@ -35,7 +36,7 @@ std::string macBundlePath()
 #endif
 
 Game::Game() : inputListener(NULL), raySceneQuery(NULL), airplane(NULL),
-        currentLevel(NULL) {
+        currentLevel(NULL), world(NULL) {
 #ifndef LINUX       
     mResourcePath = macBundlePath() + "/Contents/Resources/";
     levelPath = mResourcePath;
@@ -143,12 +144,11 @@ bool Game::setup() {
     root->addFrameListener(inputListener);
 
     // create level
+    world = new World(this);
     currentLevel = new Level(this);
+    currentLevel->populate(world);
 
-    // create airplane node
-    Ogre::SceneNode * airplaneNode = sceneManager->createSceneNode(Airplane::SCENE_NODE_NAME);
-    airplaneNode->setPosition(currentLevel->getPlayerStart());
-    airplaneNode->attachObject(camera);
+    world->getPlayer()->getSceneNode()->attachObject(camera);
 
 
     airplane = new Airplane(this, airplaneNode);
