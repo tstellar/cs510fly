@@ -18,6 +18,14 @@ World::~World() {
         delete *it;
 }
 
+Ogre::SceneNode * World::getRootNode() {
+    return game->getSceneManager()->getRootSceneNode();
+}
+
+const Ogre::SceneNode * World::getRootNode() const {
+    return game->getSceneManager()->getRootSceneNode();
+}
+
 Ogre::SceneNode * World::newNode(const Ogre::Vector3& position, const Ogre::Quaternion& orientation, const Ogre::String& name) {
     return getRootNode()->createChildSceneNode(name, position, orientation);
 }
@@ -45,3 +53,8 @@ Enemy * World::addEnemy(const Ogre::Vector3& position, const Ogre::Quaternion& o
     return enemy;
 }
 
+void World::update(float dt) {
+    std::vector<Enemy*>::iterator it;
+    for (it = enemies.begin(); it != enemies.end(); ++it)
+        (*it)->update(player, dt);
+}

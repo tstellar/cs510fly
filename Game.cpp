@@ -148,10 +148,9 @@ bool Game::setup() {
     currentLevel = new Level(this);
     currentLevel->populate(world);
 
-    world->getPlayer()->getSceneNode()->attachObject(camera);
+    airplane = world->getPlayer();
 
-
-    airplane = new Airplane(this, airplaneNode);
+    airplane->getSceneNode()->attachObject(camera);
     airplane->setThrust(1000.0);
 
     return true;
@@ -160,7 +159,7 @@ bool Game::setup() {
 void Game::update(float dt){
 
     airplane->update(dt);
-    currentLevel->update(dt);
+    world->update(dt);
 }
 
 

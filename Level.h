@@ -11,7 +11,6 @@ class Level{
     std::vector<Ogre::String> enemyNames;
 public:
     Level(Game *);
-    ~Level();
 
     void populate(World * world) const;
 };
