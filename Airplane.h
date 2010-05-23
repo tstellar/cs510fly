@@ -1,8 +1,7 @@
 #include "Game.h"
+#include "Object.h"
 
-class Airplane {
-    Game * const game;
-    Ogre::SceneNode * const sceneNode;
+class Airplane : public Object {
     Ogre::Vector3 position;
     Ogre::Quaternion orientation;
     Ogre::Vector3 velocity;
