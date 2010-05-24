@@ -1,0 +1,7 @@
+material Ground_Material {
+    technique {
+        pass {
+            texture "terrain/textures/terrain_texture.jpg";
+        }
+    }
+}

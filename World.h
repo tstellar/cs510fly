@@ -25,7 +25,9 @@ public:
     
     Airplane * getPlayer() { return player; }
     const Airplane * getPlayer() const { return player; }
-
+    
+    static const Ogre::String GROUND_NODE_NAME;
+    
 private:
     Ogre::SceneNode * newNode(const Ogre::Vector3& position, const Ogre::Quaternion& orientation, const Ogre::String& name);
 };

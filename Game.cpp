@@ -110,7 +110,7 @@ bool Game::setup() {
     Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
 
     // craete scene manager
-    sceneManager = root->createSceneManager("TerrainSceneManager");
+    sceneManager = root->createSceneManager("DefaultSceneManager");
 
     Ogre::ColourValue fogColor(0.93f, 0.86f, 0.76f);
     sceneManager->setFog(Ogre::FOG_LINEAR, fogColor, 0.001f, 500.0f, 1000.0f);
@@ -133,7 +133,7 @@ bool Game::setup() {
     light->setPosition(20.0f, 80.0f, 50.0f);
 
     // load terrain
-    sceneManager->setWorldGeometry("terrain.cfg");
+    //sceneManager->setWorldGeometry("terrain.cfg");
 
     // set up the ray query for terrain following
     terrainRay.setDirection(Ogre::Vector3::NEGATIVE_UNIT_Y);
@@ -156,9 +156,7 @@ bool Game::setup() {
     return true;
 }
 
-void Game::update(float dt){
-
-    airplane->update(dt);
+void Game::update(float dt) {
     world->update(dt);
 }
 

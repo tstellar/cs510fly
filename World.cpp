@@ -4,7 +4,9 @@
 #include "Target.h"
 #include "Enemy.h"
 
-World::World(Game * game) : Object(game, game->getSceneManager()->getRootSceneNode()), enemies(), player(NULL), target(NULL) {
+const Ogre::String World::GROUND_NODE_NAME = "Ground";
+
+World::World(Game * game) : Object(game, game->getSceneManager()->getRootSceneNode()), player(NULL), target(NULL) {
 
  
 }
@@ -19,11 +21,11 @@ World::~World() {
 }
 
 Ogre::SceneNode * World::getRootNode() {
-    return game->getSceneManager()->getRootSceneNode();
+    return getSceneNode();
 }
 
 const Ogre::SceneNode * World::getRootNode() const {
-    return game->getSceneManager()->getRootSceneNode();
+    return getSceneNode();
 }
 
 Ogre::SceneNode * World::newNode(const Ogre::Vector3& position, const Ogre::Quaternion& orientation, const Ogre::String& name) {
@@ -57,4 +59,5 @@ void World::update(float dt) {
     std::vector<Enemy*>::iterator it;
     for (it = enemies.begin(); it != enemies.end(); ++it)
         (*it)->update(player, dt);
+    player->update(dt);
 }

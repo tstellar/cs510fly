@@ -35,6 +35,11 @@ Level::Level(Game * game) : game(game){
 
 }
 
+void Level::createGroundMesh() const {
+    Ogre::MeshManager * meshMgr = Ogre::MeshManager::getSingletonPtr();
+    meshMgr->createPlane("Ground", "Meshes", Ogre::Plane(Ogre::Vector3::UNIT_Y, 0.0f), 100000, 100000,
+                         1, 1, true, 1, 1, 1, Ogre::Vector3::UNIT_X);
+}
 
 void Level::populate(World * world) const {
     // TODO Set orientations properly
@@ -46,5 +51,14 @@ void Level::populate(World * world) const {
 
     for (; posIter != enemyStarts.end(); posIter++, nameIter++)
         world->addEnemy(*posIter, Ogre::Quaternion::IDENTITY, *nameIter);
+    
+    Ogre::SceneNode * const root = world->getRootNode();
+    Ogre::SceneManager * const sceneMgr = root->getCreator();
+    
+    Ogre::SceneNode * const ground = root->createChildSceneNode(World::GROUND_NODE_NAME);
+    createGroundMesh();
+    Ogre::Entity * const groundEntity = sceneMgr->createEntity(World::GROUND_NODE_NAME, "Ground");
+    groundEntity->setMaterialName("Ground_Material");
+    ground->attachObject(groundEntity);
 }
 

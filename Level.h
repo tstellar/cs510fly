@@ -13,4 +13,8 @@ public:
     Level(Game *);
 
     void populate(World * world) const;
+    
+    static const Ogre::String GROUND_NODE_NAME;
+private:
+    void createGroundMesh() const;
 };
