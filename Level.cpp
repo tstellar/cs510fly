@@ -38,7 +38,7 @@ Level::Level(Game * game) : game(game){
 void Level::createGroundMesh() const {
     Ogre::MeshManager * meshMgr = Ogre::MeshManager::getSingletonPtr();
     meshMgr->createPlane("Ground", "Meshes", Ogre::Plane(Ogre::Vector3::UNIT_Y, 0.0f), 100000, 100000,
-                         1, 1, true, 1, 1, 1, Ogre::Vector3::UNIT_X);
+                         100, 100, true, 1, 1000, 1000, Ogre::Vector3::UNIT_X);
 }
 
 void Level::populate(World * world) const {

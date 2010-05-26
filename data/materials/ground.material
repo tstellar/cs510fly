@@ -1,7 +1,9 @@
 material Ground_Material {
     technique {
         pass {
-            texture "terrain/textures/terrain_texture.jpg";
+            texture_unit {
+                texture grass_1024.jpg
+            }
         }
     }
 }
