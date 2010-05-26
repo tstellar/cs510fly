@@ -14,6 +14,10 @@
 		314C4DBA1190D50E00DC920A /* sphere.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DB91190D50E00DC920A /* sphere.mesh */; };
 		319448F5119225F00061D902 /* 1.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 319448F4119225F00061D902 /* 1.cfg */; };
 		741DAD6511ACDE4900686F16 /* grass_1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 741DAD6411ACDE4900686F16 /* grass_1024.jpg */; };
+		741DAD7811ACEE0D00686F16 /* hud.overlay in Resources */ = {isa = PBXBuildFile; fileRef = 741DAD7711ACEDE600686F16 /* hud.overlay */; };
+		741DADA811ACF0F900686F16 /* Display.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 741DADA711ACF0F900686F16 /* Display.cpp */; };
+		741DAFA611ACFC2600686F16 /* bluehigh.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 741DAFA511ACFC2600686F16 /* bluehigh.ttf */; };
+		741DAFBC11ACFC6600686F16 /* blue-highway.fontdef in Resources */ = {isa = PBXBuildFile; fileRef = 741DAFA411ACFBD900686F16 /* blue-highway.fontdef */; };
 		7427E51111AA102A002FE91D /* ground.material in Resources */ = {isa = PBXBuildFile; fileRef = 7427E4EB11AA0F31002FE91D /* ground.material */; };
 		742B24A411A66F3400EF4552 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 742B24A211A66F3400EF4552 /* World.cpp */; };
 		7442E53F1194ED3F0055FF80 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7442E53E1194ED3F0055FF80 /* Enemy.cpp */; };
@@ -63,6 +67,11 @@
 		314C4DB91190D50E00DC920A /* sphere.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = sphere.mesh; sourceTree = "<group>"; };
 		319448F4119225F00061D902 /* 1.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.cfg; sourceTree = "<group>"; };
 		741DAD6411ACDE4900686F16 /* grass_1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grass_1024.jpg; sourceTree = "<group>"; };
+		741DAD7711ACEDE600686F16 /* hud.overlay */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hud.overlay; path = ui/scripts/hud.overlay; sourceTree = "<group>"; };
+		741DADA611ACF0F900686F16 /* Display.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Display.h; sourceTree = "<group>"; };
+		741DADA711ACF0F900686F16 /* Display.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Display.cpp; sourceTree = "<group>"; };
+		741DAFA411ACFBD900686F16 /* blue-highway.fontdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "blue-highway.fontdef"; path = "ui/scripts/blue-highway.fontdef"; sourceTree = "<group>"; };
+		741DAFA511ACFC2600686F16 /* bluehigh.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bluehigh.ttf; path = ui/fonts/bluehigh.ttf; sourceTree = "<group>"; };
 		7427E4EB11AA0F31002FE91D /* ground.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ground.material; sourceTree = "<group>"; };
 		742B24A211A66F3400EF4552 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		742B24A311A66F3400EF4552 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
@@ -131,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				74C440AE118F8395001B83F0 /* Airplane.cpp */,
+				741DADA711ACF0F900686F16 /* Display.cpp */,
 				7442E53E1194ED3F0055FF80 /* Enemy.cpp */,
 				74598546118E62B200107C82 /* Game.cpp */,
 				74598544118E62B200107C82 /* InputListener.cpp */,
@@ -176,10 +186,37 @@
 			path = levels;
 			sourceTree = "<group>";
 		};
+		741DAD7611ACEDD400686F16 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				741DAFA311ACFBC300686F16 /* fonts */,
+				741DAFA211ACFBBC00686F16 /* scripts */,
+			);
+			name = ui;
+			sourceTree = "<group>";
+		};
+		741DAFA211ACFBBC00686F16 /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				741DAD7711ACEDE600686F16 /* hud.overlay */,
+				741DAFA411ACFBD900686F16 /* blue-highway.fontdef */,
+			);
+			name = scripts;
+			sourceTree = "<group>";
+		};
+		741DAFA311ACFBC300686F16 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				741DAFA511ACFC2600686F16 /* bluehigh.ttf */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
 		7459854A118E62C500107C82 /* Include */ = {
 			isa = PBXGroup;
 			children = (
 				74C440AD118F8395001B83F0 /* Airplane.h */,
+				741DADA611ACF0F900686F16 /* Display.h */,
 				7442E5401194ED460055FF80 /* Enemy.h */,
 				7459854D118E632800107C82 /* Game.h */,
 				7459854C118E632800107C82 /* InputListener.h */,
@@ -204,6 +241,7 @@
 		7459854E118E635400107C82 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				741DAD7611ACEDD400686F16 /* ui */,
 				319448F3119225F00061D902 /* levels */,
 				314C4DA91190D49600DC920A /* meshes */,
 				314C4D921190CF9000DC920A /* materials */,
@@ -312,6 +350,9 @@
 				319448F5119225F00061D902 /* 1.cfg in Resources */,
 				7427E51111AA102A002FE91D /* ground.material in Resources */,
 				741DAD6511ACDE4900686F16 /* grass_1024.jpg in Resources */,
+				741DAD7811ACEE0D00686F16 /* hud.overlay in Resources */,
+				741DAFA611ACFC2600686F16 /* bluehigh.ttf in Resources */,
+				741DAFBC11ACFC6600686F16 /* blue-highway.fontdef in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +371,7 @@
 				314C4D841190CE6500DC920A /* Target.cpp in Sources */,
 				7442E53F1194ED3F0055FF80 /* Enemy.cpp in Sources */,
 				742B24A411A66F3400EF4552 /* World.cpp in Sources */,
+				741DADA811ACF0F900686F16 /* Display.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

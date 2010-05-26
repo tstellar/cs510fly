@@ -4,6 +4,7 @@
 #include "Game.h"
 
 #include "Airplane.h"
+#include "Display.h"
 #include "InputListener.h"
 #include "Level.h"
 #include "World.h"
@@ -36,7 +37,7 @@ std::string macBundlePath()
 #endif
 
 Game::Game() : inputListener(NULL), raySceneQuery(NULL), airplane(NULL),
-        currentLevel(NULL), world(NULL) {
+        currentLevel(NULL), world(NULL), display(NULL) {
 #ifndef LINUX       
     mResourcePath = macBundlePath() + "/Contents/Resources/";
     levelPath = mResourcePath;
@@ -60,6 +61,9 @@ Game::~Game() {
     }
     if (currentLevel != NULL){
         delete currentLevel;
+    }
+    if (display != NULL) {
+        delete display;
     }
     delete root;
 }
@@ -152,12 +156,16 @@ bool Game::setup() {
 
     airplane->getSceneNode()->attachObject(camera);
     airplane->setThrust(1000.0);
-
+    
+    display = new Display(this);
+    display->setup();
+    
     return true;
 }
 
 void Game::update(float dt) {
     world->update(dt);
+    display->update(dt);
 }
 
 
