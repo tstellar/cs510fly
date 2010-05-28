@@ -9,7 +9,8 @@
 InputListener::InputListener(Game* game, Ogre::RenderWindow * renderWindow) :
     game(game), renderWindow(renderWindow), 
     forwardKeyDown(false), backKeyDown(false), upKeyDown(false), downKeyDown(false),
-    leftKeyDown(false), rightKeyDown(false), yawLeftKeyDown(false), yawRightKeyDown(false), shutdownKeyPressed(false) {
+    leftKeyDown(false), rightKeyDown(false), yawLeftKeyDown(false), yawRightKeyDown(false),
+    shutdownKeyPressed(false), breakKeyPressed(false) {
         size_t windowHandle;
         renderWindow->getCustomAttribute("WINDOW", &windowHandle);
 
@@ -56,7 +57,11 @@ bool InputListener::frameStarted(const Ogre::FrameEvent& event) {
         airplane->pitchDown();
     if (downKeyDown)
         airplane->pitchUp();
-
+    
+    if (breakKeyPressed)
+        // Set breakpoint here
+        breakKeyPressed = false;
+    
     game->update(event.timeSinceLastFrame);
 
     return true;
@@ -102,6 +107,8 @@ bool InputListener::keyPressed(const OIS::KeyEvent& event) {
         break;
         case OIS::KC_ESCAPE:
             shutdownKeyPressed = true;
+        case OIS::KC_B:
+            breakKeyPressed = true;
         break;
     }
 

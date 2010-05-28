@@ -18,7 +18,7 @@ private:
     OIS::Keyboard* keyboard;
     bool forwardKeyDown, backKeyDown, upKeyDown, downKeyDown,
             leftKeyDown, rightKeyDown, yawLeftKeyDown, yawRightKeyDown;
-    bool shutdownKeyPressed;
+    bool shutdownKeyPressed, breakKeyPressed;
 
 public:
     InputListener(Game* game, Ogre::RenderWindow * renderWindow);
