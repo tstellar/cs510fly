@@ -160,3 +160,7 @@ void Airplane::update(float dt) {
     sceneNode->setPosition(position);
 
 }
+
+Ogre::Radian Airplane::getPitch() { return orientation.getPitch(); }
+Ogre::Radian Airplane::getRoll() { return orientation.getRoll(); }
+Ogre::Radian Airplane::getYaw() { return orientation.getYaw(); }

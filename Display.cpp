@@ -16,14 +16,16 @@ static const Ogre::String
     OVERLAY_NAME = "Fly/HUD",
     PANEL_NAME = "Fly/HUDPanel",
     POSITION_TEXT_BOX_NAME = "Fly/Position",
-    VELOCITY_TEXT_BOX_NAME = "Fly/Velocity";
+    VELOCITY_TEXT_BOX_NAME = "Fly/Velocity",
+    PITCH_ROLL_YAW_TEXT_BOX_NAME = "Fly/PitchRollYaw";
 
 Display::Display(Game * game) :
     game(game),
     overlay(Ogre::OverlayManager::getSingletonPtr()->getByName(OVERLAY_NAME)),
     panel(overlay->getChild(PANEL_NAME)),
     positionTextBox(dynamic_cast<Ogre::TextAreaOverlayElement *>(panel->getChild(POSITION_TEXT_BOX_NAME))),
-    velocityTextBox(dynamic_cast<Ogre::TextAreaOverlayElement *>(panel->getChild(VELOCITY_TEXT_BOX_NAME))) { }
+    velocityTextBox(dynamic_cast<Ogre::TextAreaOverlayElement *>(panel->getChild(VELOCITY_TEXT_BOX_NAME))),
+    pitchRollYawTextBox(dynamic_cast<Ogre::TextAreaOverlayElement *>(panel->getChild(PITCH_ROLL_YAW_TEXT_BOX_NAME))) { }
 
 void Display::setup() {
     overlay->show();
@@ -33,4 +35,10 @@ void Display::update(float dt) {
     Airplane * const player = game->getWorld()->getPlayer();
     positionTextBox->setCaption(Ogre::StringConverter::toString(player->getPosition()));
     velocityTextBox->setCaption(Ogre::StringConverter::toString(player->getVelocity()));
+    
+    Ogre::Degree pitch = player->getPitch(), roll = player->getRoll(), yaw = player->getYaw();
+    pitchRollYawTextBox->setCaption(
+            Ogre::StringConverter::toString(pitch) + " " +
+            Ogre::StringConverter::toString(roll) + " " +
+            Ogre::StringConverter::toString(yaw));
 }

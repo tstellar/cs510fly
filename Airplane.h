@@ -25,9 +25,9 @@ public:
     const Ogre::Vector3& getPosition() const { return position; }
     const Ogre::Vector3& getVelocity() const { return velocity; }
 
-    float getPitch();
-    float getRoll();
-    float getYaw();
+    Ogre::Radian getPitch();
+    Ogre::Radian getRoll();
+    Ogre::Radian getYaw();
 
     void increaseThrust();
     void decreaseThrust();

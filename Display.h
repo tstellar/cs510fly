@@ -11,6 +11,7 @@ class Display {
     Ogre::OverlayContainer * const panel;
     Ogre::TextAreaOverlayElement * const positionTextBox;
     Ogre::TextAreaOverlayElement * const velocityTextBox;
+    Ogre::TextAreaOverlayElement * const pitchRollYawTextBox;
 
 public:
     Display(Game *);
