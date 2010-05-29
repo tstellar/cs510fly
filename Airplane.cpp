@@ -35,7 +35,10 @@ Ogre::Vector3 Airplane::lift() {
     const float velSquared = velocity.squaredLength();
     const float cl = liftCoefficient(aoa);
     
-    return 0.5f * AIR_DENSITY * velSquared * aoa * cl * Ogre::Vector3::UNIT_Y;
+    const Ogre::Vector3 liftDir = (orientation.Inverse() * velocity).crossProduct(Ogre::Vector3::NEGATIVE_UNIT_X);
+    liftDir.normalise();
+    
+    return 0.5f * AIR_DENSITY * PLANFORM_AREA * velSquared * cl * liftDir;
 }
 
 float Airplane::liftCoefficient(float aoa) {
