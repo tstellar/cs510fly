@@ -57,8 +57,18 @@ Ogre::Vector3 Airplane::weight() {
 }
 
 Ogre::Vector3 Airplane::drag() {
-    // We'll be physics people for the moment: No friction.
-    return Ogre::Vector3::ZERO;
+    const float aoa = orientation.getPitch(false).valueDegrees();
+    const float velSquared = velocity.squaredLength();
+    const float cd = dragCoefficient(aoa);
+    
+    return 0.5f * AIR_DENSITY * PLANFORM_AREA * velSquared * cd * -1 * (orientation.Inverse() * velocity);
+}
+
+float Airplane::dragCoefficient(float aoa) {
+    // See docs/drag-coefficient.numbers
+    
+    const float cl = liftCoefficient(aoa);
+    return cl * (0.2837 * cl - 0.0693) + 0.0217;
 }
 
 Ogre::Vector3 Airplane::netForce() {

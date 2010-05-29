@@ -47,6 +47,7 @@ private:
     Ogre::Vector3 netForce();
     
     float liftCoefficient(float aoa);
+    float dragCoefficient(float aoa);
 };
 
 
