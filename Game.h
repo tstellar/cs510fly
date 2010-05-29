@@ -31,6 +31,8 @@ private:
     Level *currentLevel;
     World *world;
     Display * display;
+    
+    bool breaking;
 
 public:
     Game();
@@ -48,6 +50,8 @@ public:
     void init();
     void update(float dt);
 
+    void setBreak();
+    bool checkBreak();
 private:
     bool setup();
 };
