@@ -11,8 +11,10 @@
 #endif
 
 class Airplane;
+class Display;
 class InputListener;
 class Level;
+class World;
 
 class Game {
 private:
@@ -27,6 +29,8 @@ private:
     Ogre::String mResourcePath;
     Ogre::String levelPath;
     Level *currentLevel;
+    World *world;
+    Display * display;
 
 public:
     Game();
@@ -40,6 +44,7 @@ public:
 
     float getTerrainHeightAt(float x, float y);
     Level *getCurrentLevel(){ return currentLevel; };
+    World * getWorld() { return world; }
     void init();
     void update(float dt);
 

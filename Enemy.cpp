@@ -11,8 +11,8 @@ Enemy::Enemy(Game * game, Ogre::SceneNode * sceneNode, Ogre::String name) :
 }
 
 void Enemy::update(Airplane * player, float dt) {
-    Ogre::Vector3& playerPosition = player->getPosition();
-    Ogre::Vector3& enemyPosition = this->airplane->getPosition();
+    const Ogre::Vector3& playerPosition = player->getPosition();
+    const Ogre::Vector3& enemyPosition = this->airplane->getPosition();
     /* TODO: not rolling, not pitching, and not yawing should be an option
      * if the enemy is within some constant amount of the player. */
     

@@ -1,8 +1,7 @@
 #include "Game.h"
+#include "Object.h"
 
-class Airplane {
-    Game * const game;
-    Ogre::SceneNode * const sceneNode;
+class Airplane : public Object {
     Ogre::Vector3 position;
     Ogre::Quaternion orientation;
     Ogre::Vector3 velocity;
@@ -23,11 +22,12 @@ public:
 
     float getThrust() { return thrustAmount; }
     void setThrust(float thrustAmount) { this->thrustAmount = thrustAmount; }
-    Ogre::Vector3& getPosition() { return position; }
+    const Ogre::Vector3& getPosition() const { return position; }
+    const Ogre::Vector3& getVelocity() const { return velocity; }
 
-    float getPitch();
-    float getRoll();
-    float getYaw();
+    Ogre::Radian getPitch();
+    Ogre::Radian getRoll();
+    Ogre::Radian getYaw();
 
     void increaseThrust();
     void decreaseThrust();
@@ -45,6 +45,8 @@ private:
     Ogre::Vector3 weight();
 
     Ogre::Vector3 netForce();
+    
+    float liftCoefficient(float aoa);
 };
 
 

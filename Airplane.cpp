@@ -6,14 +6,16 @@ static const float MINIMUM_TIME_STEP = 0.01f;
 
 static const float MASS = 18885.f; // NTO mass of F-15 Eagle in kg
 static const float WEIGHT = 184000.0f; // NTO weight of F-15 Eagle in newtons
-static const float HEIGHT = 5.63f;  // Height of F-15 Eagle in meters.
+static const float HEIGHT = 5.63f;  // Height of F-15 Eagle in meters
+static const float AIR_DENSITY = 1.2f; // Density of air in kg/m^3 (assumed constant)
+static const float PLANFORM_AREA = 56.5; // Planform area of F-15 Eagle in m^2
 static const float THRUST_DELTA = 5000.0; // Adjust thrust by 5 kN/s
 static const Ogre::Radian ROLL_DELTA(Ogre::Math::HALF_PI/4.0f); // Adjust roll by pi/8 rad/s
 static const Ogre::Radian PITCH_DELTA(Ogre::Math::HALF_PI/2.0f); // Adjust pitch by pi/4 rad/s
 static const Ogre::Radian YAW_DELTA(Ogre::Math::HALF_PI/8.0F); // Adjust yaw by pi/16 rad/s
 
 Airplane::Airplane(Game * game, Ogre::SceneNode * sceneNode) :
-    game(game), sceneNode(sceneNode),
+    Object(game, sceneNode),
     delay(0.0f),
     position(sceneNode->getPosition() + Ogre::Vector3(0.0f, HEIGHT, 0.0f)),
     orientation(sceneNode->getOrientation()),
@@ -28,8 +30,23 @@ Ogre::Vector3 Airplane::thrust() {
 }
 
 Ogre::Vector3 Airplane::lift() {
-    // Cheating for now: In level flight, |lift| = |weight|, but lift isn't pointed straight up if we're turning.
-    return WEIGHT * Ogre::Vector3::UNIT_Y;
+    // Pretty sure this is wrong.
+    const float aoa = orientation.getPitch(false).valueDegrees();
+    const float velSquared = velocity.squaredLength();
+    const float cl = liftCoefficient(aoa);
+    
+    return 0.5f * AIR_DENSITY * velSquared * aoa * cl * Ogre::Vector3::UNIT_Y;
+}
+
+float Airplane::liftCoefficient(float aoa) {
+    // See docs/lift-coefficient.numbers
+    
+    if (aoa <= 7.0f)
+        return 0.11f * aoa;
+    else if (aoa < 15.0f)
+        return aoa * (-0.0159f * aoa + 0.3581f) - 0.9474;
+    else
+        return -0.02f * aoa + 1.15;
 }
 
 Ogre::Vector3 Airplane::weight() {
@@ -133,7 +150,17 @@ void Airplane::update(float dt) {
     // TODO We can get away with not normalizing orientation every frame if need be
     orientation.normalise();
 
+    // XXX This seems heavy-handed.
+    if (position.y < HEIGHT * 0.5f) {
+        position.y = HEIGHT * 0.5f;
+        velocity.y = 0.0f;
+    }
+    
     sceneNode->setOrientation(orientation);
     sceneNode->setPosition(position);
 
 }
+
+Ogre::Radian Airplane::getPitch() { return orientation.getPitch(); }
+Ogre::Radian Airplane::getRoll() { return orientation.getRoll(); }
+Ogre::Radian Airplane::getYaw() { return orientation.getYaw(); }

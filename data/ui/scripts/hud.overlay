@@ -1,0 +1,50 @@
+template container TextArea(Fly/TextBox)
+{
+    font_name BlueHighway12
+    width 0.15
+    height 0.025
+    char_height 0.0225
+    alignment left
+    left 0.8
+}
+
+Fly/HUD
+{
+    container Panel(Fly/HUDPanel)
+    {
+        top 0
+        left 0
+        width 1
+        height 1
+    
+        element TextArea(Fly/PositionLabel) : Fly/TextBox
+        {
+            caption Position
+            top 0.575
+        }
+        element TextArea(Fly/Position) : Fly/TextBox
+        {
+            top 0.6
+        }
+        
+        element TextArea(Fly/VelocityLabel) : Fly/TextBox
+        {
+            caption Velocity
+            top 0.625
+        }
+        element TextArea(Fly/Velocity) : Fly/TextBox
+        {
+            top 0.65
+        }
+        
+        element TextArea(Fly/PitchRollYawLabel) : Fly/TextBox
+        {
+            caption Pitch/Roll/Yaw
+            top 0.675
+        }        
+        element TextArea(Fly/PitchRollYaw) : Fly/TextBox
+        {
+            top 0.7
+        }
+    }
+}
