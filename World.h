@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "Object.h"
+#include "PhysicalState.h"
 
 class Target;
 class Enemy;
@@ -14,9 +15,9 @@ public:
     World(Game *);
     ~World();
 
-    Airplane * addPlayer(const Ogre::Vector3& position, const Ogre::Quaternion& orientation);
-    Target * addTarget(const Ogre::Vector3& position, const Ogre::Quaternion& orientation);
-    Enemy * addEnemy(const Ogre::Vector3& position, const Ogre::Quaternion& orientation, const Ogre::String& name);
+    Airplane * addPlayer(const PhysicalState& physicalState);
+    Target * addTarget(const Ogre::Vector3& position);
+    Enemy * addEnemy(const PhysicalState& physicalState, const Ogre::String& name);
 
     void update(float);
 

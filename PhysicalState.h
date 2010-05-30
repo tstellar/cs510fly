@@ -1,4 +1,7 @@
-#include "Game.h"
+#ifndef PHYSICALSTATE_H
+#define PHYSICALSTATE_H
+
+#include "Ogre.h"
 
 struct PhysicalState {
     Ogre::Vector3 position;
@@ -22,6 +25,10 @@ struct PhysicalState {
         orientation(node->getOrientation()),
         velocity(Ogre::Vector3::ZERO) { }
     
+    static PhysicalState readFromConfig(const Ogre::ConfigFile::SettingsMultiMap * settings);
+    
     void syncToNode(Ogre::Node *) const;
     void syncFromNode(const Ogre::Node *);
 };
+
+#endif

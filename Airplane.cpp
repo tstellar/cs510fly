@@ -14,14 +14,16 @@ static const Ogre::Radian ROLL_DELTA(Ogre::Math::HALF_PI/4.0f); // Adjust roll b
 static const Ogre::Radian PITCH_DELTA(Ogre::Math::HALF_PI/2.0f); // Adjust pitch by pi/4 rad/s
 static const Ogre::Radian YAW_DELTA(Ogre::Math::HALF_PI/8.0F); // Adjust yaw by pi/16 rad/s
 
-Airplane::Airplane(Game * game, Ogre::SceneNode * sceneNode) :
-    Object(game, sceneNode),
-    delay(0.0f),
-    state(sceneNode->getPosition() + Ogre::Vector3(0.0f, HEIGHT, 0.0f),
-            sceneNode->getOrientation(), Ogre::Vector3::ZERO),
-    thrustAmount(0.0f),
-    thrustInc(false), thrustDec(false), pitchInc(false), pitchDec(false),
-    rollInc(false), rollDec(false), yawInc(false), yawDec(false) { }
+Airplane::Airplane(Game * game, Ogre::SceneNode * sceneNode, const PhysicalState& state) :
+        Object(game, sceneNode),
+        delay(0.0f),
+        state(state),
+        thrustAmount(0.0f),
+        thrustInc(false), thrustDec(false), pitchInc(false), pitchDec(false),
+        rollInc(false), rollDec(false), yawInc(false), yawDec(false) {
+    this->state.position.y = 0.5f * HEIGHT;
+    this->state.syncToNode(sceneNode);
+}
 
 Airplane::~Airplane() { }
 

@@ -1,6 +1,6 @@
-#include "Ogre.h"
+#include "Game.h"
+#include "PhysicalState.h"
 
-class Game;
 class Airplane;
 
 class Enemy{
@@ -8,7 +8,7 @@ class Enemy{
     Airplane * airplane;
 
 public:
-    Enemy(Game *, Ogre::SceneNode *, Ogre::String);
+    Enemy(Game *, Ogre::SceneNode *, const PhysicalState&, Ogre::String);
     ~Enemy();
 
     void update(Airplane *, float dt);

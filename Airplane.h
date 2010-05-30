@@ -14,7 +14,7 @@ class Airplane : public Object {
 public:
     static const Ogre::String SCENE_NODE_NAME;
 
-    Airplane(Game *, Ogre::SceneNode *);
+    Airplane(Game *, Ogre::SceneNode *, const PhysicalState&);
     ~Airplane();
 
     void update(float dt);
