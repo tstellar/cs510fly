@@ -36,7 +36,7 @@ std::string macBundlePath()
 }
 #endif
 
-Game::Game() : inputListener(NULL), raySceneQuery(NULL), airplane(NULL),
+Game::Game() : inputListener(NULL), airplane(NULL),
         currentLevel(NULL), world(NULL), display(NULL), breaking(false) {
 #ifndef LINUX       
     mResourcePath = macBundlePath() + "/Contents/Resources/";
@@ -53,9 +53,6 @@ Game::~Game() {
     if (inputListener != NULL){
         delete inputListener;
     }
-    if (raySceneQuery != NULL){
-        delete raySceneQuery;
-    }
     if (airplane != NULL){
         delete airplane;
     }
@@ -66,16 +63,6 @@ Game::~Game() {
         delete display;
     }
     delete root;
-}
-
-
-float Game::getTerrainHeightAt(float x, float z) {
-    terrainRay.setOrigin(Ogre::Vector3(x, 1000.0f, z));
-    raySceneQuery->setRay(terrainRay);
-    Ogre::RaySceneQueryResult&  queryResult = raySceneQuery->execute();
-    Ogre::RaySceneQueryResult::iterator qi = queryResult.begin();
-    return (qi != queryResult.end() && qi->worldFragment) ? 
-            qi->worldFragment->singleIntersection.y : 0.0f;
 }
 
 void Game::init() {
@@ -138,12 +125,7 @@ bool Game::setup() {
 
     // load terrain
     //sceneManager->setWorldGeometry("terrain.cfg");
-
-    // set up the ray query for terrain following
-    terrainRay.setDirection(Ogre::Vector3::NEGATIVE_UNIT_Y);
-
-    raySceneQuery = sceneManager->createRayQuery(terrainRay);
-
+    
     inputListener = new InputListener(this, renderWindow);
     root->addFrameListener(inputListener);
 

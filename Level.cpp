@@ -12,8 +12,7 @@ Level::Level(Game * game) : game(game){
     /* Load the Target's starting point. */
     Ogre::Vector2 targetXZ = Ogre::StringConverter::parseVector2(
                     levelCFG.getSetting("Target"));
-    float targetY = game->getTerrainHeightAt(targetXZ.x, targetXZ.y);
-    targetStart = Ogre::Vector3(targetXZ.x,targetY,targetXZ.y);
+    targetStart = Ogre::Vector3(targetXZ.x,0,targetXZ.y);
 
     /* Load the player's starting point. */
     Ogre::Vector2 playerXZ = Ogre::StringConverter::parseVector2(
