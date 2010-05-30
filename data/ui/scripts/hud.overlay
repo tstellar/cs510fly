@@ -8,6 +8,12 @@ template container TextArea(Fly/TextBox)
     left 0.8
 }
 
+template container TextArea(Fly/Label) : Fly/TextBox
+{
+    colour_top 0 1 0
+    colour_bottom 1 1 1
+}
+
 Fly/HUD
 {
     container Panel(Fly/HUDPanel)
@@ -17,7 +23,7 @@ Fly/HUD
         width 1
         height 1
     
-        element TextArea(Fly/PositionLabel) : Fly/TextBox
+        element TextArea(Fly/PositionLabel) : Fly/Label
         {
             caption Position
             top 0.575
@@ -27,7 +33,7 @@ Fly/HUD
             top 0.6
         }
         
-        element TextArea(Fly/VelocityLabel) : Fly/TextBox
+        element TextArea(Fly/VelocityLabel) : Fly/Label
         {
             caption Velocity
             top 0.625
@@ -37,7 +43,7 @@ Fly/HUD
             top 0.65
         }
         
-        element TextArea(Fly/PitchRollYawLabel) : Fly/TextBox
+        element TextArea(Fly/PitchRollYawLabel) : Fly/Label
         {
             caption Pitch/Roll/Yaw
             top 0.675
@@ -45,6 +51,16 @@ Fly/HUD
         element TextArea(Fly/PitchRollYaw) : Fly/TextBox
         {
             top 0.7
+        }
+        
+        element TextArea(Fly/ThrustLabel) : Fly/Label
+        {
+            caption Thrust
+            top 0.725
+        }
+        element TextArea(Fly/Thrust) : Fly/TextBox
+        {
+            top 0.75
         }
     }
 }
