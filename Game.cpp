@@ -37,7 +37,7 @@ std::string macBundlePath()
 #endif
 
 Game::Game() : inputListener(NULL), raySceneQuery(NULL), airplane(NULL),
-        currentLevel(NULL), world(NULL), display(NULL) {
+        currentLevel(NULL), world(NULL), display(NULL), breaking(false) {
 #ifndef LINUX       
     mResourcePath = macBundlePath() + "/Contents/Resources/";
     levelPath = mResourcePath;
@@ -168,4 +168,15 @@ void Game::update(float dt) {
     display->update(dt);
 }
 
+void Game::setBreak() {
+    breaking = true;
+}
 
+bool Game::checkBreak() {
+    if (breaking) {
+        breaking = false;
+        return true;
+    } else {
+        return false;
+    }
+}
