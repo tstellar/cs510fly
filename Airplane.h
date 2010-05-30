@@ -20,14 +20,14 @@ public:
 
     void update(float dt);
 
-    float getThrust() { return thrustAmount; }
+    float getThrust() const { return thrustAmount; }
     void setThrust(float thrustAmount) { this->thrustAmount = thrustAmount; }
     const Ogre::Vector3& getPosition() const { return position; }
     const Ogre::Vector3& getVelocity() const { return velocity; }
 
-    Ogre::Radian getPitch();
-    Ogre::Radian getRoll();
-    Ogre::Radian getYaw();
+    Ogre::Radian getPitch() const;
+    Ogre::Radian getRoll() const;
+    Ogre::Radian getYaw() const;
 
     void increaseThrust();
     void decreaseThrust();
@@ -39,15 +39,15 @@ public:
     void yawRight();
 
 private:
-    Ogre::Vector3 thrust();
-    Ogre::Vector3 lift();
-    Ogre::Vector3 drag();
-    Ogre::Vector3 weight();
+    Ogre::Vector3 thrust() const;
+    Ogre::Vector3 lift() const;
+    Ogre::Vector3 drag() const;
+    Ogre::Vector3 weight() const;
 
-    Ogre::Vector3 netForce();
+    Ogre::Vector3 netForce() const;
     
-    float liftCoefficient(float aoa);
-    float dragCoefficient(float aoa);
+    float liftCoefficient(float aoa) const;
+    float dragCoefficient(float aoa) const;
 };
 
 
