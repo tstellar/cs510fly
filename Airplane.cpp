@@ -23,8 +23,8 @@ Airplane::Airplane(Game * game, Ogre::SceneNode * sceneNode) :
     thrustInc(false), thrustDec(false), pitchInc(false), pitchDec(false),
     rollInc(false), rollDec(false), yawInc(false), yawDec(false) { 
     /* Create particle systems */
-    Ogre::ParticleSystem * sunParticle = sceneNode->getCreator()->createParticleSystem(sceneNode->getName() + "Engine", "Engine");
-    sceneNode->attachObject(sunParticle);
+    engineParticles = sceneNode->getCreator()->createParticleSystem(sceneNode->getName() + "Engine", "Engine");
+    sceneNode->attachObject(engineParticles);
     }
 
 Airplane::~Airplane() { }
@@ -175,7 +175,6 @@ void Airplane::update(float dt) {
     
     sceneNode->setOrientation(orientation);
     sceneNode->setPosition(position);
-
 }
 
 Ogre::Radian Airplane::getPitch() { return orientation.getPitch(); }

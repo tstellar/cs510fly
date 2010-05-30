@@ -12,6 +12,7 @@ class Airplane : public Object {
 
     float delay;
 
+    Ogre::ParticleSystem * engineParticles;
 public:
     static const Ogre::String SCENE_NODE_NAME;
 
