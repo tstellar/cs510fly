@@ -28,7 +28,7 @@ Airplane::Airplane(Game * game, Ogre::SceneNode * sceneNode, const PhysicalState
 Airplane::~Airplane() { }
 
 Ogre::Vector3 Airplane::thrust() const {
-    return thrustAmount * Ogre::Vector3::NEGATIVE_UNIT_Z;
+    return thrustAmount * (state.orientation * Ogre::Vector3::NEGATIVE_UNIT_Z);
 }
 
 Ogre::Vector3 Airplane::lift() const {
@@ -37,7 +37,7 @@ Ogre::Vector3 Airplane::lift() const {
     const float velSquared = state.velocity.squaredLength();
     const float cl = liftCoefficient(aoa);
     
-    const Ogre::Vector3 liftDir = Ogre::Vector3::UNIT_Y;
+    const Ogre::Vector3 liftDir = state.orientation * Ogre::Vector3::UNIT_Y;
     
     return 0.5f * AIR_DENSITY * PLANFORM_AREA * velSquared * cl * liftDir;
 }
@@ -54,7 +54,7 @@ float Airplane::liftCoefficient(float aoa) const {
 }
 
 Ogre::Vector3 Airplane::weight() const {
-    return WEIGHT * (state.orientation.Inverse() * Ogre::Vector3::NEGATIVE_UNIT_Y);
+    return WEIGHT * Ogre::Vector3::NEGATIVE_UNIT_Y;
 }
 
 Ogre::Vector3 Airplane::drag() const {
@@ -62,7 +62,7 @@ Ogre::Vector3 Airplane::drag() const {
     const float velSquared = state.velocity.squaredLength();
     const float cd = dragCoefficient(aoa);
     
-    const Ogre::Vector3 dragDir = -1.0f * (state.orientation.Inverse() * state.velocity).normalisedCopy();
+    const Ogre::Vector3 dragDir = -state.velocity.normalisedCopy();
     
     return 0.5f * AIR_DENSITY * PLANFORM_AREA * velSquared * cd * dragDir;
 }
@@ -138,8 +138,7 @@ void Airplane::update(float dt) {
     }
     delay = 0.0f;
 
-    Ogre::Vector3 relativeNetForce = netForce();
-    Ogre::Vector3 absoluteNetForce = state.orientation.Inverse() * relativeNetForce;
+    Ogre::Vector3 absoluteNetForce = netForce();
 
     // Hi, Newton!
     Ogre::Vector3 acceleration = absoluteNetForce / MASS;
@@ -156,8 +155,7 @@ void Airplane::update(float dt) {
     state.velocity += dt * acceleration;
 
     // Step 3b: Re-evaluate acceleration in new state
-    relativeNetForce = netForce();
-    absoluteNetForce = state.orientation.Inverse() * relativeNetForce;
+    absoluteNetForce = netForce();
     acceleration = absoluteNetForce / MASS;
 
     // Step 4: Calculate new velocity from half-step velocity and new acceleration
