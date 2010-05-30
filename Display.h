@@ -12,12 +12,16 @@ class Display {
     Ogre::TextAreaOverlayElement * const positionTextBox;
     Ogre::TextAreaOverlayElement * const velocityTextBox;
     Ogre::TextAreaOverlayElement * const pitchRollYawTextBox;
+    Ogre::TextAreaOverlayElement * const thrustTextBox;
 
 public:
     Display(Game *);
     
     void setup();
     void update(float dt);
+    
+private:
+    Ogre::TextAreaOverlayElement * getTextArea(Ogre::String name);
 };
 
 #endif
