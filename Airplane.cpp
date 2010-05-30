@@ -62,7 +62,9 @@ Ogre::Vector3 Airplane::drag() const {
     const float velSquared = state.velocity.squaredLength();
     const float cd = dragCoefficient(aoa);
     
-    return 0.5f * AIR_DENSITY * PLANFORM_AREA * velSquared * cd * -1 * (state.orientation.Inverse() * state.velocity);
+    const Ogre::Vector3 dragDir = -1.0f * (state.orientation.Inverse() * state.velocity).normalisedCopy();
+    
+    return 0.5f * AIR_DENSITY * PLANFORM_AREA * velSquared * cd * dragDir;
 }
 
 float Airplane::dragCoefficient(float aoa) const {
