@@ -29,23 +29,22 @@ Airplane::Airplane(Game * game, Ogre::SceneNode * sceneNode) :
 
 Airplane::~Airplane() { }
 
-Ogre::Vector3 Airplane::thrust() {
+Ogre::Vector3 Airplane::thrust() const {
     return thrustAmount * Ogre::Vector3::NEGATIVE_UNIT_Z;
 }
 
-Ogre::Vector3 Airplane::lift() {
+Ogre::Vector3 Airplane::lift() const {
     // Pretty sure this is wrong.
     const float aoa = orientation.getPitch(false).valueDegrees();
     const float velSquared = velocity.squaredLength();
     const float cl = liftCoefficient(aoa);
     
-    const Ogre::Vector3 liftDir = (orientation.Inverse() * velocity)
-            .crossProduct(Ogre::Vector3::NEGATIVE_UNIT_X).normalisedCopy();
+    const Ogre::Vector3 liftDir = Ogre::Vector3::UNIT_Y;
     
     return 0.5f * AIR_DENSITY * PLANFORM_AREA * velSquared * cl * liftDir;
 }
 
-float Airplane::liftCoefficient(float aoa) {
+float Airplane::liftCoefficient(float aoa) const {
     // See docs/lift-coefficient.numbers
     
     if (aoa <= 7.0f)
@@ -56,11 +55,11 @@ float Airplane::liftCoefficient(float aoa) {
         return -0.02f * aoa + 1.15;
 }
 
-Ogre::Vector3 Airplane::weight() {
+Ogre::Vector3 Airplane::weight() const {
     return WEIGHT * (orientation.Inverse() * Ogre::Vector3::NEGATIVE_UNIT_Y);
 }
 
-Ogre::Vector3 Airplane::drag() {
+Ogre::Vector3 Airplane::drag() const {
     const float aoa = orientation.getPitch(false).valueDegrees();
     const float velSquared = velocity.squaredLength();
     const float cd = dragCoefficient(aoa);
@@ -68,14 +67,14 @@ Ogre::Vector3 Airplane::drag() {
     return 0.5f * AIR_DENSITY * PLANFORM_AREA * velSquared * cd * -1 * (orientation.Inverse() * velocity);
 }
 
-float Airplane::dragCoefficient(float aoa) {
+float Airplane::dragCoefficient(float aoa) const {
     // See docs/drag-coefficient.numbers
     
     const float cl = liftCoefficient(aoa);
     return cl * (0.2837 * cl - 0.0693) + 0.0217;
 }
 
-Ogre::Vector3 Airplane::netForce() {
+Ogre::Vector3 Airplane::netForce() const {
     // Separate these out for ease of debugging
 
     Ogre::Vector3
@@ -177,6 +176,6 @@ void Airplane::update(float dt) {
     sceneNode->setPosition(position);
 }
 
-Ogre::Radian Airplane::getPitch() { return orientation.getPitch(); }
-Ogre::Radian Airplane::getRoll() { return orientation.getRoll(); }
-Ogre::Radian Airplane::getYaw() { return orientation.getYaw(); }
+Ogre::Radian Airplane::getPitch() const { return orientation.getPitch(); }
+Ogre::Radian Airplane::getRoll() const { return orientation.getRoll(); }
+Ogre::Radian Airplane::getYaw() const { return orientation.getYaw(); }
