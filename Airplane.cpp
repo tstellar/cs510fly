@@ -21,7 +21,11 @@ Airplane::Airplane(Game * game, Ogre::SceneNode * sceneNode) :
     orientation(sceneNode->getOrientation()),
     velocity(Ogre::Vector3::ZERO), thrustAmount(0.0f),
     thrustInc(false), thrustDec(false), pitchInc(false), pitchDec(false),
-    rollInc(false), rollDec(false), yawInc(false), yawDec(false) { }
+    rollInc(false), rollDec(false), yawInc(false), yawDec(false) { 
+    /* Create particle systems */
+    Ogre::ParticleSystem * sunParticle = sceneNode->getCreator()->createParticleSystem(sceneNode->getName() + "Engine", "Engine");
+    sceneNode->attachObject(sunParticle);
+    }
 
 Airplane::~Airplane() { }
 

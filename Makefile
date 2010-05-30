@@ -7,7 +7,7 @@ linux: main
 
 osx: main
 
-main: Main.o Game.o InputListener.o Airplane.o Target.o Level.o Enemy.o
+main: Main.o Game.o InputListener.o Airplane.o Target.o Level.o Enemy.o Display.o World.o
 	g++ -o $@ $^ -lOgreMain -lOIS
 
 %.o: %.cpp
