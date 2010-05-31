@@ -21,7 +21,9 @@ public:
     void update(float dt);
 
     float getThrust() const { return thrustAmount; }
-    void setThrust(float thrustAmount) { this->thrustAmount = thrustAmount; }
+    void setThrust(float thrustAmount);
+    bool atMaximumThrust() const;
+    
     const Ogre::Vector3& getPosition() const { return state.position; }
     const Ogre::Vector3& getVelocity() const { return state.velocity; }
 

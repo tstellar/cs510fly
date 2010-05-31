@@ -13,6 +13,8 @@
 #include "World.h"
 
 static const Ogre::String
+    TEXT_BOX_TEMPLATE_NAME = "Fly/TextBox",
+    MAXED_TEXT_BOX_TEMPLATE_NAME = "Fly/MaxedTextBox",
     OVERLAY_NAME = "Fly/HUD",
     PANEL_NAME = "Fly/HUDPanel",
     POSITION_TEXT_BOX_NAME = "Fly/Position",
@@ -20,14 +22,23 @@ static const Ogre::String
     PITCH_ROLL_YAW_TEXT_BOX_NAME = "Fly/PitchRollYaw",
     THRUST_TEXT_BOX_NAME = "Fly/Thrust";
 
+static Ogre::OverlayManager * overlayMgr() { return Ogre::OverlayManager::getSingletonPtr(); }
+
 Display::Display(Game * game) :
     game(game),
-    overlay(Ogre::OverlayManager::getSingletonPtr()->getByName(OVERLAY_NAME)),
+    overlay(overlayMgr()->getByName(OVERLAY_NAME)),
     panel(overlay->getChild(PANEL_NAME)),
     positionTextBox(getTextArea(POSITION_TEXT_BOX_NAME)),
     velocityTextBox(getTextArea(VELOCITY_TEXT_BOX_NAME)),
     pitchRollYawTextBox(getTextArea(PITCH_ROLL_YAW_TEXT_BOX_NAME)),
-    thrustTextBox(getTextArea(THRUST_TEXT_BOX_NAME)) { }
+    thrustTextBox(getTextArea(THRUST_TEXT_BOX_NAME)) {
+
+    Ogre::OverlayElement * elt = overlayMgr()->getOverlayElement(TEXT_BOX_TEMPLATE_NAME, true);
+    normalValueColor = elt->getColour();
+    
+    elt = overlayMgr()->getOverlayElement(MAXED_TEXT_BOX_TEMPLATE_NAME, true);
+    maxedValueColor = elt->getColour();
+}
 
 Ogre::TextAreaOverlayElement * Display::getTextArea(Ogre::String name) {
     return dynamic_cast<Ogre::TextAreaOverlayElement *>(panel->getChild(name));
@@ -49,4 +60,5 @@ void Display::update(float dt) {
     pitchRollYawTextBox->setCaption(toString(pitch) + " " + toString(roll) + " " + toString(yaw));
     
     thrustTextBox->setCaption(toString(player->getThrust()));
+    thrustTextBox->setColour(player->atMaximumThrust() ? maxedValueColor : normalValueColor);
 }
