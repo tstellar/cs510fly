@@ -24,8 +24,6 @@ private:
     Ogre::SceneManager* sceneManager;
     Ogre::RenderWindow* renderWindow;
     Ogre::Camera* camera;
-    Ogre::RaySceneQuery* raySceneQuery;
-    Ogre::Ray terrainRay;
     Ogre::String mResourcePath;
     Ogre::String levelPath;
     Level *currentLevel;
@@ -43,8 +41,7 @@ public:
     Ogre::String getLevelPath() { return levelPath; }
     bool windowClosed() const { return renderWindow->isClosed(); }
     Airplane * getAirplane() { return airplane; }
-
-    float getTerrainHeightAt(float x, float y);
+    
     Level *getCurrentLevel(){ return currentLevel; };
     World * getWorld() { return world; }
     void init();

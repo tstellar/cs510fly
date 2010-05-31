@@ -12,25 +12,22 @@ Level::Level(Game * game) : game(game){
     /* Load the Target's starting point. */
     Ogre::Vector2 targetXZ = Ogre::StringConverter::parseVector2(
                     levelCFG.getSetting("Target"));
-    float targetY = game->getTerrainHeightAt(targetXZ.x, targetXZ.y);
-    targetStart = Ogre::Vector3(targetXZ.x,targetY,targetXZ.y);
+    targetStart = Ogre::Vector3(targetXZ.x,0,targetXZ.y);
 
     /* Load the player's starting point. */
     Ogre::Vector2 playerXZ = Ogre::StringConverter::parseVector2(
                     levelCFG.getSetting("Player"));
-    float playerY = game->getTerrainHeightAt(playerXZ.x, playerXZ.y);
-    playerStart = Ogre::Vector3(playerXZ.x, playerY, playerXZ.y);
+    //TODO: Player orientation
+    playerStart = PhysicalState(Ogre::Vector3(playerXZ.x,0,playerXZ.y), Ogre::Quaternion::IDENTITY, Ogre::Vector3::ZERO);
 
     /* Create the enemies. */
     Ogre::ConfigFile::SectionIterator sit = levelCFG.getSectionIterator();
+    sit.getNext();
     while(sit.hasMoreElements()){
         Ogre::String sectionName = sit.peekNextKey();
-        Ogre::Vector3 pos = Ogre::StringConverter::parseVector3(
-            levelCFG.getSetting("Position", sectionName));
-        pos.y += game->getTerrainHeightAt(pos.x, pos.z);
-        enemyStarts.push_back(pos);
+        PhysicalState enemyState = PhysicalState::readFromConfig(sit.getNext());
+        enemyStarts.push_back(enemyState);
         enemyNames.push_back(sectionName);
-        sit.moveNext();
     }
 
 }
@@ -43,14 +40,14 @@ void Level::createGroundMesh() const {
 
 void Level::populate(World * world) const {
     // TODO Set orientations properly
-    world->addPlayer(playerStart, Ogre::Quaternion::IDENTITY);
-    world->addTarget(targetStart, Ogre::Quaternion::IDENTITY);
+    world->addPlayer(playerStart);
+    world->addTarget(targetStart);
 
-    std::vector<Ogre::Vector3>::const_iterator posIter = enemyStarts.begin();
-    std::vector<Ogre::String>::const_iterator nameIter = enemyNames.begin();
+    std::list<PhysicalState>::const_iterator posIter = enemyStarts.begin();
+    std::list<Ogre::String>::const_iterator nameIter = enemyNames.begin();
 
     for (; posIter != enemyStarts.end(); posIter++, nameIter++)
-        world->addEnemy(*posIter, Ogre::Quaternion::IDENTITY, *nameIter);
+        world->addEnemy(*posIter, *nameIter);
     
     Ogre::SceneNode * const root = world->getRootNode();
     Ogre::SceneManager * const sceneMgr = root->getCreator();

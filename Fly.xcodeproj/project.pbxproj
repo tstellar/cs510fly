@@ -13,6 +13,7 @@
 		314C4DAB1190D49600DC920A /* cube.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DAA1190D49600DC920A /* cube.mesh */; };
 		314C4DBA1190D50E00DC920A /* sphere.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DB91190D50E00DC920A /* sphere.mesh */; };
 		319448F5119225F00061D902 /* 1.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 319448F4119225F00061D902 /* 1.cfg */; };
+		741B57FF11B2204000AFB187 /* PhysicalState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 741B57FE11B2204000AFB187 /* PhysicalState.cpp */; };
 		741DAD6511ACDE4900686F16 /* grass_1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 741DAD6411ACDE4900686F16 /* grass_1024.jpg */; };
 		741DAD7811ACEE0D00686F16 /* hud.overlay in Resources */ = {isa = PBXBuildFile; fileRef = 741DAD7711ACEDE600686F16 /* hud.overlay */; };
 		741DADA811ACF0F900686F16 /* Display.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 741DADA711ACF0F900686F16 /* Display.cpp */; };
@@ -66,6 +67,8 @@
 		314C4DAA1190D49600DC920A /* cube.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = cube.mesh; sourceTree = "<group>"; };
 		314C4DB91190D50E00DC920A /* sphere.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = sphere.mesh; sourceTree = "<group>"; };
 		319448F4119225F00061D902 /* 1.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.cfg; sourceTree = "<group>"; };
+		741B57FD11B2204000AFB187 /* PhysicalState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicalState.h; sourceTree = "<group>"; };
+		741B57FE11B2204000AFB187 /* PhysicalState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicalState.cpp; sourceTree = "<group>"; };
 		741DAD6411ACDE4900686F16 /* grass_1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grass_1024.jpg; sourceTree = "<group>"; };
 		741DAD7711ACEDE600686F16 /* hud.overlay */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hud.overlay; path = ui/scripts/hud.overlay; sourceTree = "<group>"; };
 		741DADA611ACF0F900686F16 /* Display.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Display.h; sourceTree = "<group>"; };
@@ -145,6 +148,7 @@
 				74598546118E62B200107C82 /* Game.cpp */,
 				74598544118E62B200107C82 /* InputListener.cpp */,
 				314C4D7F1190CE6500DC920A /* Level.cpp */,
+				741B57FE11B2204000AFB187 /* PhysicalState.cpp */,
 				314C4D811190CE6500DC920A /* Target.cpp */,
 				742B24A211A66F3400EF4552 /* World.cpp */,
 				74598545118E62B200107C82 /* Main.cpp */,
@@ -221,6 +225,7 @@
 				7459854D118E632800107C82 /* Game.h */,
 				7459854C118E632800107C82 /* InputListener.h */,
 				74A5492511A6FF51009D0ADB /* Object.h */,
+				741B57FD11B2204000AFB187 /* PhysicalState.h */,
 				314C4D801190CE6500DC920A /* Level.h */,
 				314C4D821190CE6500DC920A /* Target.h */,
 				742B24A311A66F3400EF4552 /* World.h */,
@@ -372,6 +377,7 @@
 				7442E53F1194ED3F0055FF80 /* Enemy.cpp in Sources */,
 				742B24A411A66F3400EF4552 /* World.cpp in Sources */,
 				741DADA811ACF0F900686F16 /* Display.cpp in Sources */,
+				741B57FF11B2204000AFB187 /* PhysicalState.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

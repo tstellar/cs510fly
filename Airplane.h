@@ -1,10 +1,9 @@
 #include "Game.h"
 #include "Object.h"
+#include "PhysicalState.h"
 
 class Airplane : public Object {
-    Ogre::Vector3 position;
-    Ogre::Quaternion orientation;
-    Ogre::Vector3 velocity;
+    PhysicalState state;
 
     float thrustAmount;
 
@@ -16,15 +15,15 @@ class Airplane : public Object {
 public:
     static const Ogre::String SCENE_NODE_NAME;
 
-    Airplane(Game *, Ogre::SceneNode *);
+    Airplane(Game *, Ogre::SceneNode *, const PhysicalState&);
     ~Airplane();
 
     void update(float dt);
 
     float getThrust() const { return thrustAmount; }
     void setThrust(float thrustAmount) { this->thrustAmount = thrustAmount; }
-    const Ogre::Vector3& getPosition() const { return position; }
-    const Ogre::Vector3& getVelocity() const { return velocity; }
+    const Ogre::Vector3& getPosition() const { return state.position; }
+    const Ogre::Vector3& getVelocity() const { return state.velocity; }
 
     Ogre::Radian getPitch() const;
     Ogre::Radian getRoll() const;

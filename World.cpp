@@ -32,25 +32,25 @@ Ogre::SceneNode * World::newNode(const Ogre::Vector3& position, const Ogre::Quat
     return getRootNode()->createChildSceneNode(name, position, orientation);
 }
 
-Airplane * World::addPlayer(const Ogre::Vector3& position, const Ogre::Quaternion& orientation) {
+Airplane * World::addPlayer(const PhysicalState& state) {
     assert(player == NULL);
     
-    Ogre::SceneNode * playerNode = newNode(position, orientation, "Player");
-    player = new Airplane(game, playerNode);
+    Ogre::SceneNode * playerNode = newNode(state.position, state.orientation, "Player");
+    player = new Airplane(game, playerNode, state);
     return player;
 }
 
-Target * World::addTarget(const Ogre::Vector3& position, const Ogre::Quaternion& orientation) {
+Target * World::addTarget(const Ogre::Vector3& position) {
     assert(target == NULL);
 
-    Ogre::SceneNode * targetNode = newNode(position, orientation, "Target");
+    Ogre::SceneNode * targetNode = newNode(position, Ogre::Quaternion::IDENTITY, "Target");
     target = new Target(targetNode);
     return target;
 }
 
-Enemy * World::addEnemy(const Ogre::Vector3& position, const Ogre::Quaternion& orientation, const Ogre::String& name) {
-    Ogre::SceneNode * enemyNode = newNode(position, orientation, name);
-    Enemy * enemy = new Enemy(game, enemyNode, name);
+Enemy * World::addEnemy(const PhysicalState& state, const Ogre::String& name) {
+    Ogre::SceneNode * enemyNode = newNode(state.position, state.orientation, name);
+    Enemy * enemy = new Enemy(game, enemyNode, state, name);
     enemies.push_back(enemy);
     return enemy;
 }

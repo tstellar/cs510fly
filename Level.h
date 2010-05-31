@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "PhysicalState.h"
 #include <vector>
 
 class Target;
@@ -6,9 +7,10 @@ class Enemy;
 
 class Level{
     Game * const game;
-    Ogre::Vector3 playerStart, targetStart;
-    std::vector<Ogre::Vector3> enemyStarts;
-    std::vector<Ogre::String> enemyNames;
+    Ogre::Vector3 targetStart;
+    PhysicalState playerStart;
+    std::list<PhysicalState> enemyStarts;
+    std::list<Ogre::String> enemyNames;
 public:
     Level(Game *);
 
