@@ -1,0 +1,12 @@
+material Enemy_Material
+{
+	technique
+	{
+		pass
+		{
+			ambient 1.0 0.0 0.0
+			diffuse 0.0 0.0 0.0
+			specular 0.3 1.0 0.3 64.0
+		}
+	}
+}

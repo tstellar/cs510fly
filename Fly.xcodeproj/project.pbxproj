@@ -13,6 +13,10 @@
 		314C4DAB1190D49600DC920A /* cube.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DAA1190D49600DC920A /* cube.mesh */; };
 		314C4DBA1190D50E00DC920A /* sphere.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DB91190D50E00DC920A /* sphere.mesh */; };
 		319448F5119225F00061D902 /* 1.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 319448F4119225F00061D902 /* 1.cfg */; };
+		31D5944911B35EA100FE79EC /* enemy.material in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944811B35EA100FE79EC /* enemy.material */; };
+		31D5944B11B35EA800FE79EC /* particles.material in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944A11B35EA800FE79EC /* particles.material */; };
+		31D5945011B35EBA00FE79EC /* flare.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944E11B35EBA00FE79EC /* flare.png */; };
+		31D5945111B35EBA00FE79EC /* engine.particle in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944F11B35EBA00FE79EC /* engine.particle */; };
 		741B57FF11B2204000AFB187 /* PhysicalState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 741B57FE11B2204000AFB187 /* PhysicalState.cpp */; };
 		741DAD6511ACDE4900686F16 /* grass_1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 741DAD6411ACDE4900686F16 /* grass_1024.jpg */; };
 		741DAD7811ACEE0D00686F16 /* hud.overlay in Resources */ = {isa = PBXBuildFile; fileRef = 741DAD7711ACEDE600686F16 /* hud.overlay */; };
@@ -67,6 +71,10 @@
 		314C4DAA1190D49600DC920A /* cube.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = cube.mesh; sourceTree = "<group>"; };
 		314C4DB91190D50E00DC920A /* sphere.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = sphere.mesh; sourceTree = "<group>"; };
 		319448F4119225F00061D902 /* 1.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.cfg; sourceTree = "<group>"; };
+		31D5944811B35EA100FE79EC /* enemy.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = enemy.material; sourceTree = "<group>"; };
+		31D5944A11B35EA800FE79EC /* particles.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = particles.material; sourceTree = "<group>"; };
+		31D5944E11B35EBA00FE79EC /* flare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flare.png; sourceTree = "<group>"; };
+		31D5944F11B35EBA00FE79EC /* engine.particle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = engine.particle; sourceTree = "<group>"; };
 		741B57FD11B2204000AFB187 /* PhysicalState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicalState.h; sourceTree = "<group>"; };
 		741B57FE11B2204000AFB187 /* PhysicalState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicalState.cpp; sourceTree = "<group>"; };
 		741DAD6411ACDE4900686F16 /* grass_1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grass_1024.jpg; sourceTree = "<group>"; };
@@ -167,6 +175,8 @@
 		314C4D921190CF9000DC920A /* materials */ = {
 			isa = PBXGroup;
 			children = (
+				31D5944A11B35EA800FE79EC /* particles.material */,
+				31D5944811B35EA100FE79EC /* enemy.material */,
 				314C4D931190CF9000DC920A /* target.material */,
 				7427E4EB11AA0F31002FE91D /* ground.material */,
 			);
@@ -188,6 +198,15 @@
 				319448F4119225F00061D902 /* 1.cfg */,
 			);
 			path = levels;
+			sourceTree = "<group>";
+		};
+		31D5944D11B35EBA00FE79EC /* particles */ = {
+			isa = PBXGroup;
+			children = (
+				31D5944E11B35EBA00FE79EC /* flare.png */,
+				31D5944F11B35EBA00FE79EC /* engine.particle */,
+			);
+			path = particles;
 			sourceTree = "<group>";
 		};
 		741DAD7611ACEDD400686F16 /* ui */ = {
@@ -246,6 +265,7 @@
 		7459854E118E635400107C82 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				31D5944D11B35EBA00FE79EC /* particles */,
 				741DAD7611ACEDD400686F16 /* ui */,
 				319448F3119225F00061D902 /* levels */,
 				314C4DA91190D49600DC920A /* meshes */,
@@ -358,6 +378,10 @@
 				741DAD7811ACEE0D00686F16 /* hud.overlay in Resources */,
 				741DAFA611ACFC2600686F16 /* bluehigh.ttf in Resources */,
 				741DAFBC11ACFC6600686F16 /* blue-highway.fontdef in Resources */,
+				31D5944911B35EA100FE79EC /* enemy.material in Resources */,
+				31D5944B11B35EA800FE79EC /* particles.material in Resources */,
+				31D5945011B35EBA00FE79EC /* flare.png in Resources */,
+				31D5945111B35EBA00FE79EC /* engine.particle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
