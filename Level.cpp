@@ -3,6 +3,8 @@
 #include "Target.h"
 #include "World.h"
 
+const Ogre::String Level::PLAYER_SECTION_NAME = "$PLAYER";
+
 Level::Level(Game * game) : game(game){
     Ogre::ConfigFile levelCFG;
 
@@ -14,20 +16,18 @@ Level::Level(Game * game) : game(game){
                     levelCFG.getSetting("Target"));
     targetStart = Ogre::Vector3(targetXZ.x,0,targetXZ.y);
 
-    /* Load the player's starting point. */
-    Ogre::Vector2 playerXZ = Ogre::StringConverter::parseVector2(
-                    levelCFG.getSetting("Player"));
-    //TODO: Player orientation
-    playerStart = PhysicalState(Ogre::Vector3(playerXZ.x,0,playerXZ.y), Ogre::Quaternion::IDENTITY, Ogre::Vector3::ZERO);
-
-    /* Create the enemies. */
+    /* Create the enemies and the player start. */
     Ogre::ConfigFile::SectionIterator sit = levelCFG.getSectionIterator();
     sit.getNext();
     while(sit.hasMoreElements()){
         Ogre::String sectionName = sit.peekNextKey();
-        PhysicalState enemyState = PhysicalState::readFromConfig(sit.getNext());
-        enemyStarts.push_back(enemyState);
-        enemyNames.push_back(sectionName);
+        
+        const AirplaneState& state = AirplaneState::readFromConfig(sit.getNext());
+        if (sectionName == PLAYER_SECTION_NAME)
+            playerState = state;
+        else {
+            enemyStates.push_back(std::make_pair(sectionName, state));
+        }
     }
 
 }
@@ -39,15 +39,13 @@ void Level::createGroundMesh() const {
 }
 
 void Level::populate(World * world) const {
-    // TODO Set orientations properly
-    world->addPlayer(playerStart);
+    world->addPlayer(playerState);
     world->addTarget(targetStart);
 
-    std::list<PhysicalState>::const_iterator posIter = enemyStarts.begin();
-    std::list<Ogre::String>::const_iterator nameIter = enemyNames.begin();
+    std::list<std::pair<const Ogre::String, const AirplaneState> >::const_iterator iter = enemyStates.begin();
 
-    for (; posIter != enemyStarts.end(); posIter++, nameIter++)
-        world->addEnemy(*posIter, *nameIter);
+    for (; iter != enemyStates.end(); iter++)
+        world->addEnemy(iter->second, iter->first);
     
     Ogre::SceneNode * const root = world->getRootNode();
     Ogre::SceneManager * const sceneMgr = root->getCreator();

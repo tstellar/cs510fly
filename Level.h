@@ -8,15 +8,14 @@ class Enemy;
 class Level{
     Game * const game;
     Ogre::Vector3 targetStart;
-    PhysicalState playerStart;
-    std::list<PhysicalState> enemyStarts;
-    std::list<Ogre::String> enemyNames;
+    AirplaneState playerState;
+    std::list<std::pair<const Ogre::String, const AirplaneState> > enemyStates;
 public:
     Level(Game *);
 
     void populate(World * world) const;
     
-    static const Ogre::String GROUND_NODE_NAME;
+    static const Ogre::String PLAYER_SECTION_NAME;
 private:
     void createGroundMesh() const;
 };

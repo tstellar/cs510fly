@@ -3,43 +3,40 @@
 static const Ogre::String
     POSITION_NAME = "Position",
     ORIENTATION_NAME = "Orientation",
-    VELOCITY_NAME = "Velocity";
+    VELOCITY_NAME = "Velocity",
+    THRUST_NAME = "Thrust";
 
-PhysicalState PhysicalState::readFromConfig(const Ogre::ConfigFile::SettingsMultiMap * settings) {
-    Ogre::Vector3 position;
-    Ogre::Quaternion orientation;
-    Ogre::Vector3 velocity;
-    
+static Ogre::Quaternion parsePitchRollYaw(const Ogre::String&);
+
+template <typename T> T parse(const Ogre::ConfigFile::SettingsMultiMap * settings,
+        Ogre::String key, T (* func)(const Ogre::String&), const T& dflt) {
     Ogre::ConfigFile::SettingsMultiMap::const_iterator iter;
-    
-    iter = settings->find(POSITION_NAME);
+    iter = settings->find(key);
     if (iter == settings->end())
-        position = Ogre::Vector3::ZERO;
+        return dflt;
     else
-        position = Ogre::StringConverter::parseVector3(iter->second);
-    
-    iter = settings->find(ORIENTATION_NAME);
-    if (iter == settings->end())
-        orientation = Ogre::Quaternion::IDENTITY;
-    else {
-        const Ogre::Vector3 vec = Ogre::StringConverter::parseVector3(iter->second);
-        const float pitch = vec.x, roll = vec.y, yaw = vec.z;
-        orientation =
-            Ogre::Quaternion(Ogre::Degree(roll), Ogre::Vector3::NEGATIVE_UNIT_Z) *
-            Ogre::Quaternion(Ogre::Degree(pitch), Ogre::Vector3::UNIT_X) *
-            Ogre::Quaternion(Ogre::Degree(yaw), Ogre::Vector3::UNIT_Y);
-    }
-    
-    iter = settings->find(VELOCITY_NAME);
-    if (iter == settings->end())
-        velocity = Ogre::Vector3::ZERO;
-    else
-        velocity = Ogre::StringConverter::parseVector3(iter->second);
-    
-    return PhysicalState(position, orientation, velocity);
+        return func(iter->second);
 }
 
-void PhysicalState::syncToNode(Ogre::Node * node) const {
+AirplaneState AirplaneState::readFromConfig(const Ogre::ConfigFile::SettingsMultiMap * settings) {
+    Ogre::Vector3 position = parse(settings, POSITION_NAME, &Ogre::StringConverter::parseVector3, Ogre::Vector3::ZERO);
+    Ogre::Quaternion orientation = parse(settings, ORIENTATION_NAME, &parsePitchRollYaw, Ogre::Quaternion::IDENTITY);
+    Ogre::Vector3 velocity = parse(settings, VELOCITY_NAME, &Ogre::StringConverter::parseVector3, Ogre::Vector3::ZERO);
+    Ogre::Real thrust = parse(settings, THRUST_NAME, &Ogre::StringConverter::parseReal, 0.0f);
+    
+    return AirplaneState(position, orientation, velocity, thrust);
+}
+
+static Ogre::Quaternion parsePitchRollYaw(const Ogre::String& str) {
+    const Ogre::Vector3& vec = Ogre::StringConverter::parseVector3(str);
+    const float pitch = vec.x, roll = vec.y, yaw = vec.z;
+    return
+        Ogre::Quaternion(Ogre::Degree(roll),    Ogre::Vector3::NEGATIVE_UNIT_Z) *
+        Ogre::Quaternion(Ogre::Degree(pitch),   Ogre::Vector3::UNIT_X) *
+        Ogre::Quaternion(Ogre::Degree(yaw),     Ogre::Vector3::UNIT_Y);
+}
+
+void AirplaneState::syncToNode(Ogre::Node * node) const {
     node->setPosition(position);
     node->setOrientation(orientation);
 }
