@@ -32,7 +32,7 @@ Ogre::SceneNode * World::newNode(const Ogre::Vector3& position, const Ogre::Quat
     return getRootNode()->createChildSceneNode(name, position, orientation);
 }
 
-Airplane * World::addPlayer(const PhysicalState& state) {
+Airplane * World::addPlayer(const AirplaneState& state) {
     assert(player == NULL);
     
     Ogre::SceneNode * playerNode = newNode(state.position, state.orientation, "Player");
@@ -48,7 +48,7 @@ Target * World::addTarget(const Ogre::Vector3& position) {
     return target;
 }
 
-Enemy * World::addEnemy(const PhysicalState& state, const Ogre::String& name) {
+Enemy * World::addEnemy(const AirplaneState& state, const Ogre::String& name) {
     Ogre::SceneNode * enemyNode = newNode(state.position, state.orientation, name);
     Enemy * enemy = new Enemy(game, enemyNode, state, name);
     enemies.push_back(enemy);

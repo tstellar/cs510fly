@@ -1,4 +1,4 @@
-#include "PhysicalState.h"
+#include "AirplaneState.h"
 
 static const Ogre::String
     POSITION_NAME = "Position",
@@ -44,12 +44,12 @@ void PhysicalState::syncToNode(Ogre::Node * node) const {
     node->setOrientation(orientation);
 }
 
-void PhysicalState::syncFromNode(const Ogre::Node * node) {
+void AirplaneState::syncFromNode(const Ogre::Node * node) {
     position = node->getPosition();
     orientation = node->getOrientation();
 }
 
-bool PhysicalState::clampAboveHeight(float height) {
+bool AirplaneState::clampAboveHeight(float height) {
     if (position.y < height) {
         position.y = height;
         return true;

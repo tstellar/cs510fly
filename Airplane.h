@@ -1,9 +1,9 @@
 #include "Game.h"
 #include "Object.h"
-#include "PhysicalState.h"
+#include "AirplaneState.h"
 
 class Airplane : public Object {
-    PhysicalState state;
+    AirplaneState state;
 
     float thrustAmount;
 
@@ -15,7 +15,7 @@ class Airplane : public Object {
 public:
     static const Ogre::String SCENE_NODE_NAME;
 
-    Airplane(Game *, Ogre::SceneNode *, const PhysicalState&);
+    Airplane(Game *, Ogre::SceneNode *, const AirplaneState&);
     ~Airplane();
 
     void update(float dt);

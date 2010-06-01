@@ -1,6 +1,6 @@
 #include "Game.h"
-#include "PhysicalState.h"
-#include <vector>
+#include "AirplaneState.h"
+#include <list>
 
 class Target;
 class Enemy;

@@ -1,9 +1,9 @@
-#ifndef PHYSICALSTATE_H
-#define PHYSICALSTATE_H
+#ifndef AIRPLANESTATE_H
+#define AIRPLANESTATE_H
 
 #include "Ogre.h"
 
-struct PhysicalState {
+struct AirplaneState {
     Ogre::Vector3 position;
     Ogre::Quaternion orientation;
     Ogre::Vector3 velocity;
@@ -25,7 +25,7 @@ struct PhysicalState {
         orientation(node->getOrientation()),
         velocity(Ogre::Vector3::ZERO) { }
     
-    static PhysicalState readFromConfig(const Ogre::ConfigFile::SettingsMultiMap * settings);
+    static AirplaneState readFromConfig(const Ogre::ConfigFile::SettingsMultiMap * settings);
     
     void syncToNode(Ogre::Node *) const;
     void syncFromNode(const Ogre::Node *);
