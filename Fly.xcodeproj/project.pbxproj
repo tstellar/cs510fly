@@ -17,7 +17,7 @@
 		31D5944B11B35EA800FE79EC /* particles.material in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944A11B35EA800FE79EC /* particles.material */; };
 		31D5945011B35EBA00FE79EC /* flare.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944E11B35EBA00FE79EC /* flare.png */; };
 		31D5945111B35EBA00FE79EC /* engine.particle in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944F11B35EBA00FE79EC /* engine.particle */; };
-		741B57FF11B2204000AFB187 /* PhysicalState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 741B57FE11B2204000AFB187 /* PhysicalState.cpp */; };
+		741B57FF11B2204000AFB187 /* AirplaneState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 741B57FE11B2204000AFB187 /* AirplaneState.cpp */; };
 		741DAD6511ACDE4900686F16 /* grass_1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 741DAD6411ACDE4900686F16 /* grass_1024.jpg */; };
 		741DAD7811ACEE0D00686F16 /* hud.overlay in Resources */ = {isa = PBXBuildFile; fileRef = 741DAD7711ACEDE600686F16 /* hud.overlay */; };
 		741DADA811ACF0F900686F16 /* Display.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 741DADA711ACF0F900686F16 /* Display.cpp */; };
@@ -75,8 +75,8 @@
 		31D5944A11B35EA800FE79EC /* particles.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = particles.material; sourceTree = "<group>"; };
 		31D5944E11B35EBA00FE79EC /* flare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flare.png; sourceTree = "<group>"; };
 		31D5944F11B35EBA00FE79EC /* engine.particle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = engine.particle; sourceTree = "<group>"; };
-		741B57FD11B2204000AFB187 /* PhysicalState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicalState.h; sourceTree = "<group>"; };
-		741B57FE11B2204000AFB187 /* PhysicalState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicalState.cpp; sourceTree = "<group>"; };
+		741B57FD11B2204000AFB187 /* AirplaneState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirplaneState.h; sourceTree = "<group>"; };
+		741B57FE11B2204000AFB187 /* AirplaneState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AirplaneState.cpp; sourceTree = "<group>"; };
 		741DAD6411ACDE4900686F16 /* grass_1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grass_1024.jpg; sourceTree = "<group>"; };
 		741DAD7711ACEDE600686F16 /* hud.overlay */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hud.overlay; path = ui/scripts/hud.overlay; sourceTree = "<group>"; };
 		741DADA611ACF0F900686F16 /* Display.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Display.h; sourceTree = "<group>"; };
@@ -151,12 +151,12 @@
 			isa = PBXGroup;
 			children = (
 				74C440AE118F8395001B83F0 /* Airplane.cpp */,
+				741B57FE11B2204000AFB187 /* AirplaneState.cpp */,
 				741DADA711ACF0F900686F16 /* Display.cpp */,
 				7442E53E1194ED3F0055FF80 /* Enemy.cpp */,
 				74598546118E62B200107C82 /* Game.cpp */,
 				74598544118E62B200107C82 /* InputListener.cpp */,
 				314C4D7F1190CE6500DC920A /* Level.cpp */,
-				741B57FE11B2204000AFB187 /* PhysicalState.cpp */,
 				314C4D811190CE6500DC920A /* Target.cpp */,
 				742B24A211A66F3400EF4552 /* World.cpp */,
 				74598545118E62B200107C82 /* Main.cpp */,
@@ -239,12 +239,12 @@
 			isa = PBXGroup;
 			children = (
 				74C440AD118F8395001B83F0 /* Airplane.h */,
+				741B57FD11B2204000AFB187 /* AirplaneState.h */,
 				741DADA611ACF0F900686F16 /* Display.h */,
 				7442E5401194ED460055FF80 /* Enemy.h */,
 				7459854D118E632800107C82 /* Game.h */,
 				7459854C118E632800107C82 /* InputListener.h */,
 				74A5492511A6FF51009D0ADB /* Object.h */,
-				741B57FD11B2204000AFB187 /* PhysicalState.h */,
 				314C4D801190CE6500DC920A /* Level.h */,
 				314C4D821190CE6500DC920A /* Target.h */,
 				742B24A311A66F3400EF4552 /* World.h */,
@@ -401,7 +401,7 @@
 				7442E53F1194ED3F0055FF80 /* Enemy.cpp in Sources */,
 				742B24A411A66F3400EF4552 /* World.cpp in Sources */,
 				741DADA811ACF0F900686F16 /* Display.cpp in Sources */,
-				741B57FF11B2204000AFB187 /* PhysicalState.cpp in Sources */,
+				741B57FF11B2204000AFB187 /* AirplaneState.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
