@@ -48,3 +48,11 @@ void PhysicalState::syncFromNode(const Ogre::Node * node) {
     position = node->getPosition();
     orientation = node->getOrientation();
 }
+
+bool PhysicalState::clampAboveHeight(float height) {
+    if (position.y < height) {
+        position.y = height;
+        return true;
+    } else
+        return false;
+}

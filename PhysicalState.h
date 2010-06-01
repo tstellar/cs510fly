@@ -29,6 +29,8 @@ struct PhysicalState {
     
     void syncToNode(Ogre::Node *) const;
     void syncFromNode(const Ogre::Node *);
+    
+    bool clampAboveHeight(float height);
 };
 
 #endif

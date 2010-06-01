@@ -22,7 +22,7 @@ Airplane::Airplane(Game * game, Ogre::SceneNode * sceneNode, const PhysicalState
         thrustAmount(0.0f),
         thrustInc(false), thrustDec(false), pitchInc(false), pitchDec(false),
         rollInc(false), rollDec(false), yawInc(false), yawDec(false) {
-        this->state.position.y = 0.5f * HEIGHT;
+        this->state.clampAboveHeight(0.5f * HEIGHT);
         this->state.syncToNode(sceneNode);
         /* Create particle systems */
         engineParticles = sceneNode->getCreator()->createParticleSystem(sceneNode->getName() + "Engine", "Engine");
