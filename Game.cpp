@@ -131,6 +131,55 @@ bool Game::setup() {
     
     inputListener = new InputListener(this, renderWindow);
     root->addFrameListener(inputListener);
+    
+    // init sound
+    ALenum error;
+    ALCdevice * device = alcOpenDevice(NULL);
+    if(device == NULL){
+        fprintf(stderr, "Unable to open default audio device.\n");
+        return false;
+    }
+    ALCcontext * context = alcCreateContext(device, NULL);
+    alcMakeContextCurrent(context);
+
+    /* Clear error code (I am not sure why this is done, but the example in
+     * the OpenAL docs do this.
+     */
+    alGetError();
+    motorBuffer = alureCreateBufferFromFile("Running.wav");
+
+/* Aternate way to load a file.  alureCreateBuferFromFile() does all of this,
+ * but if we can't use it on OS X, we might have to use the following code.*/
+/*  
+    alGenBuffers(1, &motorBuffer);
+    if ((error = alGetError()) != AL_NO_ERROR){
+        return false;
+    }
+    // Load sound file
+    ALenum alFormatBuffer;
+    char * alBuffer;
+    long alBufferLen;
+    ALsizei alFreqBuffer;
+    ALboolean loop;
+    alutLoadWAVFile("Running.wav", &alFormatBuffer, &alBuffer, &alBufferLen, &alFreqBuffer, &loop);
+
+    if ((error = alGetError()) != AL_NO_ERROR){
+        alDeleteBuffers(1, &motorBuffer);
+        return false;
+    }
+    // Copy sound to buffer
+    alBufferData(motorBuffer[0], alFormatBuffer, alBuffer, alBufferLen, alFreqBuf);
+    if ((error = alGetError()) != AL_NO_ERROR){
+        alDeleteBuffers(1, &motorBuffer);
+        return false;
+    }
+    //Unload sound file
+    alutUnloadWav(alFormatBuffer, alBuffer, alBufferLen, alFreqBuf);
+    if ((error = alGetError()) != AL_NO_ERROR){
+        alDeleteBuffers(1, &motorBuffer);
+        return false;
+    }
+*/
 
     // create level
     world = new World(this);
@@ -145,93 +194,16 @@ bool Game::setup() {
     display = new Display(this);
     display->setup();
     
-    ALenum error;
-    ALCdevice * device = alcOpenDevice(NULL);
-    if(device == NULL){
-        fprintf(stderr, "Unable to open default audio device.\n");
-        return false;
-    }
-    ALCcontext * context = alcCreateContext(device, NULL);
-    alcMakeContextCurrent(context);
-
-    /* Clear error code (I am not sure why this is done, but the example in
-     * the OpenAL docs do this.
-     */
-    alGetError();
-    /* XXX What is the correct number of buffers, is it 1 per sound or 1 per
-     * listener
-     */
-    ALuint buffers;
-    alGenBuffers(1, &buffers);
-    if ((error = alGetError()) != AL_NO_ERROR){
-//        DisplayALError("alGenBuffers :", error);
-        return false;
-    }
-
-    /* Load sound file */
-    ALenum alFormatBuffer;
-    char * alBuffer;
-    long alBufferLen;
-    ALsizei alFreqBuffer;
-    ALboolean loop;
-    buffers = alureCreateBufferFromFile("f15.wav");
-/*    alutLoadWAVFile("f15.wav", &alFormatBuffer, &alBuffer, &alBufferLen, &alFreqBuffer, &loop);
-    if ((error = alGetError()) != AL_NO_ERROR){
-//        DisplayALError("alutLoadWAVFile :", error);
-        alDeleteBuffers(1, &buffers);
-        return false;
-    }
-*/
-    /* Copy sound to buffer */
-/*    alBufferData(buffers[0], alFormatBuffer, alBuffer, alBufferLen, alFreqBuf);
-    if ((error = alGetError()) != AL_NO_ERROR){
- //       DisplayALError("alBufferData :", error);
-        alDeleteBuffers(1, &buffers);
-        return false;
-    }
-*/
-    /* Unload sound file */
-/*    alutUnloadWav(alFormatBuffer, alBuffer, alBufferLen, alFreqBuf);
-    if ((error = alGetError()) != AL_NO_ERROR){
-//        DisplayALError("alutUnloadWav :", error);
-        alDeleteBuffers(1, &buffers);
-        return false;
-    }
-*/
-    /* Generate sources */
-    /* For multiple sources, this should be int * */
-    unsigned int alSource;
-    alGenSources(1, &alSource);
-    if ((error = alGetError() ) != AL_NO_ERROR){
-//        DisplayALError("alGenSources 1 : ", error);
-        return false;
-    }
-
-    /* Attach buffer to a source */
-    alSourcei(alSource, AL_BUFFER, buffers);
-    if ((error = alGetError()) != AL_NO_ERROR){
-//        DisplayALError("alSourcei : ", error);
-        return false;
-    }
-
-    alSource3f(alSource,AL_POSITION, 800.0f, 0.0f, 800.0f);
-    alSource3f(alSource,AL_VELOCITY, 0.0f, 0.0f, 0.0f);
     
-    alListener3f(AL_POSITION, 800.0f, 0.0f, 800.0f);
-
-    /*XXX Set listener orientation */
-    
-    /* Set the sound to always loop */
-    alSourcei(alSource,AL_LOOPING,AL_TRUE);
-    
-    /* play the sound */
-    alSourcePlay(alSource);
     return true;
 }
 
 void Game::update(float dt) {
     world->update(dt);
     display->update(dt);
+    const Ogre::Vector3 &cameraPos = camera->getParentNode()->getPosition();
+    alListener3f(AL_POSITION, cameraPos.x, cameraPos.y, cameraPos.z);
+    /*TODO: Set listener orientation */
 }
 
 void Game::setBreak() {

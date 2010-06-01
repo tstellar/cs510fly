@@ -1,5 +1,7 @@
 #include "PhysicalState.h"
 
+#include <AL/al.h>
+
 static const Ogre::String
     POSITION_NAME = "Position",
     ORIENTATION_NAME = "Orientation",
@@ -47,4 +49,9 @@ void PhysicalState::syncToNode(Ogre::Node * node) const {
 void PhysicalState::syncFromNode(const Ogre::Node * node) {
     position = node->getPosition();
     orientation = node->getOrientation();
+}
+
+void PhysicalState::syncToALSource(unsigned int alSource) {
+    alSource3f(alSource, AL_POSITION, position.x, position.y, position.z);
+    alSource3f(alSource, AL_VELOCITY, velocity.x, velocity.y, velocity.z);
 }

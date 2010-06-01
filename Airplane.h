@@ -11,6 +11,8 @@ class Airplane : public Object {
 
     float delay;
 
+    unsigned int alSource;
+
     Ogre::ParticleSystem * engineParticles;
 public:
     static const Ogre::String SCENE_NODE_NAME;
@@ -48,6 +50,8 @@ private:
     
     float liftCoefficient(float aoa) const;
     float dragCoefficient(float aoa) const;
+
+    void updateSound();
 };
 
 

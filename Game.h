@@ -10,6 +10,8 @@
 #include <CoreFoundation/CoreFoundation.h>
 #endif
 
+#include <AL/al.h>
+
 class Airplane;
 class Display;
 class InputListener;
@@ -31,6 +33,7 @@ private:
     Display * display;
     
     bool breaking;
+    ALuint motorBuffer;
 
 public:
     Game();
@@ -46,6 +49,8 @@ public:
     World * getWorld() { return world; }
     void init();
     void update(float dt);
+
+    ALuint getMotorBuffer(){ return motorBuffer; }
 
     void setBreak();
     bool checkBreak();
