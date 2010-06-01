@@ -9,7 +9,7 @@ static const float WEIGHT = 184000.0f; // NTO weight of F-15 Eagle in newtons
 static const float HEIGHT = 5.63f;  // Height of F-15 Eagle in meters
 static const float AIR_DENSITY = 1.2f; // Density of air in kg/m^3 (assumed constant)
 static const float PLANFORM_AREA = 56.5; // Planform area of F-15 Eagle in m^2
-static const float THRUST_DELTA = 5000.0; // Adjust thrust by 5 kN/s
+static const float THRUST_DELTA = 20000.0; // Adjust thrust by 20 kN/s
 static const float THRUST_MAX = 77620.0f * 2; // Two engines at 77.62 kN each
 static const Ogre::Radian ROLL_DELTA(Ogre::Math::HALF_PI/4.0f); // Adjust roll by pi/8 rad/s
 static const Ogre::Radian PITCH_DELTA(Ogre::Math::HALF_PI/8.0f); // Adjust pitch by pi/16 rad/s
