@@ -1,6 +1,7 @@
 #include "Enemy.h"
 #include "Airplane.h"
 #include "AirplaneAI.h"
+#include "EnemyAI.h"
 
 Enemy::Enemy(Game * game, Ogre::SceneNode * sceneNode, const AirplaneState& state, Ogre::String name) :
         game(game), airplane(new Airplane(game, sceneNode, state)),
@@ -13,6 +14,17 @@ Enemy::Enemy(Game * game, Ogre::SceneNode * sceneNode, const AirplaneState& stat
 
 }
 
+Enemy::Enemy(Game * game, Ogre::SceneNode * sceneNode,
+    const Ogre::Vector3& position, Ogre::String name) :
+        game(game), ai(new EnemyAI(sceneNode))
+{
+    Ogre::SceneManager * sceneManager = sceneNode->getCreator();
+    Ogre::Entity * entity = sceneManager->createEntity(name, "sphere.mesh");
+    entity->setMaterialName("Enemy_Material");
+    sceneNode->scale(25.0f, 25.0f, 25.0f);
+    sceneNode->attachObject(entity);
+    sceneNode->setPosition(position);
+}
 /*These functions should either be static or moved elsewhere. */
 bool Enemy::playerBelow(Airplane * player, const Ogre::Vector3& pos) {
 	return player->getPosition().y < pos.y;

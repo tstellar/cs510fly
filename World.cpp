@@ -50,7 +50,7 @@ Target * World::addTarget(const Ogre::Vector3& position) {
 
 Enemy * World::addEnemy(const AirplaneState& state, const Ogre::String& name) {
     Ogre::SceneNode * enemyNode = newNode(state.position, state.orientation, name);
-    Enemy * enemy = new Enemy(game, enemyNode, state, name);
+    Enemy * enemy = new Enemy(game, enemyNode, state.position, name);
     enemies.push_back(enemy);
     return enemy;
 }
