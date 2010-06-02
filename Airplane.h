@@ -50,8 +50,8 @@ private:
 
     Ogre::Vector3 netForce() const;
     
-    float liftCoefficient(float aoa) const;
-    float dragCoefficient(float aoa) const;
+    static float liftCoefficient(float aoa);
+    static float dragCoefficient(float aoa);
 
     void updateSound();
 };

@@ -66,7 +66,7 @@ Ogre::Vector3 Airplane::lift() const {
     return 0.5f * AIR_DENSITY * PLANFORM_AREA * velSquared * cl * liftDir;
 }
 
-float Airplane::liftCoefficient(float aoa) const {
+float Airplane::liftCoefficient(float aoa) {
     // See docs/lift-coefficient.numbers
     
     if (aoa <= 7.0f)
@@ -91,7 +91,7 @@ Ogre::Vector3 Airplane::drag() const {
     return 0.5f * AIR_DENSITY * PLANFORM_AREA * velSquared * cd * dragDir;
 }
 
-float Airplane::dragCoefficient(float aoa) const {
+float Airplane::dragCoefficient(float aoa) {
     // See docs/drag-coefficient.numbers
     
     const float cl = liftCoefficient(aoa);
