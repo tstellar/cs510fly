@@ -9,8 +9,16 @@
 #include "Level.h"
 #include "World.h"
 
-#include <AL/al.h>
-#include <AL/alure.h>
+#ifdef LINUX
+    #include <AL/alc.h>
+    #include <AL/alure.h>
+#else
+    #include <OpenAL/alc.h>
+
+    // Yeah, it's deprecated as hell and missing from the headers. But it's still in the binaries. So sue me.
+    extern "C" void alutLoadWAVFile(const char*, ALenum*, ALvoid*, ALsizei*, ALsizei*);
+    extern "C" void alutUnloadWAV(ALenum, ALvoid*, ALsizei, ALsizei);
+#endif
 
 // This function will locate the path to our application on OS X,
 // unlike windows you can not rely on the curent working directory
@@ -146,11 +154,12 @@ bool Game::setup() {
      * the OpenAL docs do this.
      */
     alGetError();
+    
+    #ifdef LINUX
     motorBuffer = alureCreateBufferFromFile("Running.wav");
-
+    #else
 /* Aternate way to load a file.  alureCreateBuferFromFile() does all of this,
  * but if we can't use it on OS X, we might have to use the following code.*/
-/*  
     alGenBuffers(1, &motorBuffer);
     if ((error = alGetError()) != AL_NO_ERROR){
         return false;
@@ -158,28 +167,27 @@ bool Game::setup() {
     // Load sound file
     ALenum alFormatBuffer;
     char * alBuffer;
-    long alBufferLen;
+    ALsizei alBufferLen;
     ALsizei alFreqBuffer;
-    ALboolean loop;
-    alutLoadWAVFile("Running.wav", &alFormatBuffer, &alBuffer, &alBufferLen, &alFreqBuffer, &loop);
+    alutLoadWAVFile((macBundlePath() + "/Contents/Resources/Running.wav").c_str(), &alFormatBuffer, &alBuffer, &alBufferLen, &alFreqBuffer);
 
     if ((error = alGetError()) != AL_NO_ERROR){
         alDeleteBuffers(1, &motorBuffer);
         return false;
     }
     // Copy sound to buffer
-    alBufferData(motorBuffer[0], alFormatBuffer, alBuffer, alBufferLen, alFreqBuf);
+    alBufferData(motorBuffer, alFormatBuffer, alBuffer, alBufferLen, alFreqBuffer);
     if ((error = alGetError()) != AL_NO_ERROR){
         alDeleteBuffers(1, &motorBuffer);
         return false;
     }
     //Unload sound file
-    alutUnloadWav(alFormatBuffer, alBuffer, alBufferLen, alFreqBuf);
+    alutUnloadWAV(alFormatBuffer, alBuffer, alBufferLen, alFreqBuffer);
     if ((error = alGetError()) != AL_NO_ERROR){
         alDeleteBuffers(1, &motorBuffer);
         return false;
     }
-*/
+    #endif
 
     // create level
     world = new World(this);

@@ -1,7 +1,5 @@
 #include "PhysicalState.h"
 
-#include <AL/al.h>
-
 static const Ogre::String
     POSITION_NAME = "Position",
     ORIENTATION_NAME = "Orientation",

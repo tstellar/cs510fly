@@ -1,7 +1,7 @@
 #ifndef PHYSICALSTATE_H
 #define PHYSICALSTATE_H
 
-#include "Ogre.h"
+#include "Game.h"
 
 struct PhysicalState {
     Ogre::Vector3 position;

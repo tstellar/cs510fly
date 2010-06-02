@@ -10,7 +10,11 @@
 #include <CoreFoundation/CoreFoundation.h>
 #endif
 
-#include <AL/al.h>
+#ifdef LINUX
+    #include <AL/al.h>
+#else
+    #include <OpenAL/al.h>
+#endif
 
 class Airplane;
 class Display;

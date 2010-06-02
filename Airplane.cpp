@@ -1,7 +1,5 @@
 #include "Airplane.h"
 
-#include <AL/al.h>
-
 const Ogre::String Airplane::SCENE_NODE_NAME = "Airplane";
 
 static const float MINIMUM_TIME_STEP = 0.01f;

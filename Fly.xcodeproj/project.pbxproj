@@ -42,6 +42,8 @@
 		74598644118E644000107C82 /* plugins.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598558118E635400107C82 /* plugins.cfg */; };
 		74598645118E644000107C82 /* plugins-linux.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598557118E635400107C82 /* plugins-linux.cfg */; };
 		74598646118E644300107C82 /* media.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598556118E635400107C82 /* media.cfg */; };
+		74B6397C11B5FBF10040DEC1 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B6397B11B5FBF10040DEC1 /* OpenAL.framework */; };
+		74B63A6311B60D7D0040DEC1 /* Running.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74B63A6211B60D7D0040DEC1 /* Running.wav */; };
 		74C43F87118F7C7A001B83F0 /* libois.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 74598276118E613900107C82 /* libois.a */; };
 		74C43F88118F7C80001B83F0 /* Ogre.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 74598178118E612C00107C82 /* Ogre.framework */; };
 		74C440AF118F8395001B83F0 /* Airplane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74C440AE118F8395001B83F0 /* Airplane.cpp */; };
@@ -111,6 +113,8 @@
 		7459862E118E640300107C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74A5492511A6FF51009D0ADB /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
 		74AEE472118E6011007A8E6D /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		74B6397B11B5FBF10040DEC1 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		74B63A6211B60D7D0040DEC1 /* Running.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Running.wav; sourceTree = "<group>"; };
 		74C440AD118F8395001B83F0 /* Airplane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Airplane.h; sourceTree = "<group>"; };
 		74C440AE118F8395001B83F0 /* Airplane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Airplane.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +128,7 @@
 				7459863A118E643100107C82 /* IOKit.framework in Frameworks */,
 				7459863B118E643100107C82 /* libois.a in Frameworks */,
 				7459863D118E643500107C82 /* Ogre.framework in Frameworks */,
+				74B6397C11B5FBF10040DEC1 /* OpenAL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,9 +139,11 @@
 			isa = PBXGroup;
 			children = (
 				74598276118E613900107C82 /* libois.a */,
+				74B63A6211B60D7D0040DEC1 /* Running.wav */,
 				74AEE472118E6011007A8E6D /* IOKit.framework */,
 				7459826B118E613400107C82 /* Cg.framework */,
 				74598178118E612C00107C82 /* Ogre.framework */,
+				74B6397B11B5FBF10040DEC1 /* OpenAL.framework */,
 				7459854A118E62C500107C82 /* Include */,
 				08FB7795FE84155DC02AAC07 /* Sources */,
 				C6859E8C029090F304C91782 /* Resources */,
@@ -382,6 +389,7 @@
 				31D5944B11B35EA800FE79EC /* particles.material in Resources */,
 				31D5945011B35EBA00FE79EC /* flare.png in Resources */,
 				31D5945111B35EBA00FE79EC /* engine.particle in Resources */,
+				74B63A6311B60D7D0040DEC1 /* Running.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
