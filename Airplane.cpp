@@ -130,11 +130,11 @@ void Airplane::update(float dt) {
         pitchDec = false;
     }
     if (rollInc) {
-        state.orientation = state.orientation * Ogre::Quaternion(ROLL_DELTA * dt, Ogre::Vector3::NEGATIVE_UNIT_Z);
+        state.orientation = Ogre::Quaternion(ROLL_DELTA * dt, Ogre::Vector3::NEGATIVE_UNIT_Z) * state.orientation;
         rollInc = false;
     }
     if (rollDec) {
-        state.orientation = state.orientation * Ogre::Quaternion(ROLL_DELTA * dt, Ogre::Vector3::UNIT_Z);
+        state.orientation = Ogre::Quaternion(ROLL_DELTA * dt, Ogre::Vector3::UNIT_Z) * state.orientation;
         rollDec = false;
     }
     if (yawInc) {
