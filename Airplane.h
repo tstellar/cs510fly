@@ -24,6 +24,8 @@ public:
     
     const Ogre::Vector3& getPosition() const { return state.position; }
     const Ogre::Vector3& getVelocity() const { return state.velocity; }
+    
+    const AirplaneState& getState() const { return state; }
 
     Ogre::Radian getPitch() const;
     Ogre::Radian getRoll() const;

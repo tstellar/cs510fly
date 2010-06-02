@@ -20,7 +20,9 @@ static const Ogre::String
     POSITION_TEXT_BOX_NAME = "Fly/Position",
     VELOCITY_TEXT_BOX_NAME = "Fly/Velocity",
     PITCH_ROLL_YAW_TEXT_BOX_NAME = "Fly/PitchRollYaw",
-    THRUST_TEXT_BOX_NAME = "Fly/Thrust";
+    THRUST_TEXT_BOX_NAME = "Fly/Thrust",
+    SPEED_TEXT_BOX_NAME = "Fly/Speed",
+    AOA_TEXT_BOX_NAME = "Fly/AOA";
 
 static Ogre::OverlayManager * overlayMgr() { return Ogre::OverlayManager::getSingletonPtr(); }
 
@@ -31,7 +33,9 @@ Display::Display(Game * game) :
     positionTextBox(getTextArea(POSITION_TEXT_BOX_NAME)),
     velocityTextBox(getTextArea(VELOCITY_TEXT_BOX_NAME)),
     pitchRollYawTextBox(getTextArea(PITCH_ROLL_YAW_TEXT_BOX_NAME)),
-    thrustTextBox(getTextArea(THRUST_TEXT_BOX_NAME)) {
+    thrustTextBox(getTextArea(THRUST_TEXT_BOX_NAME)),
+    speedTextBox(getTextArea(SPEED_TEXT_BOX_NAME)),
+    aoaTextBox(getTextArea(AOA_TEXT_BOX_NAME)) {
 
     Ogre::OverlayElement * elt = overlayMgr()->getOverlayElement(TEXT_BOX_TEMPLATE_NAME, true);
     normalValueColor = elt->getColour();
@@ -52,13 +56,16 @@ void Display::setup() {
 template<typename T> static inline Ogre::String toString(T x) { return Ogre::StringConverter::toString(x); }
 
 void Display::update(float dt) {
-    Airplane * const player = game->getWorld()->getPlayer();
-    positionTextBox->setCaption(toString(player->getPosition()));
-    velocityTextBox->setCaption(toString(player->getVelocity()));
+    const Airplane * const player = game->getWorld()->getPlayer();
+    const AirplaneState& state = player->getState();
+    positionTextBox->setCaption(toString(state.position));
+    velocityTextBox->setCaption(toString(state.velocity));
+    speedTextBox->setCaption(toString(state.velocity.length()));
+    aoaTextBox->setCaption(toString(state.angleOfAttack().valueDegrees()));
     
     const Ogre::Degree pitch = player->getPitch(), roll = player->getRoll(), yaw = player->getYaw();
     pitchRollYawTextBox->setCaption(toString(pitch) + " " + toString(roll) + " " + toString(yaw));
     
-    thrustTextBox->setCaption(toString(player->getThrust()));
+    thrustTextBox->setCaption(toString(state.thrust));
     thrustTextBox->setColour(player->atMaximumThrust() ? maxedValueColor : normalValueColor);
 }

@@ -187,6 +187,6 @@ void Airplane::update(float dt) {
     state.syncToNode(sceneNode);
 }
 
-Ogre::Radian Airplane::getPitch() const { return state.orientation.getPitch(); }
-Ogre::Radian Airplane::getRoll() const { return state.orientation.getRoll(); }
-Ogre::Radian Airplane::getYaw() const { return state.orientation.getYaw(); }
+Ogre::Radian Airplane::getPitch() const { return state.orientation.getPitch(false); }
+Ogre::Radian Airplane::getRoll() const { return state.orientation.getRoll(false); }
+Ogre::Radian Airplane::getYaw() const { return state.orientation.getYaw(false); }

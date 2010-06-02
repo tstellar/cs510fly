@@ -68,5 +68,25 @@ Fly/HUD
         {
             top 0.75
         }
+        
+        element TextArea(Fly/SpeedLabel) : Fly/Label
+        {
+            caption Speed
+            top 0.775
+        }
+        element TextArea(Fly/Speed) : Fly/TextBox
+        {
+            top 0.8
+        }
+        
+        element TextArea(Fly/AOALabel) : Fly/Label
+        {
+            caption Angle of Attack
+            top 0.825
+        }
+        element TextArea(Fly/AOA) : Fly/TextBox
+        {
+            top 0.85
+        }
     }
 }
