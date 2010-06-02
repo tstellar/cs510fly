@@ -34,6 +34,8 @@ struct AirplaneState {
     void syncToNode(Ogre::Node *) const;
     void syncFromNode(const Ogre::Node *);
     
+    void syncToALSource(unsigned int alSource);
+    
     bool clampAboveHeight(float height);
 };
 

@@ -1,5 +1,7 @@
 #include "AirplaneState.h"
 
+#include "Game.h"
+
 static const Ogre::String
     POSITION_NAME = "Position",
     ORIENTATION_NAME = "Orientation",
@@ -52,4 +54,9 @@ bool AirplaneState::clampAboveHeight(float height) {
         return true;
     } else
         return false;
+}
+
+void AirplaneState::syncToALSource(unsigned int alSource) {
+    alSource3f(alSource, AL_POSITION, position.x, position.y, position.z);
+    alSource3f(alSource, AL_VELOCITY, velocity.x, velocity.y, velocity.z);
 }
