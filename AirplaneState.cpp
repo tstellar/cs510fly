@@ -1,3 +1,4 @@
+#include "Game.h"
 #include "AirplaneState.h"
 
 static const Ogre::String
