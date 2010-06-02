@@ -23,6 +23,20 @@ Airplane::Airplane(Game * game, Ogre::SceneNode * sceneNode, const AirplaneState
         rollInc(false), rollDec(false), yawInc(false), yawDec(false) {
         this->state.clampAboveHeight(0.5f * HEIGHT);
         this->state.syncToNode(sceneNode);
+        
+        ALenum error;
+        /* Setup Sound */
+        alGenSources(1, &alSource);
+        if((error = alGetError()) != AL_NO_ERROR){
+            fprintf(stderr, "Error creating OpenAL source. %d\n",error);
+        }
+        alSourcei(alSource, AL_BUFFER, game->getMotorBuffer());
+        if((error = alGetError()) != AL_NO_ERROR){
+            fprintf(stderr, "Error attching motor buffer to source. %d\n",error);
+        }
+        alSourcei(alSource, AL_LOOPING, AL_TRUE);
+        alSourcePlay(alSource);
+        
         /* Create particle systems */
         engineParticles = sceneNode->getCreator()->createParticleSystem(sceneNode->getName() + "Engine", "Engine");
         sceneNode->attachObject(engineParticles);
@@ -185,6 +199,7 @@ void Airplane::update(float dt) {
     }
     
     state.syncToNode(sceneNode);
+    state.syncToALSource(alSource);
 }
 
 Ogre::Radian Airplane::getPitch() const { return state.orientation.getPitch(false); }

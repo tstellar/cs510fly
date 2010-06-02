@@ -61,3 +61,8 @@ Ogre::Radian AirplaneState::angleOfAttack() const {
     const Ogre::Vector3& localVelocity = orientation.Inverse() * velocity;
     return -Ogre::Radian(atan2(localVelocity.y, -localVelocity.z));
 }
+
+void AirplaneState::syncToALSource(unsigned int alSource) {
+    alSource3f(alSource, AL_POSITION, position.x, position.y, position.z);
+    alSource3f(alSource, AL_VELOCITY, velocity.x, velocity.y, velocity.z);
+}
