@@ -19,7 +19,6 @@ Airplane::Airplane(Game * game, Ogre::SceneNode * sceneNode, const AirplaneState
         Object(game, sceneNode),
         delay(0.0f),
         state(state),
-        thrustAmount(0.0f),
         thrustInc(false), thrustDec(false), pitchInc(false), pitchDec(false),
         rollInc(false), rollDec(false), yawInc(false), yawDec(false) {
         this->state.clampAboveHeight(0.5f * HEIGHT);
@@ -32,15 +31,15 @@ Airplane::Airplane(Game * game, Ogre::SceneNode * sceneNode, const AirplaneState
 Airplane::~Airplane() { }
 
 void Airplane::setThrust(float thrustAmount) {
-    this->thrustAmount = Ogre::Math::Clamp(thrustAmount, 0.0f, THRUST_MAX);
+    state.thrust = Ogre::Math::Clamp(thrustAmount, 0.0f, THRUST_MAX);
 }
 
 bool Airplane::atMaximumThrust() const {
-    return thrustAmount == THRUST_MAX;
+    return state.thrust == THRUST_MAX;
 }
 
 Ogre::Vector3 Airplane::thrust() const {
-    return thrustAmount * (state.orientation * Ogre::Vector3::NEGATIVE_UNIT_Z);
+    return state.thrust * (state.orientation * Ogre::Vector3::NEGATIVE_UNIT_Z);
 }
 
 Ogre::Vector3 Airplane::lift() const {
@@ -111,13 +110,15 @@ void Airplane::update(float dt) {
         return;
 
     if (thrustInc) {
-        thrustAmount += THRUST_DELTA * dt;
-        thrustAmount = Ogre::Math::Clamp(thrustAmount, 0.0f, THRUST_MAX);
+        state.thrust += THRUST_DELTA * dt;
+        if (state.thrust > THRUST_MAX)
+            state.thrust = THRUST_MAX;
         thrustInc = false;
     }
     if (thrustDec) {
-        thrustAmount -= THRUST_DELTA * dt;
-        thrustAmount = Ogre::Math::Clamp(thrustAmount, 0.0f, THRUST_MAX);
+        state.thrust -= THRUST_DELTA * dt;
+        if (state.thrust < 0.0f)
+            state.thrust = 0.0f;
         thrustDec = false;
     }
     if (pitchInc) {

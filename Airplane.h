@@ -5,8 +5,6 @@
 class Airplane : public Object {
     AirplaneState state;
 
-    float thrustAmount;
-
     bool thrustInc, thrustDec, pitchInc, pitchDec, rollInc, rollDec, yawInc, yawDec;
 
     float delay;
@@ -20,7 +18,7 @@ public:
 
     void update(float dt);
 
-    float getThrust() const { return thrustAmount; }
+    float getThrust() const { return state.thrust; }
     void setThrust(float thrustAmount);
     bool atMaximumThrust() const;
     
