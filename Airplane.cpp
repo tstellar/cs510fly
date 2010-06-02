@@ -43,8 +43,7 @@ Ogre::Vector3 Airplane::thrust() const {
 }
 
 Ogre::Vector3 Airplane::lift() const {
-    // Pretty sure this is wrong.
-    const float aoa = state.orientation.getPitch(false).valueDegrees();
+    const float aoa = state.angleOfAttack().valueDegrees();
     const float velSquared = state.velocity.squaredLength();
     const float cl = liftCoefficient(aoa);
     
@@ -69,7 +68,7 @@ Ogre::Vector3 Airplane::weight() const {
 }
 
 Ogre::Vector3 Airplane::drag() const {
-    const float aoa = state.orientation.getPitch(false).valueDegrees();
+    const float aoa = state.angleOfAttack().valueDegrees();
     const float velSquared = state.velocity.squaredLength();
     const float cd = dragCoefficient(aoa);
     

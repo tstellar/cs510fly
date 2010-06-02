@@ -53,3 +53,11 @@ bool AirplaneState::clampAboveHeight(float height) {
     } else
         return false;
 }
+
+Ogre::Radian AirplaneState::angleOfAttack() const {
+    // N.B.: Do NOT use Ogre::Vector3::angleBetween(). It only returns values from 0 to pi. Which is pretty $!#$@!#$
+    // useless for our purposes.
+    
+    const Ogre::Vector3& localVelocity = orientation.Inverse() * velocity;
+    return -Ogre::Radian(atan2(localVelocity.y, -localVelocity.z));
+}
