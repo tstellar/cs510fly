@@ -7,10 +7,20 @@ static const float MINIMUM_TIME_STEP = 0.01f;
 static const float MASS = 18885.f; // NTO mass of F-15 Eagle in kg
 static const float WEIGHT = 184000.0f; // NTO weight of F-15 Eagle in newtons
 static const float HEIGHT = 5.63f;  // Height of F-15 Eagle in meters
+static const float Y_MIN = 0.5 * HEIGHT;
 static const float AIR_DENSITY = 1.2f; // Density of air in kg/m^3 (assumed constant)
 static const float PLANFORM_AREA = 56.5; // Planform area of F-15 Eagle in m^2
 static const float THRUST_DELTA = 20000.0; // Adjust thrust by 20 kN/s
 static const float THRUST_MAX = 77620.0f * 2; // Two engines at 77.62 kN each
+
+/* The following numbers are somewhat invented. FAA regulations consider anything over 10 ft/s (3.3 m/s) a "hard
+ * landing" severe enough to require a full inspection, but this as an F-15, not a 747, and we're talking more about
+ * how hard a landing would destroy the airframe, not just injure people. Also, AFAICT landing without flaring out -
+ * that is, just driving the plane into the runway at a normal 3-degree descent - is stupid and dangerous but *not*
+ * necessarily a crash landing in the sense that the plane falls apart. So I'm padding both numbers. */
+static const float LANDING_ROD_MAX = 5.0f; // More than 5 m/s is a crash
+static const Ogre::Degree LANDING_PITCH_MIN(-5.0f); // More than 5-degree downward pitch attitude is a crash
+
 static const Ogre::Radian ROLL_DELTA(Ogre::Math::HALF_PI/4.0f); // Adjust roll by pi/8 rad/s
 static const Ogre::Radian PITCH_DELTA(Ogre::Math::HALF_PI/8.0f); // Adjust pitch by pi/16 rad/s
 static const Ogre::Radian YAW_DELTA(Ogre::Math::HALF_PI/8.0F); // Adjust yaw by pi/16 rad/s
@@ -19,27 +29,28 @@ Airplane::Airplane(Game * game, Ogre::SceneNode * sceneNode, const AirplaneState
         Object(game, sceneNode),
         delay(0.0f),
         state(state),
+        crashed(false),
         thrustInc(false), thrustDec(false), pitchInc(false), pitchDec(false),
         rollInc(false), rollDec(false), yawInc(false), yawDec(false) {
-        this->state.clampAboveHeight(0.5f * HEIGHT);
-        this->state.syncToNode(sceneNode);
+    this->state.clampAboveHeight(Y_MIN);
+    this->state.syncToNode(sceneNode);
         
-        ALenum error;
-        /* Setup Sound */
-        alGenSources(1, &alSource);
-        if((error = alGetError()) != AL_NO_ERROR){
-            fprintf(stderr, "Error creating OpenAL source. %d\n",error);
-        }
-        alSourcei(alSource, AL_BUFFER, game->getMotorBuffer());
-        if((error = alGetError()) != AL_NO_ERROR){
-            fprintf(stderr, "Error attching motor buffer to source. %d\n",error);
-        }
-        alSourcei(alSource, AL_LOOPING, AL_TRUE);
-        alSourcePlay(alSource);
-        
-        /* Create particle systems */
-        engineParticles = sceneNode->getCreator()->createParticleSystem(sceneNode->getName() + "Engine", "Engine");
-        sceneNode->attachObject(engineParticles);
+    ALenum error;
+    /* Setup Sound */
+    alGenSources(1, &alSource);
+    if((error = alGetError()) != AL_NO_ERROR){
+        fprintf(stderr, "Error creating OpenAL source. %d\n",error);
+    }
+    alSourcei(alSource, AL_BUFFER, game->getMotorBuffer());
+    if((error = alGetError()) != AL_NO_ERROR){
+        fprintf(stderr, "Error attching motor buffer to source. %d\n",error);
+    }
+    alSourcei(alSource, AL_LOOPING, AL_TRUE);
+    alSourcePlay(alSource);
+    
+    /* Create particle systems */
+    engineParticles = sceneNode->getCreator()->createParticleSystem(sceneNode->getName() + "Engine", "Engine");
+    sceneNode->attachObject(engineParticles);
 }
 
 Airplane::~Airplane() { }
@@ -119,7 +130,7 @@ void Airplane::yawLeft() { yawInc = true; }
 void Airplane::yawRight() { yawDec = true; }
 
 void Airplane::update(float dt) {
-    if (dt == 0.0)
+    if (crashed || dt == 0.0)
         return;
 
     if (thrustInc) {
@@ -165,6 +176,8 @@ void Airplane::update(float dt) {
         return;
     }
     delay = 0.0f;
+    
+    const bool initiallyOnGround = (state.position.y == Y_MIN);
 
     Ogre::Vector3 absoluteNetForce = netForce();
 
@@ -192,14 +205,27 @@ void Airplane::update(float dt) {
     // TODO We can get away with not normalizing orientation every frame if need be
     state.orientation.normalise();
 
-    // XXX This seems heavy-handed.
-    if (state.position.y < HEIGHT * 0.5f) {
-        state.position.y = HEIGHT * 0.5f;
-        state.velocity.y = 0.0f;
-    }
-    
+    if (!initiallyOnGround)
+        checkGroundCollision();
+
     state.syncToNode(sceneNode);
     state.syncToALSource(alSource);
+}
+
+void Airplane::checkGroundCollision() {
+    if (state.position.y < Y_MIN) {
+        if (state.velocity.y < -LANDING_ROD_MAX || getPitch() < LANDING_PITCH_MIN)
+            crash();
+        
+        state.position.y = Y_MIN;
+        state.velocity.y = 0.0f;
+    }
+}
+
+void Airplane::crash() {
+    crashed = true;
+    game->lose();
+    alSourceStop(alSource);
 }
 
 Ogre::Radian Airplane::getPitch() const { return state.orientation.getPitch(false); }

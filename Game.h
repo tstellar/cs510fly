@@ -58,6 +58,8 @@ public:
 
     void setBreak();
     bool checkBreak();
+    
+    void lose();
 private:
     bool setup();
 };

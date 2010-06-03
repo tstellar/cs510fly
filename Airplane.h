@@ -4,6 +4,8 @@
 
 class Airplane : public Object {
     AirplaneState state;
+    
+    bool crashed;
 
     bool thrustInc, thrustDec, pitchInc, pitchDec, rollInc, rollDec, yawInc, yawDec;
 
@@ -52,6 +54,9 @@ private:
     
     static float liftCoefficient(float aoa);
     static float dragCoefficient(float aoa);
+    
+    void checkGroundCollision();
+    void crash();
 
     void updateSound();
 };

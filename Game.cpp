@@ -226,3 +226,8 @@ bool Game::checkBreak() {
         return false;
     }
 }
+
+void Game::lose() {
+    // TODO
+    std::cerr << "FAIL\n";
+}
