@@ -65,7 +65,7 @@ public:
     void lose();
 private:
     bool setup();
-    void loadWavFile(ALuint *buffer, std::string file);
+    bool loadWavFile(ALuint *buffer, std::string file);
 };
 
 #endif
