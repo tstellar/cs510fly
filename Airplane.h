@@ -4,8 +4,8 @@
 
 class Airplane : public Object {
     AirplaneState state;
-
-    float thrustAmount;
+    
+    bool crashed;
 
     bool thrustInc, thrustDec, pitchInc, pitchDec, rollInc, rollDec, yawInc, yawDec;
 
@@ -22,12 +22,14 @@ public:
 
     void update(float dt);
 
-    float getThrust() const { return thrustAmount; }
+    float getThrust() const { return state.thrust; }
     void setThrust(float thrustAmount);
     bool atMaximumThrust() const;
     
     const Ogre::Vector3& getPosition() const { return state.position; }
     const Ogre::Vector3& getVelocity() const { return state.velocity; }
+    
+    const AirplaneState& getState() const { return state; }
 
     Ogre::Radian getPitch() const;
     Ogre::Radian getRoll() const;
@@ -50,8 +52,11 @@ private:
 
     Ogre::Vector3 netForce() const;
     
-    float liftCoefficient(float aoa) const;
-    float dragCoefficient(float aoa) const;
+    static float liftCoefficient(float aoa);
+    static float dragCoefficient(float aoa);
+    
+    void checkGroundCollision();
+    void crash();
 
     void updateSound();
 };

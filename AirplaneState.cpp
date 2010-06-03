@@ -1,6 +1,5 @@
-#include "AirplaneState.h"
-
 #include "Game.h"
+#include "AirplaneState.h"
 
 static const Ogre::String
     POSITION_NAME = "Position",
@@ -54,6 +53,14 @@ bool AirplaneState::clampAboveHeight(float height) {
         return true;
     } else
         return false;
+}
+
+Ogre::Radian AirplaneState::angleOfAttack() const {
+    // N.B.: Do NOT use Ogre::Vector3::angleBetween(). It only returns values from 0 to pi. Which is pretty $!#$@!#$
+    // useless for our purposes.
+    
+    const Ogre::Vector3& localVelocity = orientation.Inverse() * velocity;
+    return -Ogre::Radian(atan2(localVelocity.y, -localVelocity.z));
 }
 
 void AirplaneState::syncToALSource(unsigned int alSource) {

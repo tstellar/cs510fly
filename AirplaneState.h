@@ -37,6 +37,8 @@ struct AirplaneState {
     void syncToALSource(unsigned int alSource);
     
     bool clampAboveHeight(float height);
+    
+    Ogre::Radian angleOfAttack() const;
 };
 
 #endif

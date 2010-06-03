@@ -13,6 +13,8 @@ class Display {
     Ogre::TextAreaOverlayElement * const velocityTextBox;
     Ogre::TextAreaOverlayElement * const pitchRollYawTextBox;
     Ogre::TextAreaOverlayElement * const thrustTextBox;
+    Ogre::TextAreaOverlayElement * const speedTextBox;
+    Ogre::TextAreaOverlayElement * const aoaTextBox;
     
     Ogre::ColourValue normalValueColor, maxedValueColor;
 
