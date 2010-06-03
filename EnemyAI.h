@@ -5,8 +5,10 @@ class Enemy;
 
 class EnemyAI : public AI {
     Ogre::SceneNode * sceneNode;
+    float velocity;
+    int difficulty;
 
 public:
-    void update(Enemy * enemy, Airplane * player, float dt);
     EnemyAI(Ogre::SceneNode *);
+    void update(Enemy * enemy, Airplane * player, float dt);
 };

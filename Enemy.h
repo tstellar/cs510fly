@@ -6,7 +6,6 @@ class AI;
 
 class Enemy{
     Game * const game;
-    Airplane * airplane;
     AI * ai;
 
 public:
