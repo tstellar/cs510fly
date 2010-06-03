@@ -1,21 +1,20 @@
 #include "Game.h"
-#include "AirplaneState.h"
 
 class Airplane;
-class AI;
 
 class Enemy{
+protected:
     Game * const game;
-    AI * ai;
-
 public:
-    Enemy(Game *, Ogre::SceneNode *, const AirplaneState&, Ogre::String);
-    Enemy(Game *, Ogre::SceneNode *, const Ogre::Vector3&, Ogre::String);
-    ~Enemy();
-    
-    void update(Airplane *, float dt);
+    Enemy(Game * const game);
+    virtual void update(Airplane * player, float dt) = 0;
 
-    bool playerBelow(Airplane * player, const Ogre::Vector3& pos);
-    bool playerLeft(Airplane * player, const Ogre::Vector3& pos);
-    bool playerInFront(Airplane * player, const Ogre::Vector3& pos);
+
+private:
+    virtual const Ogre::Vector3& getPosition() = 0;
+
+protected:
+    bool posBelow(const Ogre::Vector3& pos);
+    bool posLeft(const Ogre::Vector3& pos);
+    bool posInFront(const Ogre::Vector3& pos);
 };

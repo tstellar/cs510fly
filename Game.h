@@ -38,6 +38,8 @@ private:
     
     bool breaking;
     ALuint motorBuffer;
+    ALuint enemyBuffer;
+
 
 public:
     Game();
@@ -55,6 +57,7 @@ public:
     void update(float dt);
 
     ALuint getMotorBuffer(){ return motorBuffer; }
+    ALuint getEnemyBuffer(){ return enemyBuffer; }
 
     void setBreak();
     bool checkBreak();
@@ -62,6 +65,7 @@ public:
     void lose();
 private:
     bool setup();
+    void loadWavFile(ALuint *buffer, std::string file);
 };
 
 #endif
