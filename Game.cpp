@@ -172,21 +172,27 @@ bool Game::setup() {
     alutLoadWAVFile((macBundlePath() + "/Contents/Resources/Running.wav").c_str(), &alFormatBuffer, &alBuffer, &alBufferLen, &alFreqBuffer);
 
     if ((error = alGetError()) != AL_NO_ERROR){
-        alDeleteBuffers(1, &motorBuffer);
-        return false;
+        goto ERROR;
     }
     // Copy sound to buffer
     alBufferData(motorBuffer, alFormatBuffer, alBuffer, alBufferLen, alFreqBuffer);
     if ((error = alGetError()) != AL_NO_ERROR){
-        alDeleteBuffers(1, &motorBuffer);
-        return false;
+        goto ERROR;
     }
     //Unload sound file
     alutUnloadWAV(alFormatBuffer, alBuffer, alBufferLen, alFreqBuffer);
     if ((error = alGetError()) != AL_NO_ERROR){
-        alDeleteBuffers(1, &motorBuffer);
-        return false;
+        goto ERROR;
     }
+    goto NO_ERROR;
+    
+    ERROR:
+    std::cerr << "Error " << error << " loading sound\n";
+    alDeleteBuffers(1, &motorBuffer);
+    return false;
+    
+    NO_ERROR:
+    
     #endif
 
     // create level
