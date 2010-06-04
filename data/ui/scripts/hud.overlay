@@ -44,8 +44,8 @@ Fly/HUD
     container Panel(Fly/StatsPanel)
     {
         top 0.5
-        left 0.775
-        width 0.2
+        left 0.725
+        width 0.25
         height 0.45
         material StatsPanel_Material
     
