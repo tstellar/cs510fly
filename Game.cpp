@@ -134,8 +134,8 @@ bool Game::setup() {
     Ogre::Light* light = sceneManager->createLight("PrimaryLight");
     light->setPosition(20.0f, 80.0f, 50.0f);
 
-    // load terrain
-    //sceneManager->setWorldGeometry("terrain.cfg");
+    // add skybox
+    sceneManager->setSkyBox(true, "Sky", 100);
     
     inputListener = new InputListener(this, renderWindow);
     root->addFrameListener(inputListener);
