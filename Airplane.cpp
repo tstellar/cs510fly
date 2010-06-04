@@ -227,9 +227,13 @@ void Airplane::checkGroundCollision() {
 }
 
 void Airplane::crash() {
+    
+    Ogre::ParticleSystem * smokeParticles = sceneNode->getCreator()->createParticleSystem(sceneNode->getName() + "Smoke", "Smoke");
+    sceneNode->attachObject(smokeParticles);
     crashed = true;
     game->lose();
     alSourceStop(alSource);
+
 }
 
 void Airplane::stopEngine() {
