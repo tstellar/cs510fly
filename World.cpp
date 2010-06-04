@@ -57,8 +57,17 @@ Enemy * World::addEnemy(const AirplaneState& state, const Ogre::String& name) {
 }
 
 void World::update(float dt) {
+    fprintf(stderr, "updating world\n");
     std::vector<Enemy*>::iterator it;
     for (it = enemies.begin(); it != enemies.end(); ++it)
         (*it)->update(player, dt);
     player->update(dt);
+
+    //collision detection
+    for (it = enemies.begin(); it != enemies.end(); ++it){
+        if((*it)->inRange(player->getPosition())){
+            player->stopEngine();
+        }
+    }
+    fprintf(stderr, "done\n");
 }

@@ -1,6 +1,12 @@
 #include "Enemy.h"
 
+static const float DEATH_RANGE_SQUARED = 100.0f;
+
 Enemy::Enemy(Game * const game) : game(game) { }
+
+bool Enemy::inRange(const Ogre::Vector3& pos) {
+    return pos.squaredDistance(getPosition()) <= DEATH_RANGE_SQUARED;
+}
 
 bool Enemy::posBelow(const Ogre::Vector3& pos) {
 	return pos.y < getPosition().y;

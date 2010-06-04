@@ -8,7 +8,7 @@ protected:
 public:
     Enemy(Game * const game);
     virtual void update(Airplane * player, float dt) = 0;
-
+    bool inRange(const Ogre::Vector3& pos);
 
 private:
     virtual const Ogre::Vector3& getPosition() = 0;
