@@ -30,6 +30,7 @@ Airplane::Airplane(Game * game, Ogre::SceneNode * sceneNode, const AirplaneState
         delay(0.0f),
         state(state),
         crashed(false),
+        engineOn(true),
         thrustInc(false), thrustDec(false), pitchInc(false), pitchDec(false),
         rollInc(false), rollDec(false), yawInc(false), yawDec(false) {
     this->state.clampAboveHeight(Y_MIN);
@@ -133,17 +134,20 @@ void Airplane::update(float dt) {
     if (crashed || dt == 0.0)
         return;
 
-    if (thrustInc) {
-        state.thrust += THRUST_DELTA * dt;
-        if (state.thrust > THRUST_MAX)
-            state.thrust = THRUST_MAX;
-        thrustInc = false;
-    }
-    if (thrustDec) {
-        state.thrust -= THRUST_DELTA * dt;
-        if (state.thrust < 0.0f)
-            state.thrust = 0.0f;
-        thrustDec = false;
+    if(engineOn){
+    
+        if (thrustInc) {
+            state.thrust += THRUST_DELTA * dt;
+            if (state.thrust > THRUST_MAX)
+                state.thrust = THRUST_MAX;
+            thrustInc = false;
+        }
+        if (thrustDec) {
+            state.thrust -= THRUST_DELTA * dt;
+            if (state.thrust < 0.0f)
+                state.thrust = 0.0f;
+            thrustDec = false;
+        }
     }
     if (pitchInc) {
         state.orientation = state.orientation * Ogre::Quaternion(PITCH_DELTA * dt, Ogre::Vector3::UNIT_X);
@@ -226,6 +230,11 @@ void Airplane::crash() {
     crashed = true;
     game->lose();
     alSourceStop(alSource);
+}
+
+void Airplane::stopEngine() {
+    engineOn = false;
+    setThrust(0.0f);
 }
 
 Ogre::Radian Airplane::getPitch() const { return state.orientation.getPitch(false); }

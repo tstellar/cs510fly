@@ -134,14 +134,13 @@ bool Game::setup() {
     Ogre::Light* light = sceneManager->createLight("PrimaryLight");
     light->setPosition(20.0f, 80.0f, 50.0f);
 
-    // load terrain
-    //sceneManager->setWorldGeometry("terrain.cfg");
+    // add skybox
+    sceneManager->setSkyBox(true, "Sky", 100);
     
     inputListener = new InputListener(this, renderWindow);
     root->addFrameListener(inputListener);
     
     // init sound
-    ALenum error;
     ALCdevice * device = alcOpenDevice(NULL);
     if(device == NULL){
         fprintf(stderr, "Unable to open default audio device.\n");
@@ -154,46 +153,9 @@ bool Game::setup() {
      * the OpenAL docs do this.
      */
     alGetError();
-    
-    #ifdef LINUX
-    motorBuffer = alureCreateBufferFromFile("data/audio/Running.wav");
-    #else
-/* Aternate way to load a file.  alureCreateBuferFromFile() does all of this,
- * but if we can't use it on OS X, we might have to use the following code.*/
-    alGenBuffers(1, &motorBuffer);
-    if ((error = alGetError()) != AL_NO_ERROR){
-        return false;
-    }
-    // Load sound file
-    ALenum alFormatBuffer;
-    char * alBuffer;
-    ALsizei alBufferLen;
-    ALsizei alFreqBuffer;
-    alutLoadWAVFile((macBundlePath() + "/Contents/Resources/Running.wav").c_str(), &alFormatBuffer, &alBuffer, &alBufferLen, &alFreqBuffer);
 
-    if ((error = alGetError()) != AL_NO_ERROR){
-        goto ERROR;
-    }
-    // Copy sound to buffer
-    alBufferData(motorBuffer, alFormatBuffer, alBuffer, alBufferLen, alFreqBuffer);
-    if ((error = alGetError()) != AL_NO_ERROR){
-        goto ERROR;
-    }
-    //Unload sound file
-    alutUnloadWAV(alFormatBuffer, alBuffer, alBufferLen, alFreqBuffer);
-    if ((error = alGetError()) != AL_NO_ERROR){
-        goto ERROR;
-    }
-    goto NO_ERROR;
-    
-    ERROR:
-    std::cerr << "Error " << error << " loading sound\n";
-    alDeleteBuffers(1, &motorBuffer);
-    return false;
-    
-    NO_ERROR:
-    
-    #endif
+    loadWavFile(&motorBuffer, "Running.wav");
+    loadWavFile(&enemyBuffer, "R2D2a.wav");
 
     // create level
     world = new World(this);
@@ -237,3 +199,41 @@ void Game::lose() {
     // TODO
     std::cerr << "FAIL\n";
 }
+
+bool Game::loadWavFile(ALuint * buffer, std::string file) {
+
+#ifdef LINUX
+    *buffer = alureCreateBufferFromFile(file.c_str());
+#else
+    ALenum error;
+    alGenBuffers(1, buffer);
+    if ((error = alGetError()) != AL_NO_ERROR){
+        return false;
+    }
+    // Load sound file
+    ALenum alFormatBuffer;
+    char * alBuffer;
+    ALsizei alBufferLen;
+    ALsizei alFreqBuffer;
+    alutLoadWAVFile((macBundlePath() + "/Contents/Resources/" + file ).c_str(), &alFormatBuffer, &alBuffer, &alBufferLen, &alFreqBuffer);
+
+    if ((error = alGetError()) != AL_NO_ERROR){
+        alDeleteBuffers(1, buffer);
+        return false;
+    }
+    // Copy sound to buffer
+    alBufferData(*buffer, alFormatBuffer, alBuffer, alBufferLen, alFreqBuffer);
+    if ((error = alGetError()) != AL_NO_ERROR){
+        alDeleteBuffers(1, buffer);
+        return false;
+    }
+    //Unload sound file
+    alutUnloadWAV(alFormatBuffer, alBuffer, alBufferLen, alFreqBuffer);
+    if ((error = alGetError()) != AL_NO_ERROR){
+        alDeleteBuffers(1, buffer);
+        return false;
+    }
+#endif
+    return true;
+}
+

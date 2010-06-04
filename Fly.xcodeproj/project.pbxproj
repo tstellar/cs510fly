@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		313F7C1711B867E200621844 /* AirplaneEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313F7C1511B867E200621844 /* AirplaneEnemy.cpp */; };
+		313F7C1811B867E200621844 /* BasicEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313F7C1611B867E200621844 /* BasicEnemy.cpp */; };
+		313F7C2D11B8681E00621844 /* R2D2a.wav in Resources */ = {isa = PBXBuildFile; fileRef = 313F7C2C11B8681E00621844 /* R2D2a.wav */; };
 		314C4D831190CE6500DC920A /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 314C4D7F1190CE6500DC920A /* Level.cpp */; };
 		314C4D841190CE6500DC920A /* Target.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 314C4D811190CE6500DC920A /* Target.cpp */; };
 		314C4D941190CF9000DC920A /* target.material in Resources */ = {isa = PBXBuildFile; fileRef = 314C4D931190CF9000DC920A /* target.material */; };
@@ -84,6 +87,23 @@
 		74598646118E644300107C82 /* media.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598556118E635400107C82 /* media.cfg */; };
 		7460827B11B95DCD007248A1 /* panel-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7460827A11B95DCD007248A1 /* panel-background.png */; };
 		7460827C11B95DCD007248A1 /* panel-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7460827A11B95DCD007248A1 /* panel-background.png */; };
+		7460836F11B96DA0007248A1 /* AirplaneEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313F7C1511B867E200621844 /* AirplaneEnemy.cpp */; };
+		7460837011B96DA2007248A1 /* BasicEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313F7C1611B867E200621844 /* BasicEnemy.cpp */; };
+		7460837111B96DB1007248A1 /* R2D2a.wav in Resources */ = {isa = PBXBuildFile; fileRef = 313F7C2C11B8681E00621844 /* R2D2a.wav */; };
+		7460839D11B96F2E007248A1 /* cloudy_noon_bk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7460839711B96F2E007248A1 /* cloudy_noon_bk.jpg */; };
+		7460839E11B96F2E007248A1 /* cloudy_noon_dn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7460839811B96F2E007248A1 /* cloudy_noon_dn.jpg */; };
+		7460839F11B96F2E007248A1 /* cloudy_noon_fr.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7460839911B96F2E007248A1 /* cloudy_noon_fr.jpg */; };
+		746083A011B96F2E007248A1 /* cloudy_noon_lf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7460839A11B96F2E007248A1 /* cloudy_noon_lf.jpg */; };
+		746083A111B96F2E007248A1 /* cloudy_noon_rt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7460839B11B96F2E007248A1 /* cloudy_noon_rt.jpg */; };
+		746083A211B96F2E007248A1 /* cloudy_noon_up.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7460839C11B96F2E007248A1 /* cloudy_noon_up.jpg */; };
+		746083A311B96F2E007248A1 /* cloudy_noon_bk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7460839711B96F2E007248A1 /* cloudy_noon_bk.jpg */; };
+		746083A411B96F2E007248A1 /* cloudy_noon_dn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7460839811B96F2E007248A1 /* cloudy_noon_dn.jpg */; };
+		746083A511B96F2E007248A1 /* cloudy_noon_fr.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7460839911B96F2E007248A1 /* cloudy_noon_fr.jpg */; };
+		746083A611B96F2E007248A1 /* cloudy_noon_lf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7460839A11B96F2E007248A1 /* cloudy_noon_lf.jpg */; };
+		746083A711B96F2E007248A1 /* cloudy_noon_rt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7460839B11B96F2E007248A1 /* cloudy_noon_rt.jpg */; };
+		746083A811B96F2E007248A1 /* cloudy_noon_up.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7460839C11B96F2E007248A1 /* cloudy_noon_up.jpg */; };
+		746083AA11B96F36007248A1 /* sky.material in Resources */ = {isa = PBXBuildFile; fileRef = 746083A911B96F36007248A1 /* sky.material */; };
+		746083AB11B96F36007248A1 /* sky.material in Resources */ = {isa = PBXBuildFile; fileRef = 746083A911B96F36007248A1 /* sky.material */; };
 		7472420911B8D4850057F3A4 /* ConfigReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7472420811B8D4850057F3A4 /* ConfigReader.cpp */; };
 		7472420A11B8D4850057F3A4 /* ConfigReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7472420811B8D4850057F3A4 /* ConfigReader.cpp */; };
 		747248E711B8F6240057F3A4 /* hud.material in Resources */ = {isa = PBXBuildFile; fileRef = 747248C511B8F50D0057F3A4 /* hud.material */; };
@@ -123,6 +143,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		313F7C1511B867E200621844 /* AirplaneEnemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AirplaneEnemy.cpp; sourceTree = "<group>"; };
+		313F7C1611B867E200621844 /* BasicEnemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicEnemy.cpp; sourceTree = "<group>"; };
+		313F7C1911B8680400621844 /* AirplaneEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirplaneEnemy.h; sourceTree = "<group>"; };
+		313F7C1A11B8680400621844 /* BasicEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicEnemy.h; sourceTree = "<group>"; };
+		313F7C2C11B8681E00621844 /* R2D2a.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = R2D2a.wav; sourceTree = "<group>"; };
 		314C4D7F1190CE6500DC920A /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Level.cpp; sourceTree = "<group>"; };
 		314C4D801190CE6500DC920A /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		314C4D811190CE6500DC920A /* Target.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Target.cpp; sourceTree = "<group>"; };
@@ -173,6 +198,13 @@
 		7459862C118E640300107C82 /* Fly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7459862E118E640300107C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7460827A11B95DCD007248A1 /* panel-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "panel-background.png"; sourceTree = "<group>"; };
+		7460839711B96F2E007248A1 /* cloudy_noon_bk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cloudy_noon_bk.jpg; sourceTree = "<group>"; };
+		7460839811B96F2E007248A1 /* cloudy_noon_dn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cloudy_noon_dn.jpg; sourceTree = "<group>"; };
+		7460839911B96F2E007248A1 /* cloudy_noon_fr.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cloudy_noon_fr.jpg; sourceTree = "<group>"; };
+		7460839A11B96F2E007248A1 /* cloudy_noon_lf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cloudy_noon_lf.jpg; sourceTree = "<group>"; };
+		7460839B11B96F2E007248A1 /* cloudy_noon_rt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cloudy_noon_rt.jpg; sourceTree = "<group>"; };
+		7460839C11B96F2E007248A1 /* cloudy_noon_up.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cloudy_noon_up.jpg; sourceTree = "<group>"; };
+		746083A911B96F36007248A1 /* sky.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sky.material; sourceTree = "<group>"; };
 		7472420711B8D4730057F3A4 /* ConfigReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigReader.h; sourceTree = "<group>"; };
 		7472420811B8D4850057F3A4 /* ConfigReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigReader.cpp; sourceTree = "<group>"; };
 		747248C511B8F50D0057F3A4 /* hud.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hud.material; sourceTree = "<group>"; };
@@ -215,6 +247,8 @@
 		08FB7794FE84155DC02AAC07 /* Fly */ = {
 			isa = PBXGroup;
 			children = (
+				74B63A6211B60D7D0040DEC1 /* Running.wav */,
+				313F7C2C11B8681E00621844 /* R2D2a.wav */,
 				74598276118E613900107C82 /* libois.a */,
 				74AEE472118E6011007A8E6D /* IOKit.framework */,
 				7459826B118E613400107C82 /* Cg.framework */,
@@ -235,6 +269,8 @@
 		08FB7795FE84155DC02AAC07 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				313F7C1511B867E200621844 /* AirplaneEnemy.cpp */,
+				313F7C1611B867E200621844 /* BasicEnemy.cpp */,
 				74C440AE118F8395001B83F0 /* Airplane.cpp */,
 				741B57FE11B2204000AFB187 /* AirplaneState.cpp */,
 				7472420811B8D4850057F3A4 /* ConfigReader.cpp */,
@@ -262,6 +298,13 @@
 		314C4D921190CF9000DC920A /* materials */ = {
 			isa = PBXGroup;
 			children = (
+				746083A911B96F36007248A1 /* sky.material */,
+				7460839711B96F2E007248A1 /* cloudy_noon_bk.jpg */,
+				7460839811B96F2E007248A1 /* cloudy_noon_dn.jpg */,
+				7460839911B96F2E007248A1 /* cloudy_noon_fr.jpg */,
+				7460839A11B96F2E007248A1 /* cloudy_noon_lf.jpg */,
+				7460839B11B96F2E007248A1 /* cloudy_noon_rt.jpg */,
+				7460839C11B96F2E007248A1 /* cloudy_noon_up.jpg */,
 				31D5944A11B35EA800FE79EC /* particles.material */,
 				31D5944811B35EA100FE79EC /* enemy.material */,
 				314C4D931190CF9000DC920A /* target.material */,
@@ -294,14 +337,6 @@
 				31D5944F11B35EBA00FE79EC /* engine.particle */,
 			);
 			path = particles;
-			sourceTree = "<group>";
-		};
-		740A989811B8D0CB000C4A71 /* audio */ = {
-			isa = PBXGroup;
-			children = (
-				74B63A6211B60D7D0040DEC1 /* Running.wav */,
-			);
-			path = audio;
 			sourceTree = "<group>";
 		};
 		740A9B0811B8D1CB000C4A71 /* Debug Frameworks */ = {
@@ -343,6 +378,8 @@
 		7459854A118E62C500107C82 /* Include */ = {
 			isa = PBXGroup;
 			children = (
+				313F7C1911B8680400621844 /* AirplaneEnemy.h */,
+				313F7C1A11B8680400621844 /* BasicEnemy.h */,
 				74C440AD118F8395001B83F0 /* Airplane.h */,
 				741B57FD11B2204000AFB187 /* AirplaneState.h */,
 				7472420711B8D4730057F3A4 /* ConfigReader.h */,
@@ -371,7 +408,6 @@
 		7459854E118E635400107C82 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				740A989811B8D0CB000C4A71 /* audio */,
 				31D5944D11B35EBA00FE79EC /* particles */,
 				741DAD7611ACEDD400686F16 /* ui */,
 				319448F3119225F00061D902 /* levels */,
@@ -529,6 +565,14 @@
 				740A9AEC11B8D157000C4A71 /* Running.wav in Resources */,
 				747248E811B8F6240057F3A4 /* hud.material in Resources */,
 				7460827B11B95DCD007248A1 /* panel-background.png in Resources */,
+				7460837111B96DB1007248A1 /* R2D2a.wav in Resources */,
+				7460839D11B96F2E007248A1 /* cloudy_noon_bk.jpg in Resources */,
+				7460839E11B96F2E007248A1 /* cloudy_noon_dn.jpg in Resources */,
+				7460839F11B96F2E007248A1 /* cloudy_noon_fr.jpg in Resources */,
+				746083A011B96F2E007248A1 /* cloudy_noon_lf.jpg in Resources */,
+				746083A111B96F2E007248A1 /* cloudy_noon_rt.jpg in Resources */,
+				746083A211B96F2E007248A1 /* cloudy_noon_up.jpg in Resources */,
+				746083AA11B96F36007248A1 /* sky.material in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,8 +602,16 @@
 				31D5945011B35EBA00FE79EC /* flare.png in Resources */,
 				31D5945111B35EBA00FE79EC /* engine.particle in Resources */,
 				74B63A6311B60D7D0040DEC1 /* Running.wav in Resources */,
+				313F7C2D11B8681E00621844 /* R2D2a.wav in Resources */,
 				747248E711B8F6240057F3A4 /* hud.material in Resources */,
 				7460827C11B95DCD007248A1 /* panel-background.png in Resources */,
+				746083A311B96F2E007248A1 /* cloudy_noon_bk.jpg in Resources */,
+				746083A411B96F2E007248A1 /* cloudy_noon_dn.jpg in Resources */,
+				746083A511B96F2E007248A1 /* cloudy_noon_fr.jpg in Resources */,
+				746083A611B96F2E007248A1 /* cloudy_noon_lf.jpg in Resources */,
+				746083A711B96F2E007248A1 /* cloudy_noon_rt.jpg in Resources */,
+				746083A811B96F2E007248A1 /* cloudy_noon_up.jpg in Resources */,
+				746083AB11B96F36007248A1 /* sky.material in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +633,8 @@
 				740A9AF611B8D157000C4A71 /* Display.cpp in Sources */,
 				740A9AF711B8D157000C4A71 /* AirplaneState.cpp in Sources */,
 				7472420A11B8D4850057F3A4 /* ConfigReader.cpp in Sources */,
+				7460836F11B96DA0007248A1 /* AirplaneEnemy.cpp in Sources */,
+				7460837011B96DA2007248A1 /* BasicEnemy.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +652,8 @@
 				742B24A411A66F3400EF4552 /* World.cpp in Sources */,
 				741DADA811ACF0F900686F16 /* Display.cpp in Sources */,
 				741B57FF11B2204000AFB187 /* AirplaneState.cpp in Sources */,
+				313F7C1711B867E200621844 /* AirplaneEnemy.cpp in Sources */,
+				313F7C1811B867E200621844 /* BasicEnemy.cpp in Sources */,
 				7472420911B8D4850057F3A4 /* ConfigReader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

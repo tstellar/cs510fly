@@ -4,7 +4,8 @@
 
 class Airplane : public Object {
     AirplaneState state;
-    
+   
+    bool engineOn;
     bool crashed;
 
     bool thrustInc, thrustDec, pitchInc, pitchDec, rollInc, rollDec, yawInc, yawDec;
@@ -34,6 +35,8 @@ public:
     Ogre::Radian getPitch() const;
     Ogre::Radian getRoll() const;
     Ogre::Radian getYaw() const;
+
+    void stopEngine();
 
     void increaseThrust();
     void decreaseThrust();
