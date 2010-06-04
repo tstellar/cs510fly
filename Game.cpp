@@ -148,7 +148,7 @@ bool Game::setup() {
     }
     ALCcontext * context = alcCreateContext(device, NULL);
     alcMakeContextCurrent(context);
-
+    alDistanceModel(AL_LINEAR_DISTANCE);
     /* Clear error code (I am not sure why this is done, but the example in
      * the OpenAL docs do this.
      */
