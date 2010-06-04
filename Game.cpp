@@ -156,7 +156,7 @@ bool Game::setup() {
     alGetError();
     
     #ifdef LINUX
-    motorBuffer = alureCreateBufferFromFile("Running.wav");
+    motorBuffer = alureCreateBufferFromFile("data/audio/Running.wav");
     #else
 /* Aternate way to load a file.  alureCreateBuferFromFile() does all of this,
  * but if we can't use it on OS X, we might have to use the following code.*/

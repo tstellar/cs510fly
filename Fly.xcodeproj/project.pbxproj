@@ -17,6 +17,46 @@
 		31D5944B11B35EA800FE79EC /* particles.material in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944A11B35EA800FE79EC /* particles.material */; };
 		31D5945011B35EBA00FE79EC /* flare.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944E11B35EBA00FE79EC /* flare.png */; };
 		31D5945111B35EBA00FE79EC /* engine.particle in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944F11B35EBA00FE79EC /* engine.particle */; };
+		740A9AD711B8D157000C4A71 /* terrain.png in Resources */ = {isa = PBXBuildFile; fileRef = 74598551118E635400107C82 /* terrain.png */; };
+		740A9AD811B8D157000C4A71 /* terrain_detail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 74598553118E635400107C82 /* terrain_detail.jpg */; };
+		740A9AD911B8D157000C4A71 /* terrain_texture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 74598552118E635400107C82 /* terrain_texture.jpg */; };
+		740A9ADA11B8D157000C4A71 /* terrain.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598555118E635400107C82 /* terrain.cfg */; };
+		740A9ADB11B8D157000C4A71 /* resources.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598559118E635400107C82 /* resources.cfg */; };
+		740A9ADC11B8D157000C4A71 /* plugins.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598558118E635400107C82 /* plugins.cfg */; };
+		740A9ADD11B8D157000C4A71 /* plugins-linux.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598557118E635400107C82 /* plugins-linux.cfg */; };
+		740A9ADE11B8D157000C4A71 /* media.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598556118E635400107C82 /* media.cfg */; };
+		740A9ADF11B8D157000C4A71 /* target.material in Resources */ = {isa = PBXBuildFile; fileRef = 314C4D931190CF9000DC920A /* target.material */; };
+		740A9AE011B8D157000C4A71 /* cube.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DAA1190D49600DC920A /* cube.mesh */; };
+		740A9AE111B8D157000C4A71 /* sphere.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DB91190D50E00DC920A /* sphere.mesh */; };
+		740A9AE211B8D157000C4A71 /* 1.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 319448F4119225F00061D902 /* 1.cfg */; };
+		740A9AE311B8D157000C4A71 /* ground.material in Resources */ = {isa = PBXBuildFile; fileRef = 7427E4EB11AA0F31002FE91D /* ground.material */; };
+		740A9AE411B8D157000C4A71 /* grass_1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 741DAD6411ACDE4900686F16 /* grass_1024.jpg */; };
+		740A9AE511B8D157000C4A71 /* hud.overlay in Resources */ = {isa = PBXBuildFile; fileRef = 741DAD7711ACEDE600686F16 /* hud.overlay */; };
+		740A9AE611B8D157000C4A71 /* bluehigh.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 741DAFA511ACFC2600686F16 /* bluehigh.ttf */; };
+		740A9AE711B8D157000C4A71 /* blue-highway.fontdef in Resources */ = {isa = PBXBuildFile; fileRef = 741DAFA411ACFBD900686F16 /* blue-highway.fontdef */; };
+		740A9AE811B8D157000C4A71 /* enemy.material in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944811B35EA100FE79EC /* enemy.material */; };
+		740A9AE911B8D157000C4A71 /* particles.material in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944A11B35EA800FE79EC /* particles.material */; };
+		740A9AEA11B8D157000C4A71 /* flare.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944E11B35EBA00FE79EC /* flare.png */; };
+		740A9AEB11B8D157000C4A71 /* engine.particle in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944F11B35EBA00FE79EC /* engine.particle */; };
+		740A9AEC11B8D157000C4A71 /* Running.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74B63A6211B60D7D0040DEC1 /* Running.wav */; };
+		740A9AEE11B8D157000C4A71 /* InputListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74598544118E62B200107C82 /* InputListener.cpp */; };
+		740A9AEF11B8D157000C4A71 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74598545118E62B200107C82 /* Main.cpp */; };
+		740A9AF011B8D157000C4A71 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74598546118E62B200107C82 /* Game.cpp */; };
+		740A9AF111B8D157000C4A71 /* Airplane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74C440AE118F8395001B83F0 /* Airplane.cpp */; };
+		740A9AF211B8D157000C4A71 /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 314C4D7F1190CE6500DC920A /* Level.cpp */; };
+		740A9AF311B8D157000C4A71 /* Target.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 314C4D811190CE6500DC920A /* Target.cpp */; };
+		740A9AF411B8D157000C4A71 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7442E53E1194ED3F0055FF80 /* Enemy.cpp */; };
+		740A9AF511B8D157000C4A71 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 742B24A211A66F3400EF4552 /* World.cpp */; };
+		740A9AF611B8D157000C4A71 /* Display.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 741DADA711ACF0F900686F16 /* Display.cpp */; };
+		740A9AF711B8D157000C4A71 /* AirplaneState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 741B57FE11B2204000AFB187 /* AirplaneState.cpp */; };
+		740A9AF911B8D157000C4A71 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7459853F118E626B00107C82 /* Carbon.framework */; };
+		740A9AFA11B8D157000C4A71 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74AEE472118E6011007A8E6D /* IOKit.framework */; };
+		740A9AFB11B8D157000C4A71 /* libois.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74598276118E613900107C82 /* libois.a */; };
+		740A9AFD11B8D157000C4A71 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B6397B11B5FBF10040DEC1 /* OpenAL.framework */; };
+		740A9B0011B8D157000C4A71 /* libois.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 74598276118E613900107C82 /* libois.a */; };
+		740A9B0111B8D157000C4A71 /* Cg.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7459826B118E613400107C82 /* Cg.framework */; };
+		740A9B0F11B8D277000C4A71 /* Ogre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 740A9B0911B8D1F2000C4A71 /* Ogre.framework */; };
+		740A9C0C11B8D31F000C4A71 /* Ogre.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 740A9B0911B8D1F2000C4A71 /* Ogre.framework */; };
 		741B57FF11B2204000AFB187 /* AirplaneState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 741B57FE11B2204000AFB187 /* AirplaneState.cpp */; };
 		741DAD6511ACDE4900686F16 /* grass_1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 741DAD6411ACDE4900686F16 /* grass_1024.jpg */; };
 		741DAD7811ACEE0D00686F16 /* hud.overlay in Resources */ = {isa = PBXBuildFile; fileRef = 741DAD7711ACEDE600686F16 /* hud.overlay */; };
@@ -42,6 +82,8 @@
 		74598644118E644000107C82 /* plugins.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598558118E635400107C82 /* plugins.cfg */; };
 		74598645118E644000107C82 /* plugins-linux.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598557118E635400107C82 /* plugins-linux.cfg */; };
 		74598646118E644300107C82 /* media.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598556118E635400107C82 /* media.cfg */; };
+		7472420911B8D4850057F3A4 /* ConfigReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7472420811B8D4850057F3A4 /* ConfigReader.cpp */; };
+		7472420A11B8D4850057F3A4 /* ConfigReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7472420811B8D4850057F3A4 /* ConfigReader.cpp */; };
 		74B6397C11B5FBF10040DEC1 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B6397B11B5FBF10040DEC1 /* OpenAL.framework */; };
 		74B63A6311B60D7D0040DEC1 /* Running.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74B63A6211B60D7D0040DEC1 /* Running.wav */; };
 		74C43F87118F7C7A001B83F0 /* libois.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 74598276118E613900107C82 /* libois.a */; };
@@ -50,6 +92,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		740A9AFE11B8D157000C4A71 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				740A9C0C11B8D31F000C4A71 /* Ogre.framework in CopyFiles */,
+				740A9B0011B8D157000C4A71 /* libois.a in CopyFiles */,
+				740A9B0111B8D157000C4A71 /* Cg.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74C4408B118F7C94001B83F0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,6 +131,9 @@
 		31D5944A11B35EA800FE79EC /* particles.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = particles.material; sourceTree = "<group>"; };
 		31D5944E11B35EBA00FE79EC /* flare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flare.png; sourceTree = "<group>"; };
 		31D5944F11B35EBA00FE79EC /* engine.particle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = engine.particle; sourceTree = "<group>"; };
+		740A9B0511B8D157000C4A71 /* FlyDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		740A9B0711B8D157000C4A71 /* FlyDebug-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlyDebug-Info.plist"; sourceTree = "<group>"; };
+		740A9B0911B8D1F2000C4A71 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = "/nfs/home/users/maurerl/Documents/CIS 510 - Games/ogre/Mac/build/Debug/Ogre.framework"; sourceTree = "<absolute>"; };
 		741B57FD11B2204000AFB187 /* AirplaneState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirplaneState.h; sourceTree = "<group>"; };
 		741B57FE11B2204000AFB187 /* AirplaneState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AirplaneState.cpp; sourceTree = "<group>"; };
 		741DAD6411ACDE4900686F16 /* grass_1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grass_1024.jpg; sourceTree = "<group>"; };
@@ -111,6 +168,8 @@
 		74598620118E638600107C82 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		7459862C118E640300107C82 /* Fly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7459862E118E640300107C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7472420711B8D4730057F3A4 /* ConfigReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigReader.h; sourceTree = "<group>"; };
+		7472420811B8D4850057F3A4 /* ConfigReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigReader.cpp; sourceTree = "<group>"; };
 		74A5492511A6FF51009D0ADB /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
 		74AEE472118E6011007A8E6D /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		74B6397B11B5FBF10040DEC1 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -120,6 +179,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		740A9AF811B8D157000C4A71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				740A9AF911B8D157000C4A71 /* Carbon.framework in Frameworks */,
+				740A9AFA11B8D157000C4A71 /* IOKit.framework in Frameworks */,
+				740A9AFB11B8D157000C4A71 /* libois.a in Frameworks */,
+				740A9AFD11B8D157000C4A71 /* OpenAL.framework in Frameworks */,
+				740A9B0F11B8D277000C4A71 /* Ogre.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7459862A118E640300107C82 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -139,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				74598276118E613900107C82 /* libois.a */,
-				74B63A6211B60D7D0040DEC1 /* Running.wav */,
 				74AEE472118E6011007A8E6D /* IOKit.framework */,
 				7459826B118E613400107C82 /* Cg.framework */,
 				74598178118E612C00107C82 /* Ogre.framework */,
@@ -148,8 +218,10 @@
 				08FB7795FE84155DC02AAC07 /* Sources */,
 				C6859E8C029090F304C91782 /* Resources */,
 				7459854B118E62F700107C82 /* External Frameworks and Libraries */,
+				740A9B0811B8D1CB000C4A71 /* Debug Frameworks */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 				7459862E118E640300107C82 /* Info.plist */,
+				740A9B0711B8D157000C4A71 /* FlyDebug-Info.plist */,
 			);
 			name = Fly;
 			sourceTree = "<group>";
@@ -159,6 +231,7 @@
 			children = (
 				74C440AE118F8395001B83F0 /* Airplane.cpp */,
 				741B57FE11B2204000AFB187 /* AirplaneState.cpp */,
+				7472420811B8D4850057F3A4 /* ConfigReader.cpp */,
 				741DADA711ACF0F900686F16 /* Display.cpp */,
 				7442E53E1194ED3F0055FF80 /* Enemy.cpp */,
 				74598546118E62B200107C82 /* Game.cpp */,
@@ -175,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				7459862C118E640300107C82 /* Fly.app */,
+				740A9B0511B8D157000C4A71 /* FlyDebug.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -216,6 +290,22 @@
 			path = particles;
 			sourceTree = "<group>";
 		};
+		740A989811B8D0CB000C4A71 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				74B63A6211B60D7D0040DEC1 /* Running.wav */,
+			);
+			path = audio;
+			sourceTree = "<group>";
+		};
+		740A9B0811B8D1CB000C4A71 /* Debug Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				740A9B0911B8D1F2000C4A71 /* Ogre.framework */,
+			);
+			name = "Debug Frameworks";
+			sourceTree = "<group>";
+		};
 		741DAD7611ACEDD400686F16 /* ui */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +337,7 @@
 			children = (
 				74C440AD118F8395001B83F0 /* Airplane.h */,
 				741B57FD11B2204000AFB187 /* AirplaneState.h */,
+				7472420711B8D4730057F3A4 /* ConfigReader.h */,
 				741DADA611ACF0F900686F16 /* Display.h */,
 				7442E5401194ED460055FF80 /* Enemy.h */,
 				7459854D118E632800107C82 /* Game.h */,
@@ -272,6 +363,7 @@
 		7459854E118E635400107C82 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				740A989811B8D0CB000C4A71 /* audio */,
 				31D5944D11B35EBA00FE79EC /* particles */,
 				741DAD7611ACEDD400686F16 /* ui */,
 				319448F3119225F00061D902 /* levels */,
@@ -325,6 +417,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		740A9AD511B8D157000C4A71 /* FlyDebug */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 740A9B0211B8D157000C4A71 /* Build configuration list for PBXNativeTarget "FlyDebug" */;
+			buildPhases = (
+				740A9AD611B8D157000C4A71 /* Resources */,
+				740A9AED11B8D157000C4A71 /* Sources */,
+				740A9AF811B8D157000C4A71 /* Frameworks */,
+				740A9AFE11B8D157000C4A71 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlyDebug;
+			productName = Fly;
+			productReference = 740A9B0511B8D157000C4A71 /* FlyDebug.app */;
+			productType = "com.apple.product-type.application";
+		};
 		7459862B118E640300107C82 /* Fly */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74598631118E640300107C82 /* Build configuration list for PBXNativeTarget "Fly" */;
@@ -359,11 +469,41 @@
 			projectRoot = "";
 			targets = (
 				7459862B118E640300107C82 /* Fly */,
+				740A9AD511B8D157000C4A71 /* FlyDebug */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		740A9AD611B8D157000C4A71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				740A9AD711B8D157000C4A71 /* terrain.png in Resources */,
+				740A9AD811B8D157000C4A71 /* terrain_detail.jpg in Resources */,
+				740A9AD911B8D157000C4A71 /* terrain_texture.jpg in Resources */,
+				740A9ADA11B8D157000C4A71 /* terrain.cfg in Resources */,
+				740A9ADB11B8D157000C4A71 /* resources.cfg in Resources */,
+				740A9ADC11B8D157000C4A71 /* plugins.cfg in Resources */,
+				740A9ADD11B8D157000C4A71 /* plugins-linux.cfg in Resources */,
+				740A9ADE11B8D157000C4A71 /* media.cfg in Resources */,
+				740A9ADF11B8D157000C4A71 /* target.material in Resources */,
+				740A9AE011B8D157000C4A71 /* cube.mesh in Resources */,
+				740A9AE111B8D157000C4A71 /* sphere.mesh in Resources */,
+				740A9AE211B8D157000C4A71 /* 1.cfg in Resources */,
+				740A9AE311B8D157000C4A71 /* ground.material in Resources */,
+				740A9AE411B8D157000C4A71 /* grass_1024.jpg in Resources */,
+				740A9AE511B8D157000C4A71 /* hud.overlay in Resources */,
+				740A9AE611B8D157000C4A71 /* bluehigh.ttf in Resources */,
+				740A9AE711B8D157000C4A71 /* blue-highway.fontdef in Resources */,
+				740A9AE811B8D157000C4A71 /* enemy.material in Resources */,
+				740A9AE911B8D157000C4A71 /* particles.material in Resources */,
+				740A9AEA11B8D157000C4A71 /* flare.png in Resources */,
+				740A9AEB11B8D157000C4A71 /* engine.particle in Resources */,
+				740A9AEC11B8D157000C4A71 /* Running.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74598628118E640300107C82 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -396,6 +536,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		740A9AED11B8D157000C4A71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				740A9AEE11B8D157000C4A71 /* InputListener.cpp in Sources */,
+				740A9AEF11B8D157000C4A71 /* Main.cpp in Sources */,
+				740A9AF011B8D157000C4A71 /* Game.cpp in Sources */,
+				740A9AF111B8D157000C4A71 /* Airplane.cpp in Sources */,
+				740A9AF211B8D157000C4A71 /* Level.cpp in Sources */,
+				740A9AF311B8D157000C4A71 /* Target.cpp in Sources */,
+				740A9AF411B8D157000C4A71 /* Enemy.cpp in Sources */,
+				740A9AF511B8D157000C4A71 /* World.cpp in Sources */,
+				740A9AF611B8D157000C4A71 /* Display.cpp in Sources */,
+				740A9AF711B8D157000C4A71 /* AirplaneState.cpp in Sources */,
+				7472420A11B8D4850057F3A4 /* ConfigReader.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		74598629118E640300107C82 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -410,6 +568,7 @@
 				742B24A411A66F3400EF4552 /* World.cpp in Sources */,
 				741DADA811ACF0F900686F16 /* Display.cpp in Sources */,
 				741B57FF11B2204000AFB187 /* AirplaneState.cpp in Sources */,
+				7472420911B8D4850057F3A4 /* ConfigReader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +601,84 @@
 			};
 			name = Release;
 		};
+		740A9B0311B8D157000C4A71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"\"/nfs/home/users/maurerl/Documents/CIS 510 - Games/ogre/Mac/build/Debug\"",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"/local/apps/Libraries/OgreSDK-1.6.5/Dependencies\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS_QUOTED_1)",
+					"$(HEADER_SEARCH_PATHS_QUOTED_2)",
+				);
+				HEADER_SEARCH_PATHS_QUOTED_1 = "\"/local/apps/Libraries/OgreSDK-1.6.5/Dependencies/include\"";
+				HEADER_SEARCH_PATHS_QUOTED_2 = "\"/local/apps/Libraries/OgreSDK-1.6.5/Dependencies/Ogre.framework/Headers/**\"";
+				INFOPLIST_FILE = "FlyDebug-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "\"/local/apps/Libraries/OgreSDK-1.6.5/Dependencies/lib/Release\"";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = FlyDebug;
+				USER_HEADER_SEARCH_PATHS = Include;
+			};
+			name = Debug;
+		};
+		740A9B0411B8D157000C4A71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"\"/nfs/home/users/maurerl/Documents/CIS 510 - Games/ogre/Mac/build/Debug\"",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"/local/apps/Libraries/OgreSDK-1.6.5/Dependencies\"";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS_QUOTED_1)",
+					"$(HEADER_SEARCH_PATHS_QUOTED_2)",
+				);
+				HEADER_SEARCH_PATHS_QUOTED_1 = "\"/local/apps/Libraries/OgreSDK-1.6.5/Dependencies/include\"";
+				HEADER_SEARCH_PATHS_QUOTED_2 = "\"/local/apps/Libraries/OgreSDK-1.6.5/Dependencies/Ogre.framework/Headers/**\"";
+				INFOPLIST_FILE = "FlyDebug-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "\"/local/apps/Libraries/OgreSDK-1.6.5/Dependencies/lib/Release\"";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = FlyDebug;
+				USER_HEADER_SEARCH_PATHS = Include;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		7459862F118E640300107C82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -451,6 +688,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"\"/nfs/home/users/maurerl/Documents/CIS 510 - Games/ogre/Mac/build/Debug\"",
+					"\"/nfs/local/macosx-local/apps/Libraries/OgreSDK-1.6.5/Dependencies\"",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"/local/apps/Libraries/OgreSDK-1.6.5/Dependencies\"";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -490,6 +729,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"\"/nfs/home/users/maurerl/Documents/CIS 510 - Games/ogre/Mac/build/Debug\"",
+					"\"/nfs/local/macosx-local/apps/Libraries/OgreSDK-1.6.5/Dependencies\"",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"/local/apps/Libraries/OgreSDK-1.6.5/Dependencies\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -526,6 +767,15 @@
 			buildConfigurations = (
 				1DEB923608733DC60010E9CD /* Debug */,
 				1DEB923708733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		740A9B0211B8D157000C4A71 /* Build configuration list for PBXNativeTarget "FlyDebug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				740A9B0311B8D157000C4A71 /* Debug */,
+				740A9B0411B8D157000C4A71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
