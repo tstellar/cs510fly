@@ -1,0 +1,15 @@
+material StatsPanel_Material
+{
+	technique
+	{
+		pass
+		{
+            scene_blend alpha_blend
+            
+            texture_unit
+            {
+                texture "panel-background.png"
+            }
+        }
+	}
+}

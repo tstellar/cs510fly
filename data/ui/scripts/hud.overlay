@@ -5,8 +5,8 @@ template element TextArea(Fly/TextBox)
     height 0.025
     char_height 0.0225
     alignment left
-    left 0.8
-    colour 0 0 0
+    left 0.025
+    colour 1 1 1
 }
 
 template element TextArea(Fly/Label) : Fly/TextBox
@@ -22,71 +22,91 @@ template element TextArea(Fly/MaxedTextBox) : Fly/TextBox
 
 Fly/HUD
 {
-    container Panel(Fly/HUDPanel)
+    container Panel(Fly/InfoBar)
     {
-        top 0
-        left 0
-        width 1
-        height 1
+        top 0.025
+        left 0.025
+        width 0.95
+        height 0.05
+        material StatsPanel_Material
+        
+        element TextArea(Fly/LevelName) : Fly/Label
+        {
+            top 0.01
+            left 0.375
+            width 0.2
+            height 0.05
+            alignment center
+            char_height 0.04
+        }
+    }
+
+    container Panel(Fly/StatsPanel)
+    {
+        top 0.5
+        left 0.775
+        width 0.2
+        height 0.45
+        material StatsPanel_Material
     
         element TextArea(Fly/PositionLabel) : Fly/Label
         {
             caption Position
-            top 0.575
+            top 0.025
         }
         element TextArea(Fly/Position) : Fly/TextBox
         {
-            top 0.6
+            top 0.05
         }
         
         element TextArea(Fly/VelocityLabel) : Fly/Label
         {
             caption Velocity
-            top 0.625
+            top 0.075
         }
         element TextArea(Fly/Velocity) : Fly/TextBox
         {
-            top 0.65
+            top 0.1
         }
         
         element TextArea(Fly/PitchRollYawLabel) : Fly/Label
         {
             caption Pitch/Roll/Yaw
-            top 0.675
+            top 0.125
         }        
         element TextArea(Fly/PitchRollYaw) : Fly/TextBox
         {
-            top 0.7
+            top 0.15
         }
         
         element TextArea(Fly/ThrustLabel) : Fly/Label
         {
             caption Thrust
-            top 0.725
+            top 0.175
         }
         element TextArea(Fly/Thrust) : Fly/TextBox
         {
-            top 0.75
+            top 0.2
         }
         
         element TextArea(Fly/SpeedLabel) : Fly/Label
         {
             caption Speed
-            top 0.775
+            top 0.225
         }
         element TextArea(Fly/Speed) : Fly/TextBox
         {
-            top 0.8
+            top 0.25
         }
         
         element TextArea(Fly/AOALabel) : Fly/Label
         {
             caption Angle of Attack
-            top 0.825
+            top 0.275
         }
         element TextArea(Fly/AOA) : Fly/TextBox
         {
-            top 0.85
+            top 0.3
         }
     }
 }

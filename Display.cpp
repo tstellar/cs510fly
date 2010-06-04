@@ -10,13 +10,16 @@
 #include "Display.h"
 
 #include "Airplane.h"
+#include "Level.h"
 #include "World.h"
 
 static const Ogre::String
     TEXT_BOX_TEMPLATE_NAME = "Fly/TextBox",
     MAXED_TEXT_BOX_TEMPLATE_NAME = "Fly/MaxedTextBox",
     OVERLAY_NAME = "Fly/HUD",
-    PANEL_NAME = "Fly/HUDPanel",
+    INFO_BAR_NAME = "Fly/InfoBar",
+    LEVEL_TEXT_BOX_NAME = "Fly/LevelName",
+    STATS_PANEL_NAME = "Fly/StatsPanel",
     POSITION_TEXT_BOX_NAME = "Fly/Position",
     VELOCITY_TEXT_BOX_NAME = "Fly/Velocity",
     PITCH_ROLL_YAW_TEXT_BOX_NAME = "Fly/PitchRollYaw",
@@ -29,7 +32,9 @@ static Ogre::OverlayManager * overlayMgr() { return Ogre::OverlayManager::getSin
 Display::Display(Game * game) :
     game(game),
     overlay(overlayMgr()->getByName(OVERLAY_NAME)),
-    panel(overlay->getChild(PANEL_NAME)),
+    infoBar(overlay->getChild(INFO_BAR_NAME)),
+    levelTextBox(getTextArea(LEVEL_TEXT_BOX_NAME, infoBar)),
+    statsPanel(overlay->getChild(STATS_PANEL_NAME)),
     positionTextBox(getTextArea(POSITION_TEXT_BOX_NAME)),
     velocityTextBox(getTextArea(VELOCITY_TEXT_BOX_NAME)),
     pitchRollYawTextBox(getTextArea(PITCH_ROLL_YAW_TEXT_BOX_NAME)),
@@ -44,8 +49,8 @@ Display::Display(Game * game) :
     maxedValueColor = elt->getColour();
 }
 
-Ogre::TextAreaOverlayElement * Display::getTextArea(Ogre::String name) {
-    return dynamic_cast<Ogre::TextAreaOverlayElement *>(panel->getChild(name));
+Ogre::TextAreaOverlayElement * Display::getTextArea(Ogre::String name, Ogre::OverlayContainer * parent) {
+    return dynamic_cast<Ogre::TextAreaOverlayElement *>((parent == NULL ? statsPanel : parent)->getChild(name));
 }
 
 void Display::setup() {
@@ -58,6 +63,7 @@ template<typename T> static inline Ogre::String toString(T x) { return Ogre::Str
 void Display::update(float dt) {
     const Airplane * const player = game->getWorld()->getPlayer();
     const AirplaneState& state = player->getState();
+    levelTextBox->setCaption(game->getCurrentLevel()->getName());
     positionTextBox->setCaption(toString(state.position));
     velocityTextBox->setCaption(toString(state.velocity));
     speedTextBox->setCaption(toString(state.velocity.length()));

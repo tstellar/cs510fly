@@ -8,7 +8,11 @@
 class Display {
     Game * const game;
     Ogre::Overlay * const overlay;
-    Ogre::OverlayContainer * const panel;
+    
+    Ogre::OverlayContainer * const infoBar;
+    Ogre::TextAreaOverlayElement * const levelTextBox;
+    
+    Ogre::OverlayContainer * const statsPanel;
     Ogre::TextAreaOverlayElement * const positionTextBox;
     Ogre::TextAreaOverlayElement * const velocityTextBox;
     Ogre::TextAreaOverlayElement * const pitchRollYawTextBox;
@@ -25,7 +29,8 @@ public:
     void update(float dt);
     
 private:
-    Ogre::TextAreaOverlayElement * getTextArea(Ogre::String name);
+    Ogre::TextAreaOverlayElement * getTextArea(
+            Ogre::String name, Ogre::OverlayContainer * parent = NULL);
 };
 
 #endif

@@ -191,7 +191,7 @@ bool Game::setup() {
 
     // create level
     world = new World(this);
-    currentLevel = new Level(this);
+    currentLevel = new Level(this, getLevelPath() + "1.cfg");
     currentLevel->populate(world);
 
     airplane = world->getPlayer();

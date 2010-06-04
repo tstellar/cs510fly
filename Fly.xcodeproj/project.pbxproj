@@ -82,8 +82,12 @@
 		74598644118E644000107C82 /* plugins.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598558118E635400107C82 /* plugins.cfg */; };
 		74598645118E644000107C82 /* plugins-linux.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598557118E635400107C82 /* plugins-linux.cfg */; };
 		74598646118E644300107C82 /* media.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 74598556118E635400107C82 /* media.cfg */; };
+		7460827B11B95DCD007248A1 /* panel-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7460827A11B95DCD007248A1 /* panel-background.png */; };
+		7460827C11B95DCD007248A1 /* panel-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7460827A11B95DCD007248A1 /* panel-background.png */; };
 		7472420911B8D4850057F3A4 /* ConfigReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7472420811B8D4850057F3A4 /* ConfigReader.cpp */; };
 		7472420A11B8D4850057F3A4 /* ConfigReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7472420811B8D4850057F3A4 /* ConfigReader.cpp */; };
+		747248E711B8F6240057F3A4 /* hud.material in Resources */ = {isa = PBXBuildFile; fileRef = 747248C511B8F50D0057F3A4 /* hud.material */; };
+		747248E811B8F6240057F3A4 /* hud.material in Resources */ = {isa = PBXBuildFile; fileRef = 747248C511B8F50D0057F3A4 /* hud.material */; };
 		74B6397C11B5FBF10040DEC1 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B6397B11B5FBF10040DEC1 /* OpenAL.framework */; };
 		74B63A6311B60D7D0040DEC1 /* Running.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74B63A6211B60D7D0040DEC1 /* Running.wav */; };
 		74C43F87118F7C7A001B83F0 /* libois.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 74598276118E613900107C82 /* libois.a */; };
@@ -168,8 +172,10 @@
 		74598620118E638600107C82 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		7459862C118E640300107C82 /* Fly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7459862E118E640300107C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7460827A11B95DCD007248A1 /* panel-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "panel-background.png"; sourceTree = "<group>"; };
 		7472420711B8D4730057F3A4 /* ConfigReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigReader.h; sourceTree = "<group>"; };
 		7472420811B8D4850057F3A4 /* ConfigReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigReader.cpp; sourceTree = "<group>"; };
+		747248C511B8F50D0057F3A4 /* hud.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hud.material; sourceTree = "<group>"; };
 		74A5492511A6FF51009D0ADB /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
 		74AEE472118E6011007A8E6D /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		74B6397B11B5FBF10040DEC1 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -309,6 +315,8 @@
 		741DAD7611ACEDD400686F16 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				7460827911B95DCD007248A1 /* textures */,
+				747248C311B8ED500057F3A4 /* materials */,
 				741DAFA311ACFBC300686F16 /* fonts */,
 				741DAFA211ACFBBC00686F16 /* scripts */,
 			);
@@ -400,6 +408,24 @@
 				74598555118E635400107C82 /* terrain.cfg */,
 			);
 			path = scripts;
+			sourceTree = "<group>";
+		};
+		7460827911B95DCD007248A1 /* textures */ = {
+			isa = PBXGroup;
+			children = (
+				7460827A11B95DCD007248A1 /* panel-background.png */,
+			);
+			name = textures;
+			path = ui/textures;
+			sourceTree = "<group>";
+		};
+		747248C311B8ED500057F3A4 /* materials */ = {
+			isa = PBXGroup;
+			children = (
+				747248C511B8F50D0057F3A4 /* hud.material */,
+			);
+			name = materials;
+			path = ui/materials;
 			sourceTree = "<group>";
 		};
 		C6859E8C029090F304C91782 /* Resources */ = {
@@ -501,6 +527,8 @@
 				740A9AEA11B8D157000C4A71 /* flare.png in Resources */,
 				740A9AEB11B8D157000C4A71 /* engine.particle in Resources */,
 				740A9AEC11B8D157000C4A71 /* Running.wav in Resources */,
+				747248E811B8F6240057F3A4 /* hud.material in Resources */,
+				7460827B11B95DCD007248A1 /* panel-background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +558,8 @@
 				31D5945011B35EBA00FE79EC /* flare.png in Resources */,
 				31D5945111B35EBA00FE79EC /* engine.particle in Resources */,
 				74B63A6311B60D7D0040DEC1 /* Running.wav in Resources */,
+				747248E711B8F6240057F3A4 /* hud.material in Resources */,
+				7460827C11B95DCD007248A1 /* panel-background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,10 +6,11 @@
 
 const Ogre::String Level::PLAYER_SECTION_NAME = "$PLAYER";
 
-Level::Level(Game * game) : game(game){
-    /*TODO: Specify the level to load. */
-    ConfigReader config(game->getLevelPath() + "1.cfg");
-
+Level::Level(Game * game, const Ogre::String& filename) : game(game){
+    ConfigReader config(filename);
+    
+    name = config.get("Name", filename);
+    
     /* Load the Target's starting point. */
     Ogre::Vector2 targetXZ = config.parse("Target", &Ogre::StringConverter::parseVector2, Ogre::Vector2::ZERO);
     targetStart = Ogre::Vector3(targetXZ.x,0,targetXZ.y);
