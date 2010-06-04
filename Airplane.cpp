@@ -235,6 +235,7 @@ void Airplane::crash() {
 void Airplane::stopEngine() {
     engineOn = false;
     setThrust(0.0f);
+    alSourceStop(alSource);
 }
 
 Ogre::Radian Airplane::getPitch() const { return state.orientation.getPitch(false); }
