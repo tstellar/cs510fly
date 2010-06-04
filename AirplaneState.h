@@ -3,6 +3,8 @@
 
 #include "Ogre.h"
 
+class ConfigReader;
+
 struct AirplaneState {
     Ogre::Vector3 position;
     Ogre::Quaternion orientation;
@@ -29,7 +31,7 @@ struct AirplaneState {
         velocity(Ogre::Vector3::ZERO),
         thrust(0.0f) { }
     
-    static AirplaneState readFromConfig(const Ogre::ConfigFile::SettingsMultiMap * settings);
+    static AirplaneState readFromConfig(const ConfigReader * reader);
     
     void syncToNode(Ogre::Node *) const;
     void syncFromNode(const Ogre::Node *);

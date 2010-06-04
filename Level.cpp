@@ -1,3 +1,4 @@
+#include "ConfigReader.h"
 #include "Enemy.h"
 #include "Level.h"
 #include "Target.h"
@@ -6,23 +7,19 @@
 const Ogre::String Level::PLAYER_SECTION_NAME = "$PLAYER";
 
 Level::Level(Game * game) : game(game){
-    Ogre::ConfigFile levelCFG;
-
     /*TODO: Specify the level to load. */
-    levelCFG.load(game->getLevelPath() + "1.cfg");
+    ConfigReader config(game->getLevelPath() + "1.cfg");
 
     /* Load the Target's starting point. */
-    Ogre::Vector2 targetXZ = Ogre::StringConverter::parseVector2(
-                    levelCFG.getSetting("Target"));
+    Ogre::Vector2 targetXZ = config.parse("Target", &Ogre::StringConverter::parseVector2, Ogre::Vector2::ZERO);
     targetStart = Ogre::Vector3(targetXZ.x,0,targetXZ.y);
 
     /* Create the enemies and the player start. */
-    Ogre::ConfigFile::SectionIterator sit = levelCFG.getSectionIterator();
-    sit.getNext();
-    while(sit.hasMoreElements()){
-        Ogre::String sectionName = sit.peekNextKey();
+    config.advanceSection();
+    for (; config.hasNextSection(); config.advanceSection()){
+        const Ogre::String& sectionName = config.getSectionName();
         
-        const AirplaneState& state = AirplaneState::readFromConfig(sit.getNext());
+        const AirplaneState& state = AirplaneState::readFromConfig(&config);
         if (sectionName == PLAYER_SECTION_NAME)
             playerState = state;
         else {

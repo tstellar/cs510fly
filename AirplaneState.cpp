@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "AirplaneState.h"
+#include "ConfigReader.h"
 
 static const Ogre::String
     POSITION_NAME = "Position",
@@ -9,21 +10,11 @@ static const Ogre::String
 
 static Ogre::Quaternion parsePitchRollYaw(const Ogre::String&);
 
-template <typename T> T parse(const Ogre::ConfigFile::SettingsMultiMap * settings,
-        Ogre::String key, T (* func)(const Ogre::String&), const T& dflt) {
-    Ogre::ConfigFile::SettingsMultiMap::const_iterator iter;
-    iter = settings->find(key);
-    if (iter == settings->end())
-        return dflt;
-    else
-        return func(iter->second);
-}
-
-AirplaneState AirplaneState::readFromConfig(const Ogre::ConfigFile::SettingsMultiMap * settings) {
-    Ogre::Vector3 position = parse(settings, POSITION_NAME, &Ogre::StringConverter::parseVector3, Ogre::Vector3::ZERO);
-    Ogre::Quaternion orientation = parse(settings, ORIENTATION_NAME, &parsePitchRollYaw, Ogre::Quaternion::IDENTITY);
-    Ogre::Vector3 velocity = parse(settings, VELOCITY_NAME, &Ogre::StringConverter::parseVector3, Ogre::Vector3::ZERO);
-    Ogre::Real thrust = parse(settings, THRUST_NAME, &Ogre::StringConverter::parseReal, 0.0f);
+AirplaneState AirplaneState::readFromConfig(const ConfigReader * reader) {
+    Ogre::Vector3 position = reader->parse(POSITION_NAME, &Ogre::StringConverter::parseVector3, Ogre::Vector3::ZERO);
+    Ogre::Quaternion orientation = reader->parse(ORIENTATION_NAME, &parsePitchRollYaw, Ogre::Quaternion::IDENTITY);
+    Ogre::Vector3 velocity = reader->parse(VELOCITY_NAME, &Ogre::StringConverter::parseVector3, Ogre::Vector3::ZERO);
+    Ogre::Real thrust = reader->parse(THRUST_NAME, &Ogre::StringConverter::parseReal, 0.0f);
     
     return AirplaneState(position, orientation, velocity, thrust);
 }
