@@ -141,7 +141,6 @@ bool Game::setup() {
     root->addFrameListener(inputListener);
     
     // init sound
-    ALenum error;
     ALCdevice * device = alcOpenDevice(NULL);
     if(device == NULL){
         fprintf(stderr, "Unable to open default audio device.\n");
@@ -201,13 +200,12 @@ void Game::lose() {
     std::cerr << "FAIL\n";
 }
 
-void Game::loadWavFile(ALuint * buffer, std::string file) {
+bool Game::loadWavFile(ALuint * buffer, std::string file) {
 
-    #ifdef LINUX
+#ifdef LINUX
     *buffer = alureCreateBufferFromFile(file.c_str());
-    #else
-/* Aternate way to load a file.  alureCreateBuferFromFile() does all of this,
- * but if we can't use it on OS X, we might have to use the following code.*/
+#else
+    ALenum error;
     alGenBuffers(1, buffer);
     if ((error = alGetError()) != AL_NO_ERROR){
         return false;
@@ -224,17 +222,18 @@ void Game::loadWavFile(ALuint * buffer, std::string file) {
         return false;
     }
     // Copy sound to buffer
-    alBufferData(buffer, alFormatBuffer, alBuffer, alBufferLen, alFreqBuffer);
+    alBufferData(*buffer, alFormatBuffer, alBuffer, alBufferLen, alFreqBuffer);
     if ((error = alGetError()) != AL_NO_ERROR){
-        alDeleteBuffers(1, &buffer);
+        alDeleteBuffers(1, buffer);
         return false;
     }
     //Unload sound file
     alutUnloadWAV(alFormatBuffer, alBuffer, alBufferLen, alFreqBuffer);
     if ((error = alGetError()) != AL_NO_ERROR){
-        alDeleteBuffers(1, &buffer);
+        alDeleteBuffers(1, buffer);
         return false;
     }
-    #endif
+#endif
+    return true;
 }
 

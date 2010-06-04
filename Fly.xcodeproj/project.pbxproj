@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		313F7C1711B867E200621844 /* AirplaneEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313F7C1511B867E200621844 /* AirplaneEnemy.cpp */; };
+		313F7C1811B867E200621844 /* BasicEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 313F7C1611B867E200621844 /* BasicEnemy.cpp */; };
+		313F7C2D11B8681E00621844 /* R2D2a.wav in Resources */ = {isa = PBXBuildFile; fileRef = 313F7C2C11B8681E00621844 /* R2D2a.wav */; };
 		314C4D831190CE6500DC920A /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 314C4D7F1190CE6500DC920A /* Level.cpp */; };
 		314C4D841190CE6500DC920A /* Target.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 314C4D811190CE6500DC920A /* Target.cpp */; };
 		314C4D941190CF9000DC920A /* target.material in Resources */ = {isa = PBXBuildFile; fileRef = 314C4D931190CF9000DC920A /* target.material */; };
@@ -65,6 +68,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		313F7C1511B867E200621844 /* AirplaneEnemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AirplaneEnemy.cpp; sourceTree = "<group>"; };
+		313F7C1611B867E200621844 /* BasicEnemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicEnemy.cpp; sourceTree = "<group>"; };
+		313F7C1911B8680400621844 /* AirplaneEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirplaneEnemy.h; sourceTree = "<group>"; };
+		313F7C1A11B8680400621844 /* BasicEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicEnemy.h; sourceTree = "<group>"; };
+		313F7C2C11B8681E00621844 /* R2D2a.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = R2D2a.wav; sourceTree = "<group>"; };
 		314C4D7F1190CE6500DC920A /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Level.cpp; sourceTree = "<group>"; };
 		314C4D801190CE6500DC920A /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		314C4D811190CE6500DC920A /* Target.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Target.cpp; sourceTree = "<group>"; };
@@ -138,6 +146,7 @@
 		08FB7794FE84155DC02AAC07 /* Fly */ = {
 			isa = PBXGroup;
 			children = (
+				313F7C2C11B8681E00621844 /* R2D2a.wav */,
 				74598276118E613900107C82 /* libois.a */,
 				74B63A6211B60D7D0040DEC1 /* Running.wav */,
 				74AEE472118E6011007A8E6D /* IOKit.framework */,
@@ -157,6 +166,8 @@
 		08FB7795FE84155DC02AAC07 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				313F7C1511B867E200621844 /* AirplaneEnemy.cpp */,
+				313F7C1611B867E200621844 /* BasicEnemy.cpp */,
 				74C440AE118F8395001B83F0 /* Airplane.cpp */,
 				741B57FE11B2204000AFB187 /* AirplaneState.cpp */,
 				741DADA711ACF0F900686F16 /* Display.cpp */,
@@ -245,6 +256,8 @@
 		7459854A118E62C500107C82 /* Include */ = {
 			isa = PBXGroup;
 			children = (
+				313F7C1911B8680400621844 /* AirplaneEnemy.h */,
+				313F7C1A11B8680400621844 /* BasicEnemy.h */,
 				74C440AD118F8395001B83F0 /* Airplane.h */,
 				741B57FD11B2204000AFB187 /* AirplaneState.h */,
 				741DADA611ACF0F900686F16 /* Display.h */,
@@ -390,6 +403,7 @@
 				31D5945011B35EBA00FE79EC /* flare.png in Resources */,
 				31D5945111B35EBA00FE79EC /* engine.particle in Resources */,
 				74B63A6311B60D7D0040DEC1 /* Running.wav in Resources */,
+				313F7C2D11B8681E00621844 /* R2D2a.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +424,8 @@
 				742B24A411A66F3400EF4552 /* World.cpp in Sources */,
 				741DADA811ACF0F900686F16 /* Display.cpp in Sources */,
 				741B57FF11B2204000AFB187 /* AirplaneState.cpp in Sources */,
+				313F7C1711B867E200621844 /* AirplaneEnemy.cpp in Sources */,
+				313F7C1811B867E200621844 /* BasicEnemy.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

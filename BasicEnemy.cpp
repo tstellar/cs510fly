@@ -27,10 +27,6 @@ BasicEnemy::BasicEnemy(Game * game, Ogre::SceneNode * sceneNode,
     alSourcePlay(alSource);
 }
 
-const Ogre::Vector3& BasicEnemy::getPosition(){
-    return sceneNode->getPosition();
-}
-
 void BasicEnemy::update(Airplane * player, float dt) {
     
     velocity += ((float)difficulty) * dt ;
