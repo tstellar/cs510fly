@@ -11,6 +11,7 @@
 
 #include "Airplane.h"
 #include "Level.h"
+#include "Target.h"
 #include "World.h"
 
 static const Ogre::String
@@ -19,6 +20,7 @@ static const Ogre::String
     OVERLAY_NAME = "Fly/HUD",
     INFO_BAR_NAME = "Fly/InfoBar",
     LEVEL_TEXT_BOX_NAME = "Fly/LevelName",
+    DISTANCE_TEXT_BOX_NAME = "Fly/Distance",
     STATS_PANEL_NAME = "Fly/StatsPanel",
     POSITION_TEXT_BOX_NAME = "Fly/Position",
     VELOCITY_TEXT_BOX_NAME = "Fly/Velocity",
@@ -34,6 +36,7 @@ Display::Display(Game * game) :
     overlay(overlayMgr()->getByName(OVERLAY_NAME)),
     infoBar(overlay->getChild(INFO_BAR_NAME)),
     levelTextBox(getTextArea(LEVEL_TEXT_BOX_NAME, infoBar)),
+    distanceTextBox(getTextArea(DISTANCE_TEXT_BOX_NAME, infoBar)),
     statsPanel(overlay->getChild(STATS_PANEL_NAME)),
     positionTextBox(getTextArea(POSITION_TEXT_BOX_NAME)),
     velocityTextBox(getTextArea(VELOCITY_TEXT_BOX_NAME)),
@@ -63,7 +66,10 @@ template<typename T> static inline Ogre::String toString(T x) { return Ogre::Str
 void Display::update(float dt) {
     const Airplane * const player = game->getWorld()->getPlayer();
     const AirplaneState& state = player->getState();
+    
     levelTextBox->setCaption(game->getCurrentLevel()->getName());
+    distanceTextBox->setCaption(toString(game->getWorld()->getTarget()->displacement(player).length()) + "m");
+    
     positionTextBox->setCaption(toString(state.position));
     velocityTextBox->setCaption(toString(state.velocity));
     speedTextBox->setCaption(toString(state.velocity.length()));

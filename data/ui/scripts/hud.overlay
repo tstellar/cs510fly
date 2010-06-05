@@ -15,6 +15,13 @@ template element TextArea(Fly/Label) : Fly/TextBox
     colour_bottom 1 1 1
 }
 
+template element TextArea(Fly/InfoLabel) : Fly/Label
+{
+    top 0.01
+    height 0.05
+    char_height 0.04
+}
+        
 template element TextArea(Fly/MaxedTextBox) : Fly/TextBox
 {
     colour 1 0 0
@@ -30,14 +37,24 @@ Fly/HUD
         height 0.05
         material StatsPanel_Material
         
-        element TextArea(Fly/LevelName) : Fly/Label
+        element TextArea(Fly/LevelName) : Fly/InfoLabel
         {
-            top 0.01
             left 0.375
             width 0.2
-            height 0.05
             alignment center
-            char_height 0.04
+        }
+        
+        element TextArea(Fly/DistanceLabel) : Fly/InfoLabel
+        {
+            left 0.7
+            width 0.1
+            caption To Target:
+        }
+        
+        element TextArea(Fly/Distance) : Fly/InfoLabel
+        {
+            left 0.825
+            width 0.075
         }
     }
 

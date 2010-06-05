@@ -11,7 +11,8 @@ class Display {
     
     Ogre::OverlayContainer * const infoBar;
     Ogre::TextAreaOverlayElement * const levelTextBox;
-    
+    Ogre::TextAreaOverlayElement * const distanceTextBox;
+
     Ogre::OverlayContainer * const statsPanel;
     Ogre::TextAreaOverlayElement * const positionTextBox;
     Ogre::TextAreaOverlayElement * const velocityTextBox;
