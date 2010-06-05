@@ -103,6 +103,7 @@ bool InputListener::keyPressed(const OIS::KeyEvent& event) {
         break;
         case OIS::KC_ESCAPE:
             shutdownKeyPressed = true;
+        break;
         case OIS::KC_B:
             game->setBreak();
         break;
