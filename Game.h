@@ -4,6 +4,8 @@
 #ifndef __TERRAIN_DEMO_H__
 #define __TERRAIN_DEMO_H__
 
+#include <tr1/memory>
+
 #include "Ogre.h"
 
 #ifndef LINUX
@@ -25,18 +27,18 @@ class World;
 class Game {
 private:
     Airplane * airplane;
-    InputListener* inputListener;
-    Ogre::Root* root;
-    Ogre::SceneManager* sceneManager;
-    Ogre::RenderWindow* renderWindow;
-    Ogre::Camera* camera;
+    std::auto_ptr<InputListener> inputListener;
+    std::auto_ptr<Ogre::Root> root;
+    Ogre::SceneManager * sceneManager;
+    Ogre::RenderWindow * renderWindow;
+    Ogre::Camera * camera;
     Ogre::String mResourcePath;
     Ogre::String levelPath;
     Ogre::String audioPath;
-    std::vector<Level *> levels;
-    Level *currentLevel;
-    World *world;
-    Display * display;
+    std::vector<std::tr1::shared_ptr<const Level> > levels;
+    const Level *currentLevel;
+    std::auto_ptr<World> world;
+    std::auto_ptr<Display> display;
     
     bool breaking;
     ALuint motorBuffer;
@@ -46,15 +48,13 @@ private:
 public:
     Game();
 
-    ~Game();
-
     Ogre::SceneManager* getSceneManager() { return sceneManager; }
     Ogre::String getLevelPath() { return levelPath; }
     bool windowClosed() const { return renderWindow->isClosed(); }
     Airplane * getAirplane() { return airplane; }
     
-    Level *getCurrentLevel(){ return currentLevel; };
-    World * getWorld() { return world; }
+    const Level *getCurrentLevel(){ return currentLevel; };
+    World * getWorld() { return world.get(); }
     void init();
     void update(float dt);
 

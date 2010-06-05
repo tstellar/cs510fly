@@ -48,34 +48,18 @@ std::string macBundlePath()
 }
 #endif
 
-Game::Game() : inputListener(NULL), airplane(NULL),
-        currentLevel(NULL), world(NULL), display(NULL), breaking(false) {
+Game::Game() : currentLevel(NULL), breaking(false) {
 #ifndef LINUX       
     mResourcePath = macBundlePath() + "/Contents/Resources/";
     levelPath = mResourcePath;
     audioPath = mResourcePath;
     Ogre::String pluginsPath = macBundlePath() + "/Contents/Resources/plugins.cfg";
-    root = new Ogre::Root(pluginsPath, mResourcePath + "ogre.cfg", mResourcePath + "Ogre.log");
+    root.reset(new Ogre::Root(pluginsPath, mResourcePath + "ogre.cfg", mResourcePath + "Ogre.log"));
 #else
     levelPath = "data/levels/";
     audioPath = "data/audio/";
-    root = new Ogre::Root("plugins-linux.cfg","ogre.cfg","Ogre.log");
+    root.reset(new Ogre::Root("plugins-linux.cfg","ogre.cfg","Ogre.log"));
 #endif
-}
-
-Game::~Game() {
-    if (inputListener != NULL){
-        delete inputListener;
-    }
-    if (airplane != NULL){
-        delete airplane;
-    }
-    if (display != NULL) {
-        delete display;
-    }
-    for (std::vector<Level *>::iterator iter = levels.begin(); iter != levels.end(); iter++)
-        delete *iter;
-    delete root;
 }
 
 void Game::init() {
@@ -139,8 +123,8 @@ bool Game::setup() {
     // add skybox
     sceneManager->setSkyBox(true, "Sky", 100);
     
-    inputListener = new InputListener(this, renderWindow);
-    root->addFrameListener(inputListener);
+    inputListener.reset(new InputListener(this, renderWindow));
+    root->addFrameListener(inputListener.get());
     
     // init sound
     ALCdevice * device = alcOpenDevice(NULL);
@@ -165,7 +149,7 @@ bool Game::setup() {
             "Levels", &Ogre::StringConverter::parseStringVector, Ogre::StringVector());
     
     for (Ogre::StringVector::const_iterator iter = levelFiles.begin(); iter != levelFiles.end(); iter++)
-        levels.push_back(new Level(this, getLevelPath() + *iter));
+        levels.push_back(std::tr1::shared_ptr<Level>(new Level(this, getLevelPath() + *iter)));
     
     startLevel(0);
     
@@ -173,30 +157,15 @@ bool Game::setup() {
 }
 
 void Game::startLevel(int index) {
-    if (world != NULL) {
-        delete world;
-        world = NULL;
-    }
-    
-    if (airplane != NULL) {
-        delete airplane;
-        airplane = NULL;
-    }
-    
-    if (display != NULL) {
-        delete display;
-        display = NULL;
-    }
-
-    world = new World(this);
-    currentLevel = levels[index];
-    currentLevel->populate(world);
+    world.reset(new World(this));
+    currentLevel = levels[index].get();
+    currentLevel->populate(world.get());
 
     airplane = world->getPlayer();
 
     airplane->getSceneNode()->attachObject(camera);
     
-    display = new Display(this);
+    display.reset(new Display(this));
     display->setup();
 }
 
