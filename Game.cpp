@@ -120,9 +120,6 @@ bool Game::setup() {
     Ogre::Light* light = sceneManager->createLight("PrimaryLight");
     light->setPosition(20.0f, 80.0f, 50.0f);
 
-    // add skybox
-    sceneManager->setSkyBox(true, "Sky", 100);
-    
     inputListener.reset(new InputListener(this, renderWindow));
     root->addFrameListener(inputListener.get());
     
@@ -165,6 +162,9 @@ void Game::startLevel(int index) {
 
     airplane->getSceneNode()->attachObject(camera);
     
+    // add skybox
+    sceneManager->setSkyBox(true, currentLevel->getSkyBox(), 100);
+    
     display.reset(new Display(this));
     display->setup();
 }
@@ -191,7 +191,7 @@ bool Game::checkBreak() {
 }
 
 void Game::lose() {
-    // TODO
+    camera->moveRelative(Ogre::Vector3(0.0f, 10.0f, 50.0f));
     std::cerr << "FAIL\n";
 }
 

@@ -1,0 +1,13 @@
+material sky2
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				cubic_texture morning.jpg separateUV
+			}
+		}
+	}
+}

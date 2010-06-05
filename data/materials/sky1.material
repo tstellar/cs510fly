@@ -1,0 +1,13 @@
+material sky1
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				cubic_texture cloudy_noon.jpg separateUV
+			}
+		}
+	}
+}
