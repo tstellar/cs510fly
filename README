@@ -1,6 +1,15 @@
 
+Controls:
 
-
+[w] Increase Thrust
+[s] Decrease Thrust
+[a] Yaw Left
+[d] Yaw Right
+Arrow Keys:
+UP: Pitch Down
+DOWN: Pitch Up
+LEFT: Roll Left
+RIGHT: Roll Right
 
 Particle Effects:
 
