@@ -1,0 +1,47 @@
+particle_system Success
+{
+	quota	4000
+	material	Lensflare
+	particle_width	2
+	particle_height	2
+	cull_each	false
+	renderer	billboard
+	billboard_type	point
+
+	emitter Point
+	{
+		angle	37.03
+		colour	1 0 0 1
+		colour_range_start	1 0 0 1
+		colour_range_end	1 1 0 1
+		direction	0 1 0
+		emission_rate	400
+		position	0 0 0
+		velocity	16
+		velocity_min	16
+		velocity_max	12
+		time_to_live	1.229
+		time_to_live_min	1.229
+		time_to_live_max	1.915
+		duration	1.5
+		duration_min	1.5
+		duration_max	5
+		repeat_delay	0.6854
+		repeat_delay_min	0.6854
+		repeat_delay_max	4.456
+	}
+
+	affector LinearForce
+	{
+		force_vector	0 -12 0
+		force_application	add
+	}
+
+	affector ColourFader
+	{
+		red	-0.2
+		green	-0.2
+		blue	0
+		alpha	0
+	}
+}

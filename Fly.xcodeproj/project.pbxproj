@@ -74,6 +74,30 @@
 		743E103311B9F0AD0031360F /* 2.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 743E103111B9F0AD0031360F /* 2.cfg */; };
 		743E103411B9F0B30031360F /* 1.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 743E103011B9F0AD0031360F /* 1.cfg */; };
 		743E103611B9F0B60031360F /* 2.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 743E103111B9F0AD0031360F /* 2.cfg */; };
+		743E108011B9F36F0031360F /* explosion.material in Resources */ = {isa = PBXBuildFile; fileRef = 743E107811B9F36F0031360F /* explosion.material */; };
+		743E108111B9F36F0031360F /* explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E107911B9F36F0031360F /* explosion.png */; };
+		743E108211B9F36F0031360F /* flare.material in Resources */ = {isa = PBXBuildFile; fileRef = 743E107A11B9F36F0031360F /* flare.material */; };
+		743E108311B9F36F0031360F /* flaretrail.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E107B11B9F36F0031360F /* flaretrail.png */; };
+		743E108411B9F36F0031360F /* smoke.material in Resources */ = {isa = PBXBuildFile; fileRef = 743E107C11B9F36F0031360F /* smoke.material */; };
+		743E108511B9F36F0031360F /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E107D11B9F36F0031360F /* smoke.png */; };
+		743E108611B9F36F0031360F /* smokecolors.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E107E11B9F36F0031360F /* smokecolors.png */; };
+		743E108711B9F36F0031360F /* success.material in Resources */ = {isa = PBXBuildFile; fileRef = 743E107F11B9F36F0031360F /* success.material */; };
+		743E108811B9F36F0031360F /* explosion.material in Resources */ = {isa = PBXBuildFile; fileRef = 743E107811B9F36F0031360F /* explosion.material */; };
+		743E108911B9F36F0031360F /* explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E107911B9F36F0031360F /* explosion.png */; };
+		743E108A11B9F36F0031360F /* flare.material in Resources */ = {isa = PBXBuildFile; fileRef = 743E107A11B9F36F0031360F /* flare.material */; };
+		743E108B11B9F36F0031360F /* flaretrail.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E107B11B9F36F0031360F /* flaretrail.png */; };
+		743E108C11B9F36F0031360F /* smoke.material in Resources */ = {isa = PBXBuildFile; fileRef = 743E107C11B9F36F0031360F /* smoke.material */; };
+		743E108D11B9F36F0031360F /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E107D11B9F36F0031360F /* smoke.png */; };
+		743E108E11B9F36F0031360F /* smokecolors.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E107E11B9F36F0031360F /* smokecolors.png */; };
+		743E108F11B9F36F0031360F /* success.material in Resources */ = {isa = PBXBuildFile; fileRef = 743E107F11B9F36F0031360F /* success.material */; };
+		743E109411B9F3A60031360F /* explosion.particle in Resources */ = {isa = PBXBuildFile; fileRef = 743E109011B9F3A60031360F /* explosion.particle */; };
+		743E109511B9F3A60031360F /* smoke.particle in Resources */ = {isa = PBXBuildFile; fileRef = 743E109111B9F3A60031360F /* smoke.particle */; };
+		743E109611B9F3A60031360F /* success.particle in Resources */ = {isa = PBXBuildFile; fileRef = 743E109211B9F3A60031360F /* success.particle */; };
+		743E109711B9F3A60031360F /* target.particle in Resources */ = {isa = PBXBuildFile; fileRef = 743E109311B9F3A60031360F /* target.particle */; };
+		743E109811B9F3A60031360F /* explosion.particle in Resources */ = {isa = PBXBuildFile; fileRef = 743E109011B9F3A60031360F /* explosion.particle */; };
+		743E109911B9F3A60031360F /* smoke.particle in Resources */ = {isa = PBXBuildFile; fileRef = 743E109111B9F3A60031360F /* smoke.particle */; };
+		743E109A11B9F3A60031360F /* success.particle in Resources */ = {isa = PBXBuildFile; fileRef = 743E109211B9F3A60031360F /* success.particle */; };
+		743E109B11B9F3A60031360F /* target.particle in Resources */ = {isa = PBXBuildFile; fileRef = 743E109311B9F3A60031360F /* target.particle */; };
 		7442E53F1194ED3F0055FF80 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7442E53E1194ED3F0055FF80 /* Enemy.cpp */; };
 		74598635118E641E00107C82 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7459853F118E626B00107C82 /* Carbon.framework */; };
 		74598637118E642200107C82 /* Cg.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7459826B118E613400107C82 /* Cg.framework */; };
@@ -164,7 +188,7 @@
 		319448F4119225F00061D902 /* 3.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 3.cfg; sourceTree = "<group>"; };
 		31D5944811B35EA100FE79EC /* enemy.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = enemy.material; sourceTree = "<group>"; };
 		31D5944A11B35EA800FE79EC /* particles.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = particles.material; sourceTree = "<group>"; };
-		31D5944E11B35EBA00FE79EC /* flare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flare.png; sourceTree = "<group>"; };
+		31D5944E11B35EBA00FE79EC /* flare.png */ = {isa = PBXFileReference; explicitFileType = image.png; path = flare.png; sourceTree = "<group>"; };
 		31D5944F11B35EBA00FE79EC /* engine.particle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = engine.particle; sourceTree = "<group>"; };
 		740A9B0511B8D157000C4A71 /* FlyDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		740A9B0711B8D157000C4A71 /* FlyDebug-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlyDebug-Info.plist"; sourceTree = "<group>"; };
@@ -183,6 +207,18 @@
 		743E0FE911B9EC5E0031360F /* levels.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = levels.cfg; sourceTree = "<group>"; };
 		743E103011B9F0AD0031360F /* 1.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.cfg; sourceTree = "<group>"; };
 		743E103111B9F0AD0031360F /* 2.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 2.cfg; sourceTree = "<group>"; };
+		743E107811B9F36F0031360F /* explosion.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = explosion.material; sourceTree = "<group>"; };
+		743E107911B9F36F0031360F /* explosion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion.png; sourceTree = "<group>"; };
+		743E107A11B9F36F0031360F /* flare.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = flare.material; sourceTree = "<group>"; };
+		743E107B11B9F36F0031360F /* flaretrail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flaretrail.png; sourceTree = "<group>"; };
+		743E107C11B9F36F0031360F /* smoke.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = smoke.material; sourceTree = "<group>"; };
+		743E107D11B9F36F0031360F /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
+		743E107E11B9F36F0031360F /* smokecolors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smokecolors.png; sourceTree = "<group>"; };
+		743E107F11B9F36F0031360F /* success.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = success.material; sourceTree = "<group>"; };
+		743E109011B9F3A60031360F /* explosion.particle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = explosion.particle; sourceTree = "<group>"; };
+		743E109111B9F3A60031360F /* smoke.particle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = smoke.particle; sourceTree = "<group>"; };
+		743E109211B9F3A60031360F /* success.particle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = success.particle; sourceTree = "<group>"; };
+		743E109311B9F3A60031360F /* target.particle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = target.particle; sourceTree = "<group>"; };
 		7442E53E1194ED3F0055FF80 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
 		7442E5401194ED460055FF80 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		74598178118E612C00107C82 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = "/nfs/local/macosx-local/apps/Libraries/OgreSDK-1.6.5/Dependencies/Ogre.framework"; sourceTree = "<absolute>"; };
@@ -305,6 +341,15 @@
 		314C4D921190CF9000DC920A /* materials */ = {
 			isa = PBXGroup;
 			children = (
+				743E107811B9F36F0031360F /* explosion.material */,
+				743E107911B9F36F0031360F /* explosion.png */,
+				743E107A11B9F36F0031360F /* flare.material */,
+				743E107B11B9F36F0031360F /* flaretrail.png */,
+				743E107C11B9F36F0031360F /* smoke.material */,
+				743E107D11B9F36F0031360F /* smoke.png */,
+				743E107E11B9F36F0031360F /* smokecolors.png */,
+				743E107F11B9F36F0031360F /* success.material */,
+				31D5944E11B35EBA00FE79EC /* flare.png */,
 				746083A911B96F36007248A1 /* sky.material */,
 				31D5944A11B35EA800FE79EC /* particles.material */,
 				31D5944811B35EA100FE79EC /* enemy.material */,
@@ -337,8 +382,11 @@
 		31D5944D11B35EBA00FE79EC /* particles */ = {
 			isa = PBXGroup;
 			children = (
-				31D5944E11B35EBA00FE79EC /* flare.png */,
 				31D5944F11B35EBA00FE79EC /* engine.particle */,
+				743E109011B9F3A60031360F /* explosion.particle */,
+				743E109111B9F3A60031360F /* smoke.particle */,
+				743E109211B9F3A60031360F /* success.particle */,
+				743E109311B9F3A60031360F /* target.particle */,
 			);
 			path = particles;
 			sourceTree = "<group>";
@@ -604,6 +652,18 @@
 				743E100611B9EFB50031360F /* levels.cfg in Resources */,
 				743E103411B9F0B30031360F /* 1.cfg in Resources */,
 				743E103611B9F0B60031360F /* 2.cfg in Resources */,
+				743E108811B9F36F0031360F /* explosion.material in Resources */,
+				743E108911B9F36F0031360F /* explosion.png in Resources */,
+				743E108A11B9F36F0031360F /* flare.material in Resources */,
+				743E108B11B9F36F0031360F /* flaretrail.png in Resources */,
+				743E108C11B9F36F0031360F /* smoke.material in Resources */,
+				743E108D11B9F36F0031360F /* smoke.png in Resources */,
+				743E108E11B9F36F0031360F /* smokecolors.png in Resources */,
+				743E108F11B9F36F0031360F /* success.material in Resources */,
+				743E109811B9F3A60031360F /* explosion.particle in Resources */,
+				743E109911B9F3A60031360F /* smoke.particle in Resources */,
+				743E109A11B9F3A60031360F /* success.particle in Resources */,
+				743E109B11B9F3A60031360F /* target.particle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +706,18 @@
 				743E100511B9EFB40031360F /* levels.cfg in Resources */,
 				743E103211B9F0AD0031360F /* 1.cfg in Resources */,
 				743E103311B9F0AD0031360F /* 2.cfg in Resources */,
+				743E108011B9F36F0031360F /* explosion.material in Resources */,
+				743E108111B9F36F0031360F /* explosion.png in Resources */,
+				743E108211B9F36F0031360F /* flare.material in Resources */,
+				743E108311B9F36F0031360F /* flaretrail.png in Resources */,
+				743E108411B9F36F0031360F /* smoke.material in Resources */,
+				743E108511B9F36F0031360F /* smoke.png in Resources */,
+				743E108611B9F36F0031360F /* smokecolors.png in Resources */,
+				743E108711B9F36F0031360F /* success.material in Resources */,
+				743E109411B9F3A60031360F /* explosion.particle in Resources */,
+				743E109511B9F3A60031360F /* smoke.particle in Resources */,
+				743E109611B9F3A60031360F /* success.particle in Resources */,
+				743E109711B9F3A60031360F /* target.particle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
