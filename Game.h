@@ -32,6 +32,7 @@ private:
     Ogre::Camera* camera;
     Ogre::String mResourcePath;
     Ogre::String levelPath;
+    Ogre::String audioPath;
     Level *currentLevel;
     World *world;
     Display * display;

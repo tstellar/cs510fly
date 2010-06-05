@@ -52,10 +52,12 @@ Game::Game() : inputListener(NULL), airplane(NULL),
 #ifndef LINUX       
     mResourcePath = macBundlePath() + "/Contents/Resources/";
     levelPath = mResourcePath;
+    audioPath = mResourcePath;
     Ogre::String pluginsPath = macBundlePath() + "/Contents/Resources/plugins.cfg";
     root = new Ogre::Root(pluginsPath, mResourcePath + "ogre.cfg", mResourcePath + "Ogre.log");
 #else
     levelPath = "data/levels/";
+    audioPath = "data/audio/";
     root = new Ogre::Root("plugins-linux.cfg","ogre.cfg","Ogre.log");
 #endif
 }
@@ -203,7 +205,7 @@ void Game::lose() {
 bool Game::loadWavFile(ALuint * buffer, std::string file) {
 
 #ifdef LINUX
-    *buffer = alureCreateBufferFromFile(file.c_str());
+    *buffer = alureCreateBufferFromFile((audioPath + file).c_str());
 #else
     ALenum error;
     alGenBuffers(1, buffer);
@@ -215,7 +217,7 @@ bool Game::loadWavFile(ALuint * buffer, std::string file) {
     char * alBuffer;
     ALsizei alBufferLen;
     ALsizei alFreqBuffer;
-    alutLoadWAVFile((macBundlePath() + "/Contents/Resources/" + file ).c_str(), &alFormatBuffer, &alBuffer, &alBufferLen, &alFreqBuffer);
+    alutLoadWAVFile((audioPath + file).c_str(), &alFormatBuffer, &alBuffer, &alBufferLen, &alFreqBuffer);
 
     if ((error = alGetError()) != AL_NO_ERROR){
         alDeleteBuffers(1, buffer);

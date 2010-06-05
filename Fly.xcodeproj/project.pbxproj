@@ -247,8 +247,6 @@
 		08FB7794FE84155DC02AAC07 /* Fly */ = {
 			isa = PBXGroup;
 			children = (
-				74B63A6211B60D7D0040DEC1 /* Running.wav */,
-				313F7C2C11B8681E00621844 /* R2D2a.wav */,
 				74598276118E613900107C82 /* libois.a */,
 				74AEE472118E6011007A8E6D /* IOKit.framework */,
 				7459826B118E613400107C82 /* Cg.framework */,
@@ -382,6 +380,15 @@
 			path = textures;
 			sourceTree = "<group>";
 		};
+		743E0FA611B9E5C10031360F /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				313F7C2C11B8681E00621844 /* R2D2a.wav */,
+				74B63A6211B60D7D0040DEC1 /* Running.wav */,
+			);
+			path = audio;
+			sourceTree = "<group>";
+		};
 		7459854A118E62C500107C82 /* Include */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +422,7 @@
 		7459854E118E635400107C82 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				743E0FA611B9E5C10031360F /* audio */,
 				743E0F8E11B9E21B0031360F /* textures */,
 				31D5944D11B35EBA00FE79EC /* particles */,
 				741DAD7611ACEDD400686F16 /* ui */,
