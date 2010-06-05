@@ -1,5 +1,8 @@
 #include "Airplane.h"
 
+#include "Target.h"
+#include "World.h"
+
 const Ogre::String Airplane::SCENE_NODE_NAME = "Airplane";
 
 static const float MINIMUM_TIME_STEP = 0.01f;
@@ -220,6 +223,8 @@ void Airplane::checkGroundCollision() {
     if (state.position.y < Y_MIN) {
         if (state.velocity.y < -LANDING_ROD_MAX || getPitch() < LANDING_PITCH_MIN)
             crash();
+        else
+            land();
         
         state.position.y = Y_MIN;
         state.velocity.y = 0.0f;
@@ -235,6 +240,11 @@ void Airplane::crash() {
         game->lose();
     alSourceStop(alSource);
 
+}
+
+void Airplane::land() {
+    if (game->getWorld()->getTarget()->inRange(this))
+        game->win();
 }
 
 void Airplane::stopEngine() {

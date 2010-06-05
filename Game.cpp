@@ -153,6 +153,8 @@ bool Game::setup() {
 }
 
 void Game::startLevel(int index) {
+    currentLevelIndex = index;
+    
     world.reset(new World(this));
     currentLevel = levels[index].get();
     currentLevel->populate(world.get());
@@ -192,8 +194,12 @@ bool Game::checkBreak() {
 
 void Game::lose() {
     cameraNode->translate(Ogre::Vector3(0.0f, 10.0f, 50.0f));
-    std::cerr << "FAIL\n";
 }
+
+void Game::win() {
+    startLevel((currentLevelIndex + 1) % levels.size());
+}
+
 
 bool Game::loadWavFile(ALuint * buffer, std::string file) {
 
