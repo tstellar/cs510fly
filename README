@@ -16,7 +16,7 @@ Particle Effects:
 The particle effects are based on the example scripts distrubuted in the Ogre
 SDK, and also the ParticleEditor add-on (http://www.game-cat.com/ogre/pe/docs/)
 
-1. Exhaust behind the airplane
+1. Exhaust behind the airplane and enemies
 2. Flares lighting up the target
 3. Explosion for when there is a collision
 4. Smoke when the plane has crashed into the ground
