@@ -299,12 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				746083A911B96F36007248A1 /* sky.material */,
-				7460839711B96F2E007248A1 /* cloudy_noon_bk.jpg */,
-				7460839811B96F2E007248A1 /* cloudy_noon_dn.jpg */,
-				7460839911B96F2E007248A1 /* cloudy_noon_fr.jpg */,
-				7460839A11B96F2E007248A1 /* cloudy_noon_lf.jpg */,
-				7460839B11B96F2E007248A1 /* cloudy_noon_rt.jpg */,
-				7460839C11B96F2E007248A1 /* cloudy_noon_up.jpg */,
 				31D5944A11B35EA800FE79EC /* particles.material */,
 				31D5944811B35EA100FE79EC /* enemy.material */,
 				314C4D931190CF9000DC920A /* target.material */,
@@ -375,6 +369,19 @@
 			name = fonts;
 			sourceTree = "<group>";
 		};
+		743E0F8E11B9E21B0031360F /* textures */ = {
+			isa = PBXGroup;
+			children = (
+				7460839711B96F2E007248A1 /* cloudy_noon_bk.jpg */,
+				7460839811B96F2E007248A1 /* cloudy_noon_dn.jpg */,
+				7460839911B96F2E007248A1 /* cloudy_noon_fr.jpg */,
+				7460839A11B96F2E007248A1 /* cloudy_noon_lf.jpg */,
+				7460839B11B96F2E007248A1 /* cloudy_noon_rt.jpg */,
+				7460839C11B96F2E007248A1 /* cloudy_noon_up.jpg */,
+			);
+			path = textures;
+			sourceTree = "<group>";
+		};
 		7459854A118E62C500107C82 /* Include */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +415,7 @@
 		7459854E118E635400107C82 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				743E0F8E11B9E21B0031360F /* textures */,
 				31D5944D11B35EBA00FE79EC /* particles */,
 				741DAD7611ACEDD400686F16 /* ui */,
 				319448F3119225F00061D902 /* levels */,
