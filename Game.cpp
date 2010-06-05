@@ -173,7 +173,7 @@ void Game::startLevel(int index) {
 void Game::update(float dt) {
     world->update(dt);
     display->update(dt);
-    const Ogre::Vector3 &cameraPos = camera->getParentNode()->getPosition();
+    const Ogre::Vector3 &cameraPos = cameraNode->getParentSceneNode()->getPosition();
     alListener3f(AL_POSITION, cameraPos.x, cameraPos.y, cameraPos.z);
     /*TODO: Set listener orientation */
 }
