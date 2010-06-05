@@ -4,6 +4,7 @@
 #include "Game.h"
 
 #include "Airplane.h"
+#include "ConfigReader.h"
 #include "Display.h"
 #include "InputListener.h"
 #include "Level.h"
@@ -75,6 +76,8 @@ Game::~Game() {
     if (display != NULL) {
         delete display;
     }
+    for (std::vector<Level *>::iterator iter = levels.begin(); iter != levels.end(); iter++)
+        delete &*iter;
     delete root;
 }
 
@@ -159,9 +162,16 @@ bool Game::setup() {
     loadWavFile(&motorBuffer, "Running.wav");
     loadWavFile(&enemyBuffer, "R2D2a.wav");
 
-    // create level
+    // create levels
+    ConfigReader levelsCfg(getLevelPath() + "levels.cfg");
+    const Ogre::StringVector& levelFiles = levelsCfg.parse(
+            "Levels", &Ogre::StringConverter::parseStringVector, Ogre::StringVector());
+    
+    for (Ogre::StringVector::const_iterator iter = levelFiles.begin(); iter != levelFiles.end(); iter++)
+        levels.push_back(new Level(this, getLevelPath() + *iter));
+    
     world = new World(this);
-    currentLevel = new Level(this, getLevelPath() + "1.cfg");
+    currentLevel = levels[0];
     currentLevel->populate(world);
 
     airplane = world->getPlayer();

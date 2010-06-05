@@ -15,7 +15,7 @@
 		314C4D941190CF9000DC920A /* target.material in Resources */ = {isa = PBXBuildFile; fileRef = 314C4D931190CF9000DC920A /* target.material */; };
 		314C4DAB1190D49600DC920A /* cube.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DAA1190D49600DC920A /* cube.mesh */; };
 		314C4DBA1190D50E00DC920A /* sphere.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DB91190D50E00DC920A /* sphere.mesh */; };
-		319448F5119225F00061D902 /* 1.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 319448F4119225F00061D902 /* 1.cfg */; };
+		319448F5119225F00061D902 /* 3.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 319448F4119225F00061D902 /* 3.cfg */; };
 		31D5944911B35EA100FE79EC /* enemy.material in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944811B35EA100FE79EC /* enemy.material */; };
 		31D5944B11B35EA800FE79EC /* particles.material in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944A11B35EA800FE79EC /* particles.material */; };
 		31D5945011B35EBA00FE79EC /* flare.png in Resources */ = {isa = PBXBuildFile; fileRef = 31D5944E11B35EBA00FE79EC /* flare.png */; };
@@ -31,7 +31,7 @@
 		740A9ADF11B8D157000C4A71 /* target.material in Resources */ = {isa = PBXBuildFile; fileRef = 314C4D931190CF9000DC920A /* target.material */; };
 		740A9AE011B8D157000C4A71 /* cube.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DAA1190D49600DC920A /* cube.mesh */; };
 		740A9AE111B8D157000C4A71 /* sphere.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 314C4DB91190D50E00DC920A /* sphere.mesh */; };
-		740A9AE211B8D157000C4A71 /* 1.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 319448F4119225F00061D902 /* 1.cfg */; };
+		740A9AE211B8D157000C4A71 /* 3.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 319448F4119225F00061D902 /* 3.cfg */; };
 		740A9AE311B8D157000C4A71 /* ground.material in Resources */ = {isa = PBXBuildFile; fileRef = 7427E4EB11AA0F31002FE91D /* ground.material */; };
 		740A9AE411B8D157000C4A71 /* grass_1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 741DAD6411ACDE4900686F16 /* grass_1024.jpg */; };
 		740A9AE511B8D157000C4A71 /* hud.overlay in Resources */ = {isa = PBXBuildFile; fileRef = 741DAD7711ACEDE600686F16 /* hud.overlay */; };
@@ -68,6 +68,12 @@
 		741DAFBC11ACFC6600686F16 /* blue-highway.fontdef in Resources */ = {isa = PBXBuildFile; fileRef = 741DAFA411ACFBD900686F16 /* blue-highway.fontdef */; };
 		7427E51111AA102A002FE91D /* ground.material in Resources */ = {isa = PBXBuildFile; fileRef = 7427E4EB11AA0F31002FE91D /* ground.material */; };
 		742B24A411A66F3400EF4552 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 742B24A211A66F3400EF4552 /* World.cpp */; };
+		743E100511B9EFB40031360F /* levels.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 743E0FE911B9EC5E0031360F /* levels.cfg */; };
+		743E100611B9EFB50031360F /* levels.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 743E0FE911B9EC5E0031360F /* levels.cfg */; };
+		743E103211B9F0AD0031360F /* 1.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 743E103011B9F0AD0031360F /* 1.cfg */; };
+		743E103311B9F0AD0031360F /* 2.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 743E103111B9F0AD0031360F /* 2.cfg */; };
+		743E103411B9F0B30031360F /* 1.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 743E103011B9F0AD0031360F /* 1.cfg */; };
+		743E103611B9F0B60031360F /* 2.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 743E103111B9F0AD0031360F /* 2.cfg */; };
 		7442E53F1194ED3F0055FF80 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7442E53E1194ED3F0055FF80 /* Enemy.cpp */; };
 		74598635118E641E00107C82 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7459853F118E626B00107C82 /* Carbon.framework */; };
 		74598637118E642200107C82 /* Cg.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7459826B118E613400107C82 /* Cg.framework */; };
@@ -155,7 +161,7 @@
 		314C4D931190CF9000DC920A /* target.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = target.material; sourceTree = "<group>"; };
 		314C4DAA1190D49600DC920A /* cube.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = cube.mesh; sourceTree = "<group>"; };
 		314C4DB91190D50E00DC920A /* sphere.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = sphere.mesh; sourceTree = "<group>"; };
-		319448F4119225F00061D902 /* 1.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.cfg; sourceTree = "<group>"; };
+		319448F4119225F00061D902 /* 3.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 3.cfg; sourceTree = "<group>"; };
 		31D5944811B35EA100FE79EC /* enemy.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = enemy.material; sourceTree = "<group>"; };
 		31D5944A11B35EA800FE79EC /* particles.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = particles.material; sourceTree = "<group>"; };
 		31D5944E11B35EBA00FE79EC /* flare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flare.png; sourceTree = "<group>"; };
@@ -174,6 +180,9 @@
 		7427E4EB11AA0F31002FE91D /* ground.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ground.material; sourceTree = "<group>"; };
 		742B24A211A66F3400EF4552 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		742B24A311A66F3400EF4552 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		743E0FE911B9EC5E0031360F /* levels.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = levels.cfg; sourceTree = "<group>"; };
+		743E103011B9F0AD0031360F /* 1.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.cfg; sourceTree = "<group>"; };
+		743E103111B9F0AD0031360F /* 2.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 2.cfg; sourceTree = "<group>"; };
 		7442E53E1194ED3F0055FF80 /* Enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
 		7442E5401194ED460055FF80 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		74598178118E612C00107C82 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = "/nfs/local/macosx-local/apps/Libraries/OgreSDK-1.6.5/Dependencies/Ogre.framework"; sourceTree = "<absolute>"; };
@@ -317,7 +326,10 @@
 		319448F3119225F00061D902 /* levels */ = {
 			isa = PBXGroup;
 			children = (
-				319448F4119225F00061D902 /* 1.cfg */,
+				743E103011B9F0AD0031360F /* 1.cfg */,
+				743E103111B9F0AD0031360F /* 2.cfg */,
+				319448F4119225F00061D902 /* 3.cfg */,
+				743E0FE911B9EC5E0031360F /* levels.cfg */,
 			);
 			path = levels;
 			sourceTree = "<group>";
@@ -568,7 +580,7 @@
 				740A9ADF11B8D157000C4A71 /* target.material in Resources */,
 				740A9AE011B8D157000C4A71 /* cube.mesh in Resources */,
 				740A9AE111B8D157000C4A71 /* sphere.mesh in Resources */,
-				740A9AE211B8D157000C4A71 /* 1.cfg in Resources */,
+				740A9AE211B8D157000C4A71 /* 3.cfg in Resources */,
 				740A9AE311B8D157000C4A71 /* ground.material in Resources */,
 				740A9AE411B8D157000C4A71 /* grass_1024.jpg in Resources */,
 				740A9AE511B8D157000C4A71 /* hud.overlay in Resources */,
@@ -589,6 +601,9 @@
 				746083A111B96F2E007248A1 /* cloudy_noon_rt.jpg in Resources */,
 				746083A211B96F2E007248A1 /* cloudy_noon_up.jpg in Resources */,
 				746083AA11B96F36007248A1 /* sky.material in Resources */,
+				743E100611B9EFB50031360F /* levels.cfg in Resources */,
+				743E103411B9F0B30031360F /* 1.cfg in Resources */,
+				743E103611B9F0B60031360F /* 2.cfg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,7 +622,7 @@
 				314C4D941190CF9000DC920A /* target.material in Resources */,
 				314C4DAB1190D49600DC920A /* cube.mesh in Resources */,
 				314C4DBA1190D50E00DC920A /* sphere.mesh in Resources */,
-				319448F5119225F00061D902 /* 1.cfg in Resources */,
+				319448F5119225F00061D902 /* 3.cfg in Resources */,
 				7427E51111AA102A002FE91D /* ground.material in Resources */,
 				741DAD6511ACDE4900686F16 /* grass_1024.jpg in Resources */,
 				741DAD7811ACEE0D00686F16 /* hud.overlay in Resources */,
@@ -628,6 +643,9 @@
 				746083A711B96F2E007248A1 /* cloudy_noon_rt.jpg in Resources */,
 				746083A811B96F2E007248A1 /* cloudy_noon_up.jpg in Resources */,
 				746083AB11B96F36007248A1 /* sky.material in Resources */,
+				743E100511B9EFB40031360F /* levels.cfg in Resources */,
+				743E103211B9F0AD0031360F /* 1.cfg in Resources */,
+				743E103311B9F0AD0031360F /* 2.cfg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

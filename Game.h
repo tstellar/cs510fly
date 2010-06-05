@@ -33,6 +33,7 @@ private:
     Ogre::String mResourcePath;
     Ogre::String levelPath;
     Ogre::String audioPath;
+    std::vector<Level *> levels;
     Level *currentLevel;
     World *world;
     Display * display;
