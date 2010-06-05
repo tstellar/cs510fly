@@ -101,7 +101,6 @@ bool Game::setup() {
     sceneManager = root->createSceneManager("DefaultSceneManager");
 
     Ogre::ColourValue fogColor(0.93f, 0.86f, 0.76f);
-    sceneManager->setFog(Ogre::FOG_LINEAR, fogColor, 0.001f, 500.0f, 1000.0f);
 
     // create camera
     camera = sceneManager->createCamera("PrimaryCamera");
