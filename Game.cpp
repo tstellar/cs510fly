@@ -77,7 +77,7 @@ Game::~Game() {
         delete display;
     }
     for (std::vector<Level *>::iterator iter = levels.begin(); iter != levels.end(); iter++)
-        delete &*iter;
+        delete *iter;
     delete root;
 }
 
