@@ -237,6 +237,9 @@ void Airplane::crash() {
 }
 
 void Airplane::stopEngine() {
+    sceneNode->detachObject(engineParticles);
+    Ogre::ParticleSystem * explosion = sceneNode->getCreator()->createParticleSystem(sceneNode->getName() + "Explosion", "Explosion");
+    sceneNode->attachObject(explosion);
     engineOn = false;
     setThrust(0.0f);
     alSourceStop(alSource);
