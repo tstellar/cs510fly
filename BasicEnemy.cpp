@@ -13,6 +13,9 @@ BasicEnemy::BasicEnemy(Game * game, Ogre::SceneNode * sceneNode,
     this->sceneNode->attachObject(entity);
     this->sceneNode->setPosition(position);
     
+    Ogre::ParticleSystem * engineParticles = sceneNode->getCreator()->createParticleSystem(sceneNode->getName() + "Engine", "Engine");
+    sceneNode->attachObject(engineParticles);
+
     ALenum error;
     /* Setup Sound */
     alGenSources(1, &alSource);
