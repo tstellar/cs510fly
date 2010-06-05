@@ -13,6 +13,8 @@ World::World(Game * game) : Object(game, game->getSceneManager()->getRootSceneNo
 }
 
 World::~World() {
+    game->getSceneManager()->clearScene();
+    
     if (player != NULL)
         delete player;
     if (target != NULL)
