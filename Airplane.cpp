@@ -231,7 +231,8 @@ void Airplane::crash() {
     Ogre::ParticleSystem * smokeParticles = sceneNode->getCreator()->createParticleSystem(sceneNode->getName() + "Smoke", "Smoke");
     sceneNode->attachObject(smokeParticles);
     crashed = true;
-    game->lose();
+    if (this == game->getAirplane())
+        game->lose();
     alSourceStop(alSource);
 
 }
