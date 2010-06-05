@@ -70,9 +70,6 @@ Game::~Game() {
     if (airplane != NULL){
         delete airplane;
     }
-    if (currentLevel != NULL){
-        delete currentLevel;
-    }
     if (display != NULL) {
         delete display;
     }
@@ -170,8 +167,29 @@ bool Game::setup() {
     for (Ogre::StringVector::const_iterator iter = levelFiles.begin(); iter != levelFiles.end(); iter++)
         levels.push_back(new Level(this, getLevelPath() + *iter));
     
+    startLevel(0);
+    
+    return true;
+}
+
+void Game::startLevel(int index) {
+    if (world != NULL) {
+        delete world;
+        world = NULL;
+    }
+    
+    if (airplane != NULL) {
+        delete airplane;
+        airplane = NULL;
+    }
+    
+    if (display != NULL) {
+        delete display;
+        display = NULL;
+    }
+
     world = new World(this);
-    currentLevel = levels[0];
+    currentLevel = levels[index];
     currentLevel->populate(world);
 
     airplane = world->getPlayer();
@@ -180,9 +198,6 @@ bool Game::setup() {
     
     display = new Display(this);
     display->setup();
-    
-    
-    return true;
 }
 
 void Game::update(float dt) {

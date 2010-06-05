@@ -64,6 +64,7 @@ public:
     void setBreak();
     bool checkBreak();
     
+    void startLevel(int index);
     void lose();
 private:
     bool setup();
