@@ -48,7 +48,7 @@ std::string macBundlePath()
 }
 #endif
 
-Game::Game() : currentLevel(NULL), breaking(false) {
+Game::Game() : currentLevel(NULL), cameraNode(NULL), breaking(false) {
 #ifndef LINUX       
     mResourcePath = macBundlePath() + "/Contents/Resources/";
     levelPath = mResourcePath;
@@ -160,7 +160,8 @@ void Game::startLevel(int index) {
 
     airplane = world->getPlayer();
 
-    airplane->getSceneNode()->attachObject(camera);
+    cameraNode = airplane->getSceneNode()->createChildSceneNode("CameraNode");
+    cameraNode->attachObject(camera);
     
     // add skybox
     sceneManager->setSkyBox(true, currentLevel->getSkyBox(), 100);
@@ -191,7 +192,7 @@ bool Game::checkBreak() {
 }
 
 void Game::lose() {
-    camera->moveRelative(Ogre::Vector3(0.0f, 10.0f, 50.0f));
+    cameraNode->translate(Ogre::Vector3(0.0f, 10.0f, 50.0f));
     std::cerr << "FAIL\n";
 }
 

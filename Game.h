@@ -31,6 +31,7 @@ private:
     std::auto_ptr<Ogre::Root> root;
     Ogre::SceneManager * sceneManager;
     Ogre::RenderWindow * renderWindow;
+    Ogre::SceneNode * cameraNode;
     Ogre::Camera * camera;
     Ogre::String mResourcePath;
     Ogre::String levelPath;
