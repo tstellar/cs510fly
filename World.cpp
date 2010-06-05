@@ -57,7 +57,6 @@ Enemy * World::addEnemy(const AirplaneState& state, const Ogre::String& name) {
 }
 
 void World::update(float dt) {
-    fprintf(stderr, "updating world\n");
     std::vector<Enemy*>::iterator it;
     for (it = enemies.begin(); it != enemies.end(); ++it)
         (*it)->update(player, dt);
@@ -69,5 +68,4 @@ void World::update(float dt) {
             player->stopEngine();
         }
     }
-    fprintf(stderr, "done\n");
 }

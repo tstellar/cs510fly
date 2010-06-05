@@ -227,14 +227,19 @@ void Airplane::checkGroundCollision() {
 }
 
 void Airplane::crash() {
+    
+    Ogre::ParticleSystem * smokeParticles = sceneNode->getCreator()->createParticleSystem(sceneNode->getName() + "Smoke", "Smoke");
+    sceneNode->attachObject(smokeParticles);
     crashed = true;
     game->lose();
     alSourceStop(alSource);
+
 }
 
 void Airplane::stopEngine() {
     engineOn = false;
     setThrust(0.0f);
+    alSourceStop(alSource);
 }
 
 Ogre::Radian Airplane::getPitch() const { return state.orientation.getPitch(false); }
