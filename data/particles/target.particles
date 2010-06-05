@@ -1,0 +1,37 @@
+particle_system Target
+{
+	quota	30000
+	material	Flare
+	particle_width	4
+	particle_height	5
+	cull_each	false
+	billboard_type	oriented_self
+	billboard_origin	center
+	billboard_rotation_type	texcoord
+	common_up_vector	0 1 0
+	point_rendering	false
+	accurate_facing	false
+
+	emitter Point
+	{
+		angle	30
+		colour	1 1 0 1
+		colour_range_start	1 1 0 1
+		colour_range_end	0.3 1 0.3 1
+		direction	0 1 0
+		emission_rate	5000
+		position	0 0 0
+		velocity_min	65
+		velocity_max	100
+		time_to_live_min 1.0
+		time_to_live_max 2.5
+	}
+
+	affector ColourFader
+	{
+		red	-0.1
+		green	-0.1
+		blue	-0.1
+		alpha	0
+	}
+}
