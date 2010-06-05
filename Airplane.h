@@ -59,6 +59,7 @@ private:
     static float dragCoefficient(float aoa);
     
     void checkGroundCollision();
+    void land();
     void crash();
 
     void updateSound();

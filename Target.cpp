@@ -2,6 +2,8 @@
 
 #include "Airplane.h"
 
+static const float RANGE = 50.0f;
+
 Target::Target(Ogre::SceneNode * sceneNode) : sceneNode(sceneNode){
     
     Ogre::SceneManager * sceneManager = sceneNode->getCreator();
@@ -17,4 +19,8 @@ Target::~Target() { }
 
 Ogre::Vector3 Target::displacement(const Airplane * airplane) const {
     return sceneNode->getPosition() - airplane->getPosition();
+}
+
+bool Target::inRange(const Airplane * airplane) const {
+    return airplane->getPosition().squaredDistance(sceneNode->getPosition()) < RANGE * RANGE;
 }

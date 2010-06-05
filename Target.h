@@ -8,4 +8,5 @@ public:
     ~Target();
     
     Ogre::Vector3 displacement(const Airplane *) const;
+    bool inRange(const Airplane *) const;
 };

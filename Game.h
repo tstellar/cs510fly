@@ -37,6 +37,7 @@ private:
     Ogre::String levelPath;
     Ogre::String audioPath;
     std::vector<std::tr1::shared_ptr<const Level> > levels;
+    int currentLevelIndex;
     const Level *currentLevel;
     std::auto_ptr<World> world;
     std::auto_ptr<Display> display;
@@ -67,6 +68,7 @@ public:
     
     void startLevel(int index);
     void lose();
+    void win();
 private:
     bool setup();
     bool loadWavFile(ALuint *buffer, std::string file);
