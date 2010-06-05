@@ -222,7 +222,7 @@ bool Game::checkBreak() {
 }
 
 void Game::lose() {
-    // TODO
+    camera->moveRelative(Ogre::Vector3(0.0f, 10.0f, 50.0f));
     std::cerr << "FAIL\n";
 }
 
