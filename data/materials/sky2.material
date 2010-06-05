@@ -1,4 +1,4 @@
-material Level1_Sky
+material sky2
 {
 	technique
 	{
