@@ -11,6 +11,9 @@ DOWN: Pitch Up
 LEFT: Roll Left
 RIGHT: Roll Right
 
+To changes levels press SHFIT plus the level number.
+There are 3 levels.
+
 Particle Effects:
 
 The particle effects are based on the example scripts distrubuted in the Ogre
