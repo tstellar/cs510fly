@@ -6,4 +6,6 @@ class Target{
 public: 
     Target(Ogre::SceneNode *);
     ~Target();
+    
+    Ogre::Vector3 displacement(const Airplane *) const;
 };

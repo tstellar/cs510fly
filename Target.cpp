@@ -1,5 +1,6 @@
 #include "Target.h"
 
+#include "Airplane.h"
 
 Target::Target(Ogre::SceneNode * sceneNode) : sceneNode(sceneNode){
     
@@ -13,3 +14,7 @@ Target::Target(Ogre::SceneNode * sceneNode) : sceneNode(sceneNode){
 }
 
 Target::~Target() { }
+
+Ogre::Vector3 Target::displacement(const Airplane * airplane) const {
+    return sceneNode->getPosition() - airplane->getPosition();
+}

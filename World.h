@@ -27,6 +27,9 @@ public:
     Airplane * getPlayer() { return player; }
     const Airplane * getPlayer() const { return player; }
     
+    Target * getTarget() { return target; }
+    const Target * getTarget() const { return target; }
+    
     static const Ogre::String GROUND_NODE_NAME;
     
 private:
