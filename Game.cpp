@@ -177,7 +177,6 @@ bool Game::setup() {
     airplane = world->getPlayer();
 
     airplane->getSceneNode()->attachObject(camera);
-    airplane->setThrust(1000.0);
     
     display = new Display(this);
     display->setup();
