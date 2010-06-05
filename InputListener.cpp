@@ -10,7 +10,9 @@ InputListener::InputListener(Game* game, Ogre::RenderWindow * renderWindow) :
     game(game), renderWindow(renderWindow), 
     forwardKeyDown(false), backKeyDown(false), upKeyDown(false), downKeyDown(false),
     leftKeyDown(false), rightKeyDown(false), yawLeftKeyDown(false), yawRightKeyDown(false),
-    shutdownKeyPressed(false) {
+    shiftKeyDown(false),
+    shutdownKeyPressed(false),
+    levelKeyPressed(0) {
         size_t windowHandle;
         renderWindow->getCustomAttribute("WINDOW", &windowHandle);
 
@@ -38,7 +40,12 @@ bool InputListener::frameStarted(const Ogre::FrameEvent& event) {
 
     mouse->capture();
     keyboard->capture();
-
+    
+    if (levelKeyPressed != 0) {
+        game->startLevel(levelKeyPressed - 1);
+        levelKeyPressed = 0;
+    }
+    
     Airplane * const airplane = game->getAirplane();
 
     if (forwardKeyDown)
@@ -107,6 +114,18 @@ bool InputListener::keyPressed(const OIS::KeyEvent& event) {
         case OIS::KC_B:
             game->setBreak();
         break;
+        case OIS::KC_LSHIFT:
+        case OIS::KC_RSHIFT:
+            shiftKeyDown = true;
+        break;
+        case OIS::KC_1:
+        case OIS::KC_2:
+        case OIS::KC_3:
+            if (shiftKeyDown)
+                levelKeyPressed = event.key - (OIS::KC_1 - 1);
+        break;
+        default:
+            return false;
     }
 
     return true;
@@ -138,6 +157,12 @@ bool InputListener::keyReleased(const OIS::KeyEvent& event) {
         case OIS::KC_DOWN:
             downKeyDown = false;
         break;
+        case OIS::KC_LSHIFT:
+        case OIS::KC_RSHIFT:
+            shiftKeyDown = false;
+        break;
+        default:
+            return false;
     }
 
     return true;
