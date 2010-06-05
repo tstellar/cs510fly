@@ -1,7 +1,7 @@
 particle_system Explosion
 {
 	quota	2000
-	material	PE/explosion
+	material	Explosion
 	particle_width	10
 	particle_height	10
 	cull_each	false
