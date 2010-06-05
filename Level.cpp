@@ -10,7 +10,7 @@ Level::Level(Game * game, const Ogre::String& filename) : game(game){
     ConfigReader config(filename);
     
     name = config.get("Name", filename);
-    
+    skybox = config.get("Sky", filename);    
     /* Load the Target's starting point. */
     Ogre::Vector2 targetXZ = config.parse("Target", &Ogre::StringConverter::parseVector2, Ogre::Vector2::ZERO);
     targetStart = Ogre::Vector3(targetXZ.x,0,targetXZ.y);

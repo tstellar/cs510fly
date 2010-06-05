@@ -1,4 +1,4 @@
-material Sky
+material Level1_Sky
 {
 	technique
 	{
@@ -6,7 +6,7 @@ material Sky
 		{
 			texture_unit
 			{
-				cubic_texture cloudy_noon.jpg separateUV
+				cubic_texture morning.jpg separateUV
 			}
 		}
 	}
